@@ -1,6 +1,8 @@
 #include <PubSubClient.h>
 #include <WiFi.h>
+#include "pitches.h"
 
+#define BUZZER_PIN 32
 
 const char *ssid = "MIWIFI_ESER";
 const char *password = "SqM4FthK";
@@ -11,11 +13,24 @@ const char *mqtt_username = "ubicua"; // username for authentication
 const char *mqtt_password = "ubicua";// password for authentication
 const int mqtt_port = 1883;
 
-const int Trigger = 16;   //Pin digital 2 para el Trigger del sensor
-const int Echo = 17;
+const int Trigger = 14;   //Pin digital 2 para el Trigger del sensor
+const int Echo = 12;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
+
+int correctMelody[] = {
+  NOTE_C4, NOTE_G3, NOTE_G3, NOTE_A3, NOTE_G3, 0, NOTE_B3, NOTE_C4
+};
+
+int wrongMelody[] = {
+  NOTE_A3, NOTE_E3,NOTE_C3
+};
+
+
+int noteDurations[] = {
+  4, 8, 8, 4, 4, 4, 4, 4
+};
 
 void setup() {
   // put your setup code here, to run once:
@@ -46,21 +61,44 @@ void setup() {
      }
  }
  
- client.subscribe(topic);
+ client.subscribe("teclado/enviar");
 
 }
 
 void callback(char *topic, byte *payload, unsigned int length) {
- Serial.print("Message arrived in topic: ");
- Serial.println(topic);
- Serial.print("Message:");
- for (int i = 0; i < length; i++) {
-     Serial.print((char) payload[i]);
- }
- Serial.println();
- Serial.println("-----------------------");
-}
 
+  String autentificacion;
+  Serial.print("Message arrived in topic: ");
+  Serial.println(topic);
+  Serial.print("Message:");
+  for (int i = 0; i < length; i++) {
+      Serial.print((char) payload[i]);
+  }
+  Serial.println();
+  Serial.println("-----------------------");
+
+  for (int j = 0; j < length; j++) {
+      
+      autentificacion += (char) payload[j];
+  }
+
+  if(String (topic) == "teclado/enviar")
+  {
+
+    if(autentificacion == "true"){
+
+          succesfulLogin();
+
+    }else{
+
+          failedLogin();
+
+    }
+
+  }
+
+
+}
 
 void loop() {
   client.loop();
@@ -80,7 +118,33 @@ void loop() {
       client.publish(topic,"1");
 
   }
+
   delay(200);
+
+
+}
+
+void succesfulLogin(){
+
+    for (int thisNote = 0; thisNote < 8; thisNote++) {
+        int noteDuration = 1000 / noteDurations[thisNote];
+        tone(BUZZER_PIN, correctMelody[thisNote], noteDuration);
+        int pauseBetweenNotes = noteDuration * 1.30;
+        delay(pauseBetweenNotes);
+        noTone(BUZZER_PIN);
+  }
+
+}
+
+void failedLogin(){
+
+    for (int thisNote = 0; thisNote < 3; thisNote++) {
+      int noteDuration = 200;
+      tone(BUZZER_PIN, wrongMelody[thisNote], noteDuration);
+      int pauseBetweenNotes = noteDuration * 1.30;
+      delay(noteDuration+50);
+      noTone(BUZZER_PIN);
+  }
 
 
 }
