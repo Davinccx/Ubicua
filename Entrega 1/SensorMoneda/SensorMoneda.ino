@@ -3,6 +3,9 @@
 #include "pitches.h"
 
 #define BUZZER_PIN 32
+#define PIN_1_TL 25
+
+bool tl_1;
 
 const char *ssid = "MIWIFI_ESER";
 const char *password = "SqM4FthK";
@@ -12,9 +15,6 @@ const char *topic = "monedas/enviar"; // define topic
 const char *mqtt_username = "ubicua"; // username for authentication
 const char *mqtt_password = "ubicua";// password for authentication
 const int mqtt_port = 1883;
-
-const int Trigger = 14;   //Pin digital 2 para el Trigger del sensor
-const int Echo = 12;
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -35,9 +35,7 @@ int noteDurations[] = {
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);//iniciailzamos la comunicación
-  pinMode(Trigger, OUTPUT); //pin como salida
-  pinMode(Echo, INPUT);  //pin como entrada
-  digitalWrite(Trigger, LOW);
+  pinMode(PIN_1_TL,INPUT);
 
   WiFi.begin(ssid, password);
  while (WiFi.status() != WL_CONNECTED) {
@@ -102,23 +100,13 @@ void callback(char *topic, byte *payload, unsigned int length) {
 
 void loop() {
   client.loop();
-  long t; //timepo que demora en llegar el eco
-  long d; //distancia en centimetros
-
-  digitalWrite(Trigger, HIGH);
-  delayMicroseconds(10);          //Enviamos un pulso de 10us
-  digitalWrite(Trigger, LOW);
   
-  t = pulseIn(Echo, HIGH); //obtenemos el ancho del pulso
-  d = t/59;             //escalamos el tiempo a una distancia en cm
-  
-  if(d<10){
+  if(digitalRead(PIN_1_TL==LOW && tl_1)){
 
       Serial.println("Ha caido una moneda");
       client.publish(topic,"1");
-
   }
-
+  tl_1 = digitalRead(PIN_1_TL) == HIGH;
   delay(200);
 
 

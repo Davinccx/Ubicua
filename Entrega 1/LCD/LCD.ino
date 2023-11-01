@@ -6,7 +6,6 @@
 #define ROW_NUM 4
 #define COLUMN_NUM 4
 
-#define BUZZER_PIN 4
 
 const char *ssid = "MIWIFI_ESER";
 const char *wifi_password = "SqM4FthK";
@@ -26,6 +25,7 @@ char* password = "#123";
 
 // initialize the library with the numbers of the interface pins
 LiquidCrystal lcd(22, 23, 5, 18, 19, 21);
+
 
 char keys[ROW_NUM][COLUMN_NUM] = {
   { '1', '2', '3', 'A' },
