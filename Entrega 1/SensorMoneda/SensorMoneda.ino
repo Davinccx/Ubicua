@@ -2,8 +2,8 @@
 #include <WiFi.h>
 #include "pitches.h"
 
-#define BUZZER_PIN 32
-#define PIN_1_TL 25
+#define BUZZER_PIN 27
+#define PIN_1 32
 
 bool tl_1;
 
@@ -35,7 +35,7 @@ int noteDurations[] = {
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);//iniciailzamos la comunicación
-  pinMode(PIN_1_TL,INPUT);
+  pinMode(PIN_1,INPUT);
 
   WiFi.begin(ssid, password);
  while (WiFi.status() != WL_CONNECTED) {
@@ -100,14 +100,15 @@ void callback(char *topic, byte *payload, unsigned int length) {
 
 void loop() {
   client.loop();
-  
-  if(digitalRead(PIN_1_TL==LOW && tl_1)){
+  int valor = digitalRead(PIN_1);
+  if(valor ==1 && valor == HIGH){
 
       Serial.println("Ha caido una moneda");
       client.publish(topic,"1");
+      delay(1000);
   }
-  tl_1 = digitalRead(PIN_1_TL) == HIGH;
-  delay(200);
+  
+  
 
 
 }
