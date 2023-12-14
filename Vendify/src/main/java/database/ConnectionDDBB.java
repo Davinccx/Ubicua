@@ -111,7 +111,21 @@ public class ConnectionDDBB {
     {
     	return getStatement(con,"SELECT * FROM productos");  	
     }
+    
+    public static PreparedStatement getUsers(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM users");  	
+    }
       
-      
+    public static PreparedStatement getAdmin(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM admin");  	
+    }
+       
+    
+    public static PreparedStatement getMaquinas(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM maquina");  	
+    }
       
 }

@@ -1,8 +1,11 @@
 database\ConnectionDDBB.class
+servlets\getMaquina.class
 logic\Logic.class
 database\Producto.class
 servlets\getProducto.class
 database\User.class
+servlets\getAdmin.class
+servlets\getUser.class
 database\Maquina.class
 logic\ConnectionDDBB.class
 database\Admin.class
