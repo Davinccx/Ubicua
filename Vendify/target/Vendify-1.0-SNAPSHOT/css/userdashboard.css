@@ -1,0 +1,131 @@
+body {
+  
+    margin: 0;
+    padding: 0;
+    font-family: "Verdana", sans-serif;
+    background: linear-gradient(to bottom, #333, #444);
+}
+
+.navbar {
+    display: flex; /* Usa Flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #333; /* Color de fondo */
+    overflow: hidden; /* Asegura que todo esté dentro de la barra */
+    position: fixed; /* Fija la barra */
+    top: 0; /* Parte superior de la pantalla */
+    width: 100%; /* Extensión a lo largo de la pantalla */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar img {
+    height: 45px; /* Altura de la imagen */
+    margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.navbar a {
+    display: block; /* Uso de block en lugar de float */
+    color: #F4F3F3; /* Color del texto */
+    text-align: center; /* Texto centrado */
+    padding: 14px 16px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.navbar a i {
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+    /* Otros estilos que quieras aplicar, como color o tamaño */
+}
+
+
+.navbar a:hover {
+    background-color: #333; /* Fondo al pasar el mouse */
+    color: #82A8DC; /* Color del texto al pasar el mouse */
+}
+
+
+.dashboard {
+    display: flex;
+    flex-direction:row;
+    height: 100vh;
+}
+
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: 100vh; /* Ajusta según la altura deseada */
+    width: 200px; /* Ajusta según el ancho deseado */
+    margin-top:0;
+   
+    flex: 0 0 200px;
+}
+
+.menu-vertical ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.menu-vertical ul li {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.menu-vertical ul li a {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos dentro del enlace */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del enlace */
+    color: white;
+    padding: 15px; /* Ajusta según necesidades */
+    text-decoration: none;
+}
+
+.menu-vertical ul li a i {
+    margin-right: 10px; /* Espaciado entre el icono y el texto */
+    font-size: 20px; /* Tamaño de los iconos */
+}
+.menu-vertical ul li a:hover {
+    color: #82A8DC;
+}
+
+.user-photo {
+    text-align: center; /* Centrar la imagen en el div */
+    padding: 10px; /* Espaciado alrededor de la imagen */
+    /* Color de fondo, ajusta según tu diseño */
+}
+
+.user-photo img {
+    width: 150px; /* Ajusta el ancho de la imagen según necesites */
+    height: 150px; /* Ajusta la altura de la imagen según necesites */
+     /* Hace la imagen circular */
+    /* Otros estilos que quieras aplicar (sombras, bordes, etc.) */
+}
+
+.menu-vertical label{
+    
+   color: white;
+   display:flex;
+   align-items:center;
+   justify-content: center;
+   padding: 10px;
+    
+}
+
+.user-data-form {
+    padding: 20px;
+    
+    border-radius: 8px;
+    margin: 20px;
+    width: calc(100% - 240px); /* Ajusta el ancho según la anchura del menú vertical */
+}
+
+.user-data-form h2 {
+    color: whitesmoke;
+}
+
+.user-data p {
+    font-size: 16px;
+    color: whitesmoke;
+    line-height: 1.5;
+}

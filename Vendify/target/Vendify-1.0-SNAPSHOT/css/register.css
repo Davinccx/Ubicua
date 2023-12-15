@@ -1,0 +1,119 @@
+body {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  background: #333;
+  font-family: "Verdana";
+  font-size: 1.2em;
+  float:none;
+  min-height: 100vh;
+  
+  
+}
+* {box-sizing: border-box}
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px; 
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email]{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 10px;
+  
+  
+  
+}
+
+
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+label{
+    
+    color:#DADA74;
+    
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #F4F3F3;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #DADA74;
+  color: white;
+  padding: 16px 14px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius:10px;
+  font-size: 1.5em;
+}
+
+.registerbtn:hover {
+  opacity:1;
+  font-size: 120%;
+}
+
+/* Add a blue text color to links */
+a {
+  color: #b0e7e4;
+}
+
+
+
+h1{
+    
+    color:#DADA74;
+    text-align:center; 
+    
+}
+
+.navbar {
+    display: flex; /* Usa Flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #333; /* Color de fondo */
+    overflow: hidden; /* Asegura que todo esté dentro de la barra */
+    position: fixed; /* Fija la barra */
+    top: 0; /* Parte superior de la pantalla */
+    width: 100%; /* Extensión a lo largo de la pantalla */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+}
+
+.navbar img {
+    height: 45px; /* Altura de la imagen */
+    margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.navbar a {
+    display: block; /* Uso de block en lugar de float */
+    color: #F4F3F3; /* Color del texto */
+    text-align: center; /* Texto centrado */
+    padding: 14px 16px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.navbar a:hover {
+    background-color: #333; /* Fondo al pasar el mouse */
+    color: #DADA74; /* Color del texto al pasar el mouse */
+}

@@ -117,6 +117,7 @@ public class ConnectionDDBB {
     	return getStatement(con,"SELECT * FROM users");  	
     }
       
+
     public static PreparedStatement getAdmin(Connection con)
     {
     	return getStatement(con,"SELECT * FROM admin");  	

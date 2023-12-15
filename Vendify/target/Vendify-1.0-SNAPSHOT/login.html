@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vendify Login</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="icon" href="img/favicon.png">
+    </head>
+    <body>
+        
+            <div class="navbar">
+                <img src="img/favicon.png"  style="height:45px;">
+                <a href="#home">Home</a>
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+                <a href="#contact">Administrador</a>
+
+            </div>
+        <form action="userLogin" method="POST">
+            <div class="container">
+
+                <h1>Vendify Login</h1>
+                <hr>
+                <label for="email"><b>Email</b></label>
+                <input type="email" placeholder="Enter your email" name="email" id="email" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter your password" name="password" id="password" required>
+                <hr>
+                <button type="submit" class="loginbtn">Login</button>
+            </div>
+       </form>
+    </body>
+</html>

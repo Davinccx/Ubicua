@@ -12,6 +12,7 @@ public class User {
 
     public User() {
         this.id = 0;
+        this.saldo = 0;
     }
 
     

@@ -1,11 +1,13 @@
 database\ConnectionDDBB.class
 servlets\getMaquina.class
-logic\Logic.class
 database\Producto.class
-servlets\getProducto.class
 database\User.class
+database\Maquina.class
+servlets\userLogin.class
+servlets\registerUser.class
+database\Admin.class
+logic\Logic.class
+servlets\getProducto.class
 servlets\getAdmin.class
 servlets\getUser.class
-database\Maquina.class
 logic\ConnectionDDBB.class
-database\Admin.class

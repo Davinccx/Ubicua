@@ -40,4 +40,24 @@
         <url-pattern>/getAdmin</url-pattern>
     </servlet-mapping>
    
+   <servlet>
+        <servlet-name>registerUser</servlet-name>
+        <servlet-class>servlets.registerUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>registerUser</servlet-name>
+        <url-pattern>/registerUser</url-pattern>
+    </servlet-mapping>
+   
+   <servlet>
+        <servlet-name>userLogin</servlet-name>
+        <servlet-class>servlets.userLogin</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>userLogin</servlet-name>
+        <url-pattern>/userLogin</url-pattern>
+    </servlet-mapping>
+   
 </web-app>
