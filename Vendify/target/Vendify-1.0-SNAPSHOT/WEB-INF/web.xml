@@ -80,4 +80,16 @@
         <servlet-name>getVentasFromUser</servlet-name>
         <url-pattern>/getVentasFromUser</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>adminLogin</servlet-name>
+        <servlet-class>servlets.adminLogin</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>adminLogin</servlet-name>
+        <url-pattern>/adminLogin</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

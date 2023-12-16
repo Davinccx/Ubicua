@@ -5,7 +5,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="img/favicon.png">
         <link rel="stylesheet" type="text/css" href="css/userdashboard.css">
-        <link rel="icon" href="img/favicon.png">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <script>
@@ -29,12 +28,12 @@
                 <a href="#home"><i class="fa fa-home"></i> Home</a>
                 <a href="login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
                 <a href="register.html"><i class="fa fa-user-plus"></i> Register</a>
-                <a href="#contact"><i class="fa fa-address-book"></i> Administrador</a>
+                <a href="adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
             </div>
             
             <div class="menu-vertical">
                 <div class="user-photo">
-                <img src="img/user.png" alt="fotito">
+                    <img src="img/user.png" alt="fotito">
                 </div>
                <ul>
                 <label>Bienvenido,<span id="username"></span>!</label>
@@ -47,17 +46,58 @@
             </div>
             
             
-            <div class="user-data-form">
-                <h2>Datos del Usuario</h2>
-                <div class="user-data">
-                    <p><strong>Nombre:</strong> <span id="user-name"><!-- Nombre de usuario --></span></p>
-                    <p><strong>Email:</strong> <span id="user-email"><!-- Email del usuario --></span></p>
-                    <!-- Más datos del usuario aquí -->
-                </div>
+
+            <table id="products-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1Z</td>
+                        <td>SHAMPOO</td>
+                        <td>Shampoo marca Sd 200 ml</td>
+                        <td>
+                            <button class="btn green">Modificar</button>
+                            <button class="btn red">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1S</td>
+                        <td>SHAMPOO</td>
+                        <td>Shampoo marca Sd 200 ml</td>
+                        <td>
+                            <button class="btn green">Modificar</button>
+                            <button class="btn red">Eliminar</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>G-100</td>
+                        <td>galletas de animalito</td>
+                        <td>galletas de animalito de 600 gramos</td>
+                        <td>
+                            <button class="btn green">Modificar</button>
+                            <button class="btn red">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div id="actions">
+                <button class="btn blue">Nuevo</button>
             </div>
-            
+
+
         </div>
-        
+
         
     </body>
 </html>

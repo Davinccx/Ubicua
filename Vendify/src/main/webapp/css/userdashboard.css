@@ -112,20 +112,15 @@ body {
     
 }
 
-.user-data-form {
-    padding: 20px;
-    
-    border-radius: 8px;
-    margin: 20px;
-    width: calc(100% - 240px); /* Ajusta el ancho según la anchura del menú vertical */
+#products-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.user-data-form h2 {
-    color: whitesmoke;
-}
-
-.user-data p {
-    font-size: 16px;
-    color: whitesmoke;
-    line-height: 1.5;
+#products-table th {
+    background-color: #333; /* Color de fondo oscuro para los encabezados */
+    color: white; /* Texto en color blanco para los encabezados */
+    padding: 8px;
+    text-align: center; /* Centra el texto de los encabezados */
+    font-size: 16px; /* Tamaño de fuente para los encabezados */
 }

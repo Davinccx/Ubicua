@@ -8,9 +8,11 @@ servlets\registerUser.class
 database\Admin.class
 servlets\getVentaInfo.class
 servlets\getVentasFromUser.class
+servlets\adminLogin.class
 logic\Logic.class
 servlets\getVentas.class
 database\Venta.class
+servlets\editUserInfo.class
 servlets\getProducto.class
 servlets\getAdmin.class
 servlets\getUser.class
