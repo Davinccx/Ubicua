@@ -41,7 +41,7 @@ public class userLogin extends HttpServlet {
                 User x = usuarios.get(i);
                 String email = x.getEmail();
                 String password = x.getPassword();
-                String username = x.getUsername();
+                
                 
 
                 if (email != null && email.equals(posibleEmail) && posiblePassword != null && password.equals(posiblePassword)) {

@@ -6,7 +6,11 @@ database\Maquina.class
 servlets\userLogin.class
 servlets\registerUser.class
 database\Admin.class
+servlets\getVentaInfo.class
+servlets\getVentasFromUser.class
 logic\Logic.class
+servlets\getVentas.class
+database\Venta.class
 servlets\getProducto.class
 servlets\getAdmin.class
 servlets\getUser.class

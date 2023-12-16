@@ -1,11 +1,14 @@
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getMaquina.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getProducto.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\userLogin.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Venta.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\logic\Logic.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getAdmin.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\registerUser.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getVentasFromUser.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Admin.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getUser.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getVentas.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\User.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\logic\ConnectionDDBB.java
 C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Maquina.java

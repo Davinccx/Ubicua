@@ -21,11 +21,11 @@ USE `vendify`;
 
 -- Volcando estructura para tabla vendify.admin
 CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Volcando datos para la tabla vendify.admin: ~1 rows (aproximadamente)
 INSERT IGNORE INTO `admin` (`id`, `user`, `password`) VALUES
@@ -33,47 +33,70 @@ INSERT IGNORE INTO `admin` (`id`, `user`, `password`) VALUES
 
 -- Volcando estructura para tabla vendify.maquina
 CREATE TABLE IF NOT EXISTS `maquina` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `location` varchar(50) DEFAULT NULL,
   `saldo` double DEFAULT NULL,
-  `id_producto` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_maquina_productos` (`id_producto`),
-  CONSTRAINT `FK_maquina_productos` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla vendify.maquina: ~0 rows (aproximadamente)
-INSERT IGNORE INTO `maquina` (`id`, `location`, `saldo`, `id_producto`) VALUES
-	(1, 'Spain', 0, 1);
+-- Volcando datos para la tabla vendify.maquina: ~3 rows (aproximadamente)
+INSERT IGNORE INTO `maquina` (`id`, `location`, `saldo`) VALUES
+	(1, 'Alcala de Henares', 0),
+	(2, 'Barcelona', 3),
+	(3, 'Meco', 1);
 
 -- Volcando estructura para tabla vendify.productos
 CREATE TABLE IF NOT EXISTS `productos` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) DEFAULT NULL,
   `precio` double DEFAULT NULL,
   `descripcion` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `id_maquina` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK` (`id_maquina`),
+  CONSTRAINT `FK` FOREIGN KEY (`id_maquina`) REFERENCES `maquina` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- Volcando datos para la tabla vendify.productos: ~1 rows (aproximadamente)
-INSERT IGNORE INTO `productos` (`id`, `nombre`, `precio`, `descripcion`) VALUES
-	(1, 'cocacola', 1.5, 'Fresquita');
+-- Volcando datos para la tabla vendify.productos: ~4 rows (aproximadamente)
+INSERT IGNORE INTO `productos` (`id`, `nombre`, `precio`, `descripcion`, `id_maquina`) VALUES
+	(1, 'cocacola', 1.5, 'Fresquita', 1),
+	(2, 'redbull', 1.8, 'Te da alas', 1),
+	(3, 'Agua', 0.9, 'Bezoya', 3),
+	(4, 'Monster', 1.8, 'Energy', 2);
 
 -- Volcando estructura para tabla vendify.users
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `telefono` varchar(50) DEFAULT NULL,
-  `saldo` double DEFAULT NULL,
+  `saldo` double NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- Volcando datos para la tabla vendify.users: ~2 rows (aproximadamente)
 INSERT IGNORE INTO `users` (`id`, `email`, `password`, `username`, `telefono`, `saldo`) VALUES
-	(1, 'davidfernandezsanz@gmail.com', '1234', 'Davinccx', '6666666', 10000),
-	(2, 'prueba@prueba', '1234', '1', '545454', 322);
+	(1, 'davidfernandezsanz@gmail.com', '1234', 'Davinccx', '638673981', 0),
+	(2, 'prueba@prueba.com', '1234', 'root', '691581823', 0);
+
+-- Volcando estructura para tabla vendify.ventas
+CREATE TABLE IF NOT EXISTS `ventas` (
+  `id_venta` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
+  `id_producto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_venta`),
+  KEY `FK_user` (`id_user`),
+  KEY `FK_producto` (`id_producto`),
+  CONSTRAINT `FK_producto` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_user` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- Volcando datos para la tabla vendify.ventas: ~3 rows (aproximadamente)
+INSERT IGNORE INTO `ventas` (`id_venta`, `id_user`, `id_producto`) VALUES
+	(1, 1, 3),
+	(2, 2, 4),
+	(3, 1, 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

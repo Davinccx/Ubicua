@@ -6,6 +6,7 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private double precio;
+    private int id_maquina;
 
     public Producto() {
         this.id = 0;
@@ -41,6 +42,14 @@ public class Producto {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public int getId_maquina() {
+        return id_maquina;
+    }
+
+    public void setId_maquina(int id_maquina) {
+        this.id_maquina = id_maquina;
     }
 
 }

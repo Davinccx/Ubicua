@@ -128,5 +128,9 @@ public class ConnectionDDBB {
     {
     	return getStatement(con,"SELECT * FROM maquina");  	
     }
-      
+    
+    public static PreparedStatement getVentas(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM ventas");  	
+    }
 }

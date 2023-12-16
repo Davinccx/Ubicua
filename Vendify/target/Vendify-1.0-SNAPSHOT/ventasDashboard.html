@@ -1,0 +1,114 @@
+
+<html>
+    <head>
+        <title>Vendify Dashboard</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="img/favicon.png">
+        <link rel="stylesheet" type="text/css" href="css/ventasDashboard.css">
+        <link rel="icon" href="img/favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <script>
+            function loadUsername() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("username").innerText = this.responseText;
+                    }
+                };
+                xhr.open("GET", "userLogin", true);
+                xhr.send();
+            }
+    </script>
+    </head>
+    <body onload="loadUsername()">
+       
+        <div class="dashboard">
+            <div class="navbar">
+                <img src="img/favicon.png" style="height:45px;">
+                <a href="#home"><i class="fa fa-home"></i> Home</a>
+                <a href="login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
+                <a href="register.html"><i class="fa fa-user-plus"></i> Register</a>
+                <a href="#contact"><i class="fa fa-address-book"></i> Administrador</a>
+            </div>
+            
+            <div class="menu-vertical">
+                <div class="user-photo">
+                <img src="img/user.png" alt="fotito">
+                </div>
+               <ul>
+                <label>Bienvenido,<span id="username"></span>!</label>
+                <li><a href="ventasDashboard.html"><i class="fa fa-shopping-cart"></i> Compras</a></li>
+                <li><a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a></li>
+                <li><a href="#"><i class="fa fa-search"></i> Buscar</a></li>
+                <li><a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
+             
+               </ul>
+            </div>
+            
+            
+
+            <div class="info-display">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Identificador Compra</th>
+                            <th>Producto Comprado</th>
+                            <th>Descripcion</th>
+                            <th>Precio</th>
+                            <th>Localizacion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ventasTableBody">
+                        <!-- Las filas se llenarán con JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+             <script>
+            // Tu función loadUsername existente aquí
+
+            // Función para actualizar la tabla con los datos de las ventas
+            function updateTable(ventas) {
+                const tableBody = document.getElementById('ventasTableBody');
+                tableBody.innerHTML = ''; // Limpiar la tabla
+
+                ventas.forEach(venta => {
+                    let row = tableBody.insertRow();
+                    let cellVenta = row.insertCell(0);
+                    let cellUsuario = row.insertCell(1);
+                    let cellProducto = row.insertCell(2);
+                   
+                    cellVenta.innerHTML = venta.id_venta; // Asumiendo que id_venta es parte de tus datos
+                    cellUsuario.innerHTML = venta.id_user; // Ajusta según tus propiedades de JSON
+                    cellProducto.innerHTML = venta.id_producto; // Ejemplo, cambia según tus datos
+                });
+            }
+
+            // Función para hacer la solicitud AJAX a tu servlet
+            function fetchVentas() {
+                fetch('http://localhost:8080/Vendify/getVentasFromUser') // Reemplaza con la URL de tu servlet
+                    .then(response => response.json())
+                    .then(data => {
+                        updateTable(data);
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+
+            // Llamando a fetchVentas cuando la página se carga
+            window.onload = function() {
+               loadUsername();
+                    // Asegúrate de que el elemento con el id 'ventasTableBody' esté cargado en el DOM
+                    if (document.getElementById('ventasTableBody')) {
+                        fetchVentas();
+                    } else {
+                        console.error('El elemento ventasTableBody no existe en el DOM');
+                    }
+            }
+        </script>
+            
+          
+
+        </div>    
+    </body>
+</html>

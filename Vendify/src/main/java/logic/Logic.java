@@ -7,6 +7,7 @@ import database.Admin;
 import database.Maquina;
 import database.User;
 import database.ConnectionDDBB;
+import database.Venta;
 
 
 import java.sql.Connection;
@@ -34,6 +35,7 @@ public class Logic {
                 producto.setNombre(rs.getString("nombre"));
                 producto.setDescripcion(rs.getString("descripcion"));
                 producto.setPrecio(rs.getDouble("precio"));
+                producto.setId_maquina(rs.getInt("id_maquina"));
                 productos.add(producto);
             }
         } catch (SQLException e) {
@@ -141,7 +143,6 @@ public class Logic {
                 machine.setId(rs.getInt("id"));
                 machine.setLocation(rs.getString("location"));
                 machine.setSaldo(rs.getDouble("saldo"));
-                machine.setId_producto(rs.getInt("id_producto"));
                 maquinas.add(machine);
             }
         } catch (SQLException e) {
@@ -159,6 +160,80 @@ public class Logic {
         }
         return maquinas;
 
+    }
+    
+    public static ArrayList<Venta> getVentasFromDB() {
+
+        ArrayList<Venta> ventas = new ArrayList<Venta>();
+        ConnectionDDBB conector = new ConnectionDDBB();
+        Connection con = null;
+
+        try {
+            con = conector.obtainConnection(true);
+
+            PreparedStatement ps = ConnectionDDBB.getVentas(con);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Venta v = new Venta();
+                v.setId_venta(rs.getInt("id_venta"));
+                v.setId_producto(rs.getInt("id_producto"));
+                v.setId_user(rs.getInt("id_user"));
+               
+                ventas.add(v);
+            }
+        } catch (SQLException e) {
+
+            ventas = new ArrayList<Venta>();
+
+        } catch (NullPointerException e) {
+
+           ventas = new ArrayList<Venta>();
+        } catch (Exception e) {
+
+            ventas = new ArrayList<Venta>();
+        } finally {
+            conector.closeConnection(con);
+        }
+        return ventas;
+
+    }
+    
+    public static User getUserFromUsername(String username) {
+    
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+            User usuario = new User();
+            try {
+                con = conector.obtainConnection(true);
+                String sql = "SELECT * FROM users WHERE username='"+username+"'";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    
+                    usuario.setId(rs.getInt("id"));
+                    usuario.setEmail(rs.getString("email"));
+                    usuario.setPassword(rs.getString("password"));
+                    usuario.setUsername(rs.getString("username"));
+                    usuario.setTelefono(rs.getString("telefono"));
+                    usuario.setSaldo(rs.getDouble("saldo"));
+                    
+            }
+        } catch (SQLException e) {
+
+            usuario = new User();
+
+        } catch (NullPointerException e) {
+
+           usuario = new User();
+        } catch (Exception e) {
+
+            usuario = new User();
+        } finally {
+            conector.closeConnection(con);
+        }
+        return usuario;
+
+    
     }
 
 }

@@ -5,7 +5,6 @@ public class Maquina {
     private int id;
     private String location;
     private double saldo;
-    private int id_producto;
 
     public Maquina() {
         this.id = 0;
@@ -33,14 +32,6 @@ public class Maquina {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
-    }
-
-    public int getId_producto() {
-        return id_producto;
-    }
-
-    public void setId_producto(int id_producto) {
-        this.id_producto = id_producto;
     }
 
 }

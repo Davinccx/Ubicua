@@ -59,5 +59,25 @@
         <servlet-name>userLogin</servlet-name>
         <url-pattern>/userLogin</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>getVentas</servlet-name>
+        <servlet-class>servlets.getVentas</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getVentas</servlet-name>
+        <url-pattern>/getVentas</url-pattern>
+    </servlet-mapping>
    
+   
+   <servlet>
+        <servlet-name>getVentasFromUser</servlet-name>
+        <servlet-class>servlets.getVentasFromUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getVentasFromUser</servlet-name>
+        <url-pattern>/getVentasFromUser</url-pattern>
+    </servlet-mapping>
 </web-app>
