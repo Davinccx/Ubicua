@@ -48,64 +48,46 @@
             
             
 
-            <div class="info-display">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Identificador Compra</th>
-                            <th>Producto Comprado</th>
-                            <th>Descripcion</th>
-                            <th>Precio</th>
-                            <th>Localizacion</th>
-                        </tr>
-                    </thead>
-                    <tbody id="ventasTableBody">
-                        <!-- Las filas se llenarán con JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-            
-             <script>
-            // Tu función loadUsername existente aquí
+           <div class="centered-container">
+                <div id="tabla-container"></div>
+           </div>
 
-            // Función para actualizar la tabla con los datos de las ventas
-            function updateTable(ventas) {
-                const tableBody = document.getElementById('ventasTableBody');
-                tableBody.innerHTML = ''; // Limpiar la tabla
-
-                ventas.forEach(venta => {
-                    let row = tableBody.insertRow();
-                    let cellVenta = row.insertCell(0);
-                    let cellUsuario = row.insertCell(1);
-                    let cellProducto = row.insertCell(2);
-                   
-                    cellVenta.innerHTML = venta.id_venta; // Asumiendo que id_venta es parte de tus datos
-                    cellUsuario.innerHTML = venta.id_user; // Ajusta según tus propiedades de JSON
-                    cellProducto.innerHTML = venta.id_producto; // Ejemplo, cambia según tus datos
+    <script>
+        function fetchAndDisplayTable() {
+        fetch('http://localhost:8080/Vendify/getVentasFromUser') // Asegúrate de que la URL sea correcta
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
+            .then(data => {
+                let tabla = '<table border="1">';
+                tabla += '<tr><th>ID Compra</th><th>Nombre Producto</th><th>Descripción</th><th>Precio</th><th>Localización</th></tr>';
+                data.forEach(objeto => {
+                    tabla += `<tr>`;
+                    tabla += `<td>${objeto.id_compra}</td>`;
+                    tabla += `<td>${objeto.nombre_producto}</td>`;
+                    tabla += `<td>${objeto.descripcion}</td>`;
+                    tabla += `<td>${objeto.precio}</td>`;
+                    tabla += `<td>${objeto.localizacion}</td>`;
+                    tabla += `</tr>`;
                 });
-            }
+                tabla += '</table>';
+                document.getElementById('tabla-container').innerHTML = tabla;
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                document.getElementById('tabla-container').innerHTML = 'Error al cargar los datos.';
+            });
+    }
 
-            // Función para hacer la solicitud AJAX a tu servlet
-            function fetchVentas() {
-                fetch('http://localhost:8080/Vendify/getVentasFromUser') // Reemplaza con la URL de tu servlet
-                    .then(response => response.json())
-                    .then(data => {
-                        updateTable(data);
-                    })
-                    .catch(error => console.error('Error:', error));
-            }
-
-            // Llamando a fetchVentas cuando la página se carga
-            window.onload = function() {
-               loadUsername();
-                    // Asegúrate de que el elemento con el id 'ventasTableBody' esté cargado en el DOM
-                    if (document.getElementById('ventasTableBody')) {
-                        fetchVentas();
-                    } else {
-                        console.error('El elemento ventasTableBody no existe en el DOM');
-                    }
-            }
-        </script>
+    // Ejecuta la función cuando la ventana se carga
+    window.onload = function() {
+        fetchAndDisplayTable();
+        loadUsername();
+    };
+    </script>
             
           
 

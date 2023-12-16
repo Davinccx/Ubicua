@@ -57,9 +57,9 @@ body {
     flex-direction: column;
     align-items: center; /* Centra horizontalmente */
     justify-content: center; /* Centra verticalmente */
-    height: 100vh; /* Ajusta según la altura deseada */
+    height: calc(100vh - 60px); /* Ajusta el alto */
     width: 200px; /* Ajusta según el ancho deseado */
-    margin-top:0;
+    margin-top:60px;
    
     flex: 0 0 200px;
 }
@@ -114,30 +114,36 @@ body {
     
 }
 
-.info-display {
+/* Agregado para centrar la tabla en la pantalla */
+.centered-container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between; /* Distribuye el espacio uniformemente */
-    padding: 12px 24px; /* Ajusta el relleno según sea necesario */
-    border-radius: 20px; /* Radio de la esquina */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    font-family: 'Verdana', sans-serif;
-    width: 80%; /* Ajusta esto según el ancho deseado */
-    max-width: 1000px; /* Ajusta el ancho máximo según sea necesario */
+    height: calc(100vh - 60px); /* Asume que tu navbar tiene 60px de altura */
+    width: 100%;
 }
 
-.info-display input[readonly] {
-    flex: 1; /* Los elementos flexibles ocupan todo el espacio disponible */
-    border: 1px solid #ddd; /* Borde sutil */
-    margin: 0 8px; /* Espacio entre los campos de entrada */
-    padding: 8px 12px; /* Relleno interno */
-    font-size: 1em; /* Tamaño de fuente estándar */
-    color: #555;
-    background-color: #f7f7f7; /* Fondo ligeramente gris para los campos de entrada */
-    border-radius: 4px; /* Bordes redondeados para los campos de entrada */
-    text-align: center; /* Centra el texto */
+/* Estilos para la tabla */
+table {
+    border-collapse: collapse;
+    width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
+    max-width: 1000px; 
+    margin: 0 auto;/* Ajusta esto para el ancho máximo si es necesario */
 }
 
-.info-display input[readonly]::placeholder {
-    color: #aaa;
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
 }
+
+th {
+    background-color: #333;
+    color: white;
+}
+
+td {
+    background-color: #f2f2f2;
+}
+
+/* Puedes añadir más estilos a la tabla para hacerla más atractiva */

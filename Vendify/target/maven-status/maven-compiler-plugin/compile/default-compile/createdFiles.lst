@@ -15,3 +15,4 @@ servlets\getProducto.class
 servlets\getAdmin.class
 servlets\getUser.class
 logic\ConnectionDDBB.class
+servlets\Compra.class
