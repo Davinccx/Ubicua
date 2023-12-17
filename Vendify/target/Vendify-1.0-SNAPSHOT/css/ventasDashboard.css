@@ -4,7 +4,6 @@ body {
     font-family: "Verdana", sans-serif;
     background: linear-gradient(to bottom, #333, #444);
     display: flex;
-    
     height: 100vh;
 }
 
@@ -48,7 +47,7 @@ body {
 
 .dashboard {
     display: flex;
-    flex-direction:row;
+    width:100%;
     height: 100vh;
 }
 
@@ -103,6 +102,13 @@ body {
      /* Hace la imagen circular */
     /* Otros estilos que quieras aplicar (sombras, bordes, etc.) */
 }
+.welcome-user {
+    color: white; /* Cambia el color del texto a blanco */
+    text-align: center; /* Centra el texto */
+    /* Asegúrate de que el <li> ocupe todo el ancho disponible para que el texto pueda centrarse correctamente */
+    width: 100%;
+    /* Puedes agregar más estilos aquí si es necesario, como padding, para asegurarte de que el diseño se vea como quieres */
+}
 
 .menu-vertical label{
     
@@ -117,18 +123,21 @@ body {
 /* Agregado para centrar la tabla en la pantalla */
 .centered-container {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    flex-grow: 1;
     height: calc(100vh - 60px); /* Asume que tu navbar tiene 60px de altura */
     width: 100%;
-}
+    padding-left: 250px;
+    
+   
+} 
 
-/* Estilos para la tabla */
 table {
     border-collapse: collapse;
     width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
     max-width: 1000px; 
-    margin: 0 auto;/* Ajusta esto para el ancho máximo si es necesario */
+    margin:auto;/* Ajusta esto para el ancho máximo si es necesario */
 }
 
 table, th, td {
@@ -138,7 +147,7 @@ table, th, td {
 }
 
 th {
-    background-color: #333;
+    background-color: #82A8DC;
     color: white;
 }
 
@@ -146,4 +155,9 @@ td {
     background-color: #f2f2f2;
 }
 
-/* Puedes añadir más estilos a la tabla para hacerla más atractiva */
+.list-compras {
+    color: white; /* Cambia el color del texto a blanco */
+    margin-top: 20px;
+    text-align: center;/* Ajusta la posición hacia arriba */
+    /* Otros estilos como fuente, tamaño, etc., si es necesario */
+}

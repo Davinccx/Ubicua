@@ -7,7 +7,7 @@ public class User {
     private String username;
     private String password;
     private String telefono;
-    private double saldo;
+    private int saldo;
     private String email;
 
     public User() {
@@ -48,11 +48,11 @@ public class User {
         this.telefono = telefono;
     }
 
-    public double getSaldo() {
+    public int getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
 

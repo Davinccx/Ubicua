@@ -33,7 +33,7 @@ public class userLogin extends HttpServlet {
             PrintWriter out = response.getWriter();
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
-            response.setContentType("text/html;charset=UTF-8");
+            
 
             boolean logged = false;
             String posibleEmail = request.getParameter("email");
@@ -67,7 +67,7 @@ public class userLogin extends HttpServlet {
 
             } else {
 
-                response.sendRedirect("register.html");
+                response.sendRedirect("login.html?error=true");
 
             }
 

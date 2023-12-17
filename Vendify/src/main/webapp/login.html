@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/login.css">
         <link rel="icon" href="img/favicon.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     </head>
     <body>
         
@@ -31,5 +33,19 @@
                 <button type="submit" class="loginbtn">Login</button>
             </div>
        </form>
+        
+        <div id="errorLogin" style="color: red; display: none;">
+            <p><i class="fas fa-exclamation-circle"></i><strong>Error:</strong> Your email or password is incorrect. Please try again.</p>
+
+        </div>
+
+        <!-- ... el resto de tu código HTML ... -->
+
+        <script>
+            // Verificar si la URL tiene el parámetro 'error'
+            if (new URLSearchParams(window.location.search).has('error')) {
+                document.getElementById('errorLogin').style.display = 'block';
+            }
+        </script>
     </body>
 </html>

@@ -55,11 +55,11 @@ public class adminLogin extends HttpServlet {
                 
                 HttpSession session = request.getSession();
                 session.setAttribute("username",usernameLoggeado );
-                response.sendRedirect("userdashboard.html");
+                response.sendRedirect("adminDashboard.html");
 
             } else {
 
-                response.sendRedirect("register.html");
+                response.sendRedirect("adminLogin.html?error=true");
 
             }
 
@@ -86,7 +86,7 @@ public class adminLogin extends HttpServlet {
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(username);
         } else {
-            response.sendRedirect("login.html");
+            response.sendRedirect("adminLogin.html");
         }
     }
 

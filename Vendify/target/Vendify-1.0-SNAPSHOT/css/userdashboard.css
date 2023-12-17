@@ -4,6 +4,8 @@ body {
     padding: 0;
     font-family: "Verdana", sans-serif;
     background: linear-gradient(to bottom, #333, #444);
+    display: flex;
+    height: 100vh;
 }
 
 .navbar {
@@ -46,7 +48,7 @@ body {
 
 .dashboard {
     display: flex;
-    flex-direction:row;
+    width:100%;
     height: 100vh;
 }
 
@@ -55,9 +57,9 @@ body {
     flex-direction: column;
     align-items: center; /* Centra horizontalmente */
     justify-content: center; /* Centra verticalmente */
-    height: 100vh; /* Ajusta según la altura deseada */
+    height: calc(100vh - 60px); /* Ajusta según la altura deseada */
     width: 200px; /* Ajusta según el ancho deseado */
-    margin-top:0;
+    margin-top:60px;
    
     flex: 0 0 200px;
 }
@@ -101,7 +103,13 @@ body {
      /* Hace la imagen circular */
     /* Otros estilos que quieras aplicar (sombras, bordes, etc.) */
 }
-
+.welcome-user {
+    color: white; /* Cambia el color del texto a blanco */
+    text-align: center; /* Centra el texto */
+    /* Asegúrate de que el <li> ocupe todo el ancho disponible para que el texto pueda centrarse correctamente */
+    width: 100%;
+    /* Puedes agregar más estilos aquí si es necesario, como padding, para asegurarte de que el diseño se vea como quieres */
+}
 .menu-vertical label{
     
    color: white;
@@ -110,17 +118,4 @@ body {
    justify-content: center;
    padding: 10px;
     
-}
-
-#products-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#products-table th {
-    background-color: #333; /* Color de fondo oscuro para los encabezados */
-    color: white; /* Texto en color blanco para los encabezados */
-    padding: 8px;
-    text-align: center; /* Centra el texto de los encabezados */
-    font-size: 16px; /* Tamaño de fuente para los encabezados */
 }

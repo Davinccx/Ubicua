@@ -28,7 +28,7 @@
                 <a href="#home"><i class="fa fa-home"></i> Home</a>
                 <a href="login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
                 <a href="register.html"><i class="fa fa-user-plus"></i> Register</a>
-                <a href="admin.html"><i class="fa fa-address-book"></i> Administrador</a>
+                <a href="adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
             </div>
             
             <div class="menu-vertical">
@@ -36,7 +36,7 @@
                     <img src="img/user.png" alt="fotito">
                 </div>
                <ul>
-                <label>Bienvenido,<span id="username"></span>!</label>
+                <li class=" welcome-user">Bienvenido,<span id="username"></span>!</li>
                 <li><a href="ventasDashboard.html"><i class="fa fa-shopping-cart"></i> Compras</a></li>
                 <li><a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a></li>
                 <li><a href="#"><i class="fa fa-search"></i> Buscar</a></li>
@@ -61,7 +61,8 @@
                 return response.json();
             })
             .then(data => {
-                let tabla = '<table border="1">';
+                let tabla = '<h2 class = "list-compras">Listado de las compras </h2>'; // Añadido título sobre la tabla
+                tabla += '<table border="1">';
                 tabla += '<tr><th>ID Compra</th><th>Nombre Producto</th><th>Descripción</th><th>Precio</th><th>Localización</th></tr>';
                 data.forEach(objeto => {
                     tabla += `<tr>`;

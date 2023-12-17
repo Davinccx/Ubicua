@@ -91,5 +91,24 @@
         <url-pattern>/adminLogin</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>deleteUser</servlet-name>
+        <servlet-class>servlets.deleteUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteUser</servlet-name>
+        <url-pattern>/deleteUser</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>updateUser</servlet-name>
+        <servlet-class>servlets.updateUser</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateUser</servlet-name>
+        <url-pattern>/updateUser</url-pattern>
+    </servlet-mapping>
 
 </web-app>

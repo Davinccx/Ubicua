@@ -26,8 +26,10 @@ public class Logic {
 
         try {
             con = conector.obtainConnection(true);
+            Log.log.debug("DataBase connected");
 
             PreparedStatement ps = ConnectionDDBB.getProductos(con);
+            Log.log.info("Query=> {}", ps.toString());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Producto producto = new Producto();
@@ -39,13 +41,14 @@ public class Logic {
                 productos.add(producto);
             }
         } catch (SQLException e) {
-
+                
+            Log.log.error("Error: {}", e);
             productos = new ArrayList<Producto>();
         } catch (NullPointerException e) {
-
+            Log.log.error("Error: {}", e);
             productos = new ArrayList<Producto>();
         } catch (Exception e) {
-
+            Log.log.error("Error: {}", e);
             productos = new ArrayList<Producto>();
         } finally {
             conector.closeConnection(con);
@@ -62,9 +65,10 @@ public class Logic {
 
         try {
             con = conector.obtainConnection(true);
-
+            Log.log.debug("DataBase connected");
             PreparedStatement ps = ConnectionDDBB.getUsers(con);
             ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
             while (rs.next()) {
                 User usuario = new User();
                 usuario.setId(rs.getInt("id"));
@@ -72,18 +76,19 @@ public class Logic {
                 usuario.setPassword(rs.getString("password"));
                 usuario.setUsername(rs.getString("username"));
                 usuario.setTelefono(rs.getString("telefono"));
-                usuario.setSaldo(rs.getDouble("saldo"));
+                usuario.setSaldo(rs.getInt("saldo"));
                 users.add(usuario);
             }
         } catch (SQLException e) {
 
+            Log.log.error("Error: {}", e);
             users = new ArrayList<User>();
             
         } catch (NullPointerException e) {
-
+            Log.log.error("Error: {}", e);
             users = new ArrayList<User>();
         } catch (Exception e) {
-
+            Log.log.error("Error: {}", e);
             users = new ArrayList<User>();
         } finally {
             conector.closeConnection(con);
@@ -100,9 +105,12 @@ public class Logic {
 
         try {
             con = conector.obtainConnection(true);
+            Log.log.debug("Database Connected");
 
             PreparedStatement ps = ConnectionDDBB.getAdmin(con);
             ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+
             while (rs.next()) {
                 Admin admin = new Admin();
                 admin.setId(rs.getInt("id"));
@@ -111,14 +119,14 @@ public class Logic {
                 administrador.add(admin);
             }
         } catch (SQLException e) {
-
+            Log.log.error("Error: {}", e);
             administrador = new ArrayList<Admin>();
             
         } catch (NullPointerException e) {
-
+            Log.log.error("Error: {}", e);
             administrador = new ArrayList<Admin>();
         } catch (Exception e) {
-
+            Log.log.error("Error: {}", e);
             administrador = new ArrayList<Admin>();
         } finally {
             conector.closeConnection(con);
@@ -215,7 +223,7 @@ public class Logic {
                     usuario.setPassword(rs.getString("password"));
                     usuario.setUsername(rs.getString("username"));
                     usuario.setTelefono(rs.getString("telefono"));
-                    usuario.setSaldo(rs.getDouble("saldo"));
+                    usuario.setSaldo(rs.getInt("saldo"));
                     
             }
         } catch (SQLException e) {
@@ -235,5 +243,35 @@ public class Logic {
 
     
     }
+    
+    public static boolean comprobarEmail(String posibleEmail){
+
+    try {
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+            String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, posibleEmail);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Manejar la excepción adecuadamente
+        
+
+        }
+        return false;
+    
+
+
+
+
+}
+
+
 
 }
