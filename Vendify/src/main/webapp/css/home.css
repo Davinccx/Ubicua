@@ -1,0 +1,55 @@
+
+.navbar {
+    display: flex; /* Usa Flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #333; /* Color de fondo */
+    overflow: hidden; /* Asegura que todo esté dentro de la barra */
+    position: fixed; /* Fija la barra */
+    top: 0; /* Parte superior de la pantalla */
+    width: 100%; /* Extensión a lo largo de la pantalla */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+}
+
+.navbar img {
+    height: 45px; /* Altura de la imagen */
+    margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.navbar a {
+    display: block; /* Uso de block en lugar de float */
+    color: #F4F3F3; /* Color del texto */
+    text-align: center; /* Texto centrado */
+    padding: 14px 16px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.navbar a:hover {
+    background-color: #333; /* Fondo al pasar el mouse */
+    color: #DADA74; /* Color del texto al pasar el mouse */
+}
+  .welcome-section {
+    text-align: center;
+    padding: 50px;
+  }
+  .welcome-section h1 {
+    font-size: 2.5em;
+  }
+  .welcome-section p {
+    font-size: 1.2em;
+    margin-top: 20px;
+  }
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #f0c014;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .btn:hover {
+    background-color: #e5b012;
+  }

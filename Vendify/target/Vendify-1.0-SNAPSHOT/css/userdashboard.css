@@ -1,7 +1,6 @@
 body {
   
     margin: 0;
-    padding: 0;
     font-family: "Verdana", sans-serif;
     background: linear-gradient(to bottom, #333, #444);
     display: flex;
