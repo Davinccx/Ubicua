@@ -65,7 +65,6 @@ body {
     height: calc(100vh - 60px); /* Ajusta el alto */
     width: 200px; /* Ajusta según el ancho deseado */
     margin-top:60px;
-   
     flex: 0 0 200px;
 }
 
@@ -77,6 +76,9 @@ body {
 
 .menu-vertical ul li {
     width: 100%; /* Ocupa todo el ancho del contenedor */
+    display: flex; /* Usa Flexbox para el centrado */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
 }
 
 .menu-vertical ul li a {
@@ -126,8 +128,8 @@ body {
     align-items: center;
     height: calc(100vh - 60px); /* Asume que tu navbar tiene 60px de altura */
     width: 100%;
+    padding-left: 330px;
     margin-top: -60px;
-    padding-left:  130px;
 }
 
 /* Estilos para la tabla */

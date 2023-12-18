@@ -70,8 +70,10 @@ body {
 
 .menu-vertical ul li {
     width: 100%; /* Ocupa todo el ancho del contenedor */
+    display: flex; /* Usa Flexbox para el centrado */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
 }
-
 .menu-vertical ul li a {
     display: flex;
     align-items: center; /* Centra verticalmente los elementos dentro del enlace */
@@ -122,12 +124,12 @@ body {
 /* Agregado para centrar la tabla en la pantalla */
 .centered-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    flex-grow: 1;
     height: calc(100vh - 60px); /* Asume que tu navbar tiene 60px de altura */
     width: 100%;
-    padding-left: 250px;
+    margin-top: -60px;
+  
     
    
 } 
@@ -136,7 +138,7 @@ table {
     border-collapse: collapse;
     width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
     max-width: 1000px; 
-    margin:auto;/* Ajusta esto para el ancho máximo si es necesario */
+    margin: auto;/* Ajusta esto para el ancho máximo si es necesario */
 }
 
 table, th, td {
