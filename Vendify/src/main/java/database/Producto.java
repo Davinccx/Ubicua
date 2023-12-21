@@ -5,11 +5,11 @@ public class Producto {
     private int id;
     private String nombre;
     private String descripcion;
-    private double precio;
-    private int id_maquina;
+    private int precio;
+    
 
     public Producto() {
-        this.id = 0;
+        
     }
 
     public int getId() {
@@ -36,20 +36,14 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
-    public int getId_maquina() {
-        return id_maquina;
-    }
-
-    public void setId_maquina(int id_maquina) {
-        this.id_maquina = id_maquina;
-    }
+  
 
 }

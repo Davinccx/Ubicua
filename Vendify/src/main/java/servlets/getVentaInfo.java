@@ -10,11 +10,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.util.ArrayList;
+import logic.Log;
 import logic.Logic;
-
-
 
 public class getVentaInfo extends HttpServlet {
 
@@ -23,14 +21,15 @@ public class getVentaInfo extends HttpServlet {
     public getVentaInfo() {
         super();
     }
-    
-     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        Log.log.info("-- Get information from a Venta --");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
         try {
-            
-            System.out.println("-- Get information from a Venta information from DB--");
-            response.setContentType("text/html;charset=UTF-8");
-            PrintWriter out = response.getWriter();
+
             HttpSession session = request.getSession();
             ArrayList<Venta> ventasUsuario = new ArrayList<Venta>();
             if (session != null) {
@@ -40,7 +39,7 @@ public class getVentaInfo extends HttpServlet {
                 if (usernameLoggeado != null) {
 
                     ArrayList<Venta> ventas = Logic.getVentasFromDB();
-                        
+
                     User user = Logic.getUserFromUsername(usernameLoggeado);
                     Integer id_usuario = user.getId();
                     for (int x = 0; x < ventas.size(); x++) {
@@ -56,27 +55,29 @@ public class getVentaInfo extends HttpServlet {
 
                     }
                     String jsonVentas = new Gson().toJson(ventasUsuario);
-                    System.out.println("JSON Values=> " + jsonVentas);
+                    Log.log.info("JSON Values=> ", jsonVentas);
                     out.println(jsonVentas);
                     out.close();
 
                 } else {
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Usuario no logueado.");
+                    Log.log.error("Usuario no loggeado");
                 }
 
             } else {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Sesión no iniciada.");
+                Log.log.error("Bad Request from server");
             }
 
         } catch (NumberFormatException nfe) {
             out.println("-1");
-            System.out.println("Number Format Exception:" + nfe);
+            Log.log.error("Number Format Exception: {}", nfe);
         } catch (IndexOutOfBoundsException iobe) {
             out.println("-1");
-            System.out.println("Index out of bounds Exception: " + iobe);
+            Log.log.error("Index out of bound exception: {}", iobe);
         } catch (Exception e) {
             out.println("-1");
-            System.out.println("Exception: " + e);
+            Log.log.error("Number Format Exception: {}", e);
         } finally {
             out.close();
         }
@@ -85,6 +86,5 @@ public class getVentaInfo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
-
 
 }

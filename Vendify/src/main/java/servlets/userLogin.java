@@ -1,6 +1,5 @@
 package servlets;
 
-
 import java.io.IOException;
 
 import jakarta.servlet.ServletException;
@@ -14,7 +13,7 @@ import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import logic.Logic;
 import java.io.PrintWriter;
-import static java.lang.System.out;
+import logic.Log;
 
 public class userLogin extends HttpServlet {
 
@@ -25,15 +24,14 @@ public class userLogin extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Log.log.info("-- User login function --");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
         try {
 
-            System.out.println("-- Get User information from DB--");
-            response.setContentType("text/html;charset=UTF-8");
-            PrintWriter out = response.getWriter();
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
-            
 
             boolean logged = false;
             String posibleEmail = request.getParameter("email");
@@ -47,9 +45,9 @@ public class userLogin extends HttpServlet {
 
                 User x = usuarios.get(i);
                 String email = x.getEmail();
-                String password = x.getPassword();
+                int password = x.getPassword();
 
-                if (email != null && email.equals(posibleEmail) && posiblePassword != null && password.equals(posiblePassword)) {
+                if (email != null && email.equals(posibleEmail) && posiblePassword != null && password == Integer.parseInt(posiblePassword)) {
 
                     logged = true;
                     usernameLoggeado = x.getUsername();
@@ -62,24 +60,28 @@ public class userLogin extends HttpServlet {
 
                 HttpSession session = request.getSession();
                 session.setAttribute("username", usernameLoggeado);
+                Log.log.info("Usuario {} loggeado correctamente", usernameLoggeado);
 
                 response.sendRedirect("userdashboard.html");
 
             } else {
 
                 response.sendRedirect("login.html?error=true");
+                Log.log.error("Error al iniciar sesión como {}", posibleEmail);
 
             }
 
         } catch (NumberFormatException nfe) {
 
-            System.out.println("Number Format Exception:" + nfe);
+            Log.log.error("Number Format Exception: {}", nfe);
+
         } catch (IndexOutOfBoundsException iobe) {
 
-            System.out.println("Index out of bounds Exception: " + iobe);
+            Log.log.error("Index out of bounds Exception: {}", iobe);
         } catch (Exception e) {
 
-            System.out.println("Exception: " + e);
+            out.println("Error al procesar la solicitud.");
+            Log.log.error("Number Format Exception: {}", e);
         } finally {
             out.close();
         }
@@ -95,6 +97,7 @@ public class userLogin extends HttpServlet {
             response.getWriter().write(username);
         } else {
             response.sendRedirect("login.html");
+
         }
     }
 

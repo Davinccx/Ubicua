@@ -70,6 +70,16 @@
         <url-pattern>/getVentas</url-pattern>
     </servlet-mapping>
    
+   <servlet>
+        <servlet-name>getUserFromUsername</servlet-name>
+        <servlet-class>servlets.getUserFromUsername</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getUserFromUsername</servlet-name>
+        <url-pattern>/getUserFromUsername</url-pattern>
+    </servlet-mapping>
+   
    
    <servlet>
         <servlet-name>getVentasFromUser</servlet-name>
@@ -102,6 +112,16 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>deleteVenta</servlet-name>
+        <servlet-class>servlets.deleteVenta</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteVenta</servlet-name>
+        <url-pattern>/deleteVenta</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>updateUser</servlet-name>
         <servlet-class>servlets.updateUser</servlet-class>
     </servlet>
@@ -110,9 +130,51 @@
         <servlet-name>updateUser</servlet-name>
         <url-pattern>/updateUser</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>updateProducto</servlet-name>
+        <servlet-class>servlets.updateProducto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateProducto</servlet-name>
+        <url-pattern>/updateProducto</url-pattern>
+    </servlet-mapping>
+
+    
+    <servlet>
+        <servlet-name>deleteProducto</servlet-name>
+        <servlet-class>servlets.deleteProducto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deleteProducto</servlet-name>
+        <url-pattern>/deleteProducto</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>getVentaFromId</servlet-name>
+        <servlet-class>servlets.getVentaFromId</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>getVentaFromId</servlet-name>
+        <url-pattern>/getVentaFromId</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>searchProducto</servlet-name>
+        <servlet-class>servlets.searchProducto</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>searchProducto</servlet-name>
+        <url-pattern>/searchProducto</url-pattern>
+    </servlet-mapping>
     
     <welcome-file-list>
         <welcome-file>home.html</welcome-file>
     </welcome-file-list>
+    
+    
 
 </web-app>

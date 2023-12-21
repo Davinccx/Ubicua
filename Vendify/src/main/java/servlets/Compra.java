@@ -5,17 +5,19 @@ public class Compra {
     
     
     private int id_compra;
+
+    
     private String nombre_producto;
     private String descripcion;
-    private double precio;
+    private int precio;
     private String localizacion;
-
+    private int id_maquina;
     public Compra() {
     }
     
     
 
-    public int getId_compra() {
+   public int getId_compra() {
         return id_compra;
     }
 
@@ -43,7 +45,7 @@ public class Compra {
         return precio;
     }
 
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
@@ -54,6 +56,15 @@ public class Compra {
     public void setLocalizacion(String localizacion) {
         this.localizacion = localizacion;
     }
+
+    public int getId_maquina() {
+        return id_maquina;
+    }
+
+    public void setId_maquina(int id_maquina) {
+        this.id_maquina = id_maquina;
+    }
+    
     
     
         

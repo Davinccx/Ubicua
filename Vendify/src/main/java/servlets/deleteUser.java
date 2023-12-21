@@ -2,7 +2,6 @@ package servlets;
 
 import java.io.IOException;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,16 +10,15 @@ import java.sql.Connection;
 import database.ConnectionDDBB;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
+import logic.Log;
 
+public class deleteUser extends HttpServlet {
 
-public class deleteUser extends HttpServlet{
-    
     private static final long serialVersionUID = 1L;
 
     public deleteUser() {
         super();
     }
-  
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +27,7 @@ public class deleteUser extends HttpServlet{
         try {
             String id = request.getParameter("id");
 
-            // Validar el ID aquí antes de proceder
+            Log.log.info("--Delete User from DB --");
 
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
@@ -38,25 +36,26 @@ public class deleteUser extends HttpServlet{
             String sql = "DELETE FROM users WHERE id = ?";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, Integer.parseInt(id));
+            Log.log.info("Query=> {}", statement.toString());
 
             int result = statement.executeUpdate();
             if (result > 0) {
-                out.println("Usuario eliminado con éxito.");
+                Log.log.info("Usuario eliminado con éxito.");
                 response.setStatus(HttpServletResponse.SC_OK);
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-                out.println("No se encontró un usuario con ese ID.");
+                Log.log.error("No se encontró un usuario con ese ID.");
+
             }
         } catch (NumberFormatException nfe) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            out.println("Número inválido.");
-            System.err.println("Number Format Exception: " + nfe);
+            Log.log.error("Number Format Exception: {}", nfe);
+
         } catch (Exception e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            out.println("Error al procesar la solicitud.");
-            System.err.println("Exception: " + e);
+            Log.log.error("Number Format Exception: {}", e);
         } finally {
             out.close();
-                    }
+        }
     }
 }

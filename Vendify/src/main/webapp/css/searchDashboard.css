@@ -1,0 +1,226 @@
+body {
+    margin: 0;
+    font-family: "Verdana", sans-serif;
+    background: linear-gradient(to bottom, #333, #444);
+    display: flex;  
+    height: 100vh;
+}
+
+.navbar {
+    display: flex; /* Usa Flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #333; /* Color de fondo */
+    overflow: hidden; /* Asegura que todo esté dentro de la barra */
+    position: fixed; /* Fija la barra */
+    top: 0; /* Parte superior de la pantalla */
+    width: 100%; /* Extensión a lo largo de la pantalla */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar img {
+    height: 45px; /* Altura de la imagen */
+    margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.navbar a {
+    display: block; /* Uso de block en lugar de float */
+    color: #F4F3F3; /* Color del texto */
+    text-align: center; /* Texto centrado */
+    padding: 14px 16px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.navbar a i {
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+    /* Otros estilos que quieras aplicar, como color o tamaño */
+}
+
+
+.navbar a:hover {
+    background-color: #333; /* Fondo al pasar el mouse */
+    color: #82A8DC; /* Color del texto al pasar el mouse */
+}
+
+
+.dashboard {
+    display: flex;
+    flex-direction:row;
+    height: 100vh;
+}
+.welcome-user {
+    color: white; /* Cambia el color del texto a blanco */
+    text-align: center; /* Centra el texto */
+    /* Asegúrate de que el <li> ocupe todo el ancho disponible para que el texto pueda centrarse correctamente */
+    width: 100%;
+    /* Puedes agregar más estilos aquí si es necesario, como padding, para asegurarte de que el diseño se vea como quieres */
+}
+
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: calc(100vh - 60px); /* Ajusta el alto */
+    width: 200px; /* Ajusta según el ancho deseado */
+    border-right: 1px solid #ccc; /* Borde a la derecha */
+    position: fixed; /* Posicionamiento fijo */
+    top: 60px; /* Inicio en la parte superior de la ventana gráfica */
+    left: 0; /* Inicio en la parte izquierda de la ventana gráfica */
+    overflow-y: auto; /* Sombra delimitadora añadida aquí */
+}
+
+.menu-vertical ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.menu-vertical ul li {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    display: flex; /* Usa Flexbox para el centrado */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.menu-vertical ul li a {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos dentro del enlace */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del enlace */
+    color: white;
+    padding: 15px; /* Ajusta según necesidades */
+    text-decoration: none;
+}
+
+.menu-vertical ul li a i {
+    margin-right: 10px; /* Espaciado entre el icono y el texto */
+    font-size: 20px; /* Tamaño de los iconos */
+}
+.menu-vertical ul li a:hover {
+    color: #82A8DC;
+}
+
+.user-photo {
+    text-align: center; /* Centrar la imagen en el div */
+    padding: 10px; /* Espaciado alrededor de la imagen */
+    /* Color de fondo, ajusta según tu diseño */
+}
+
+.user-photo img {
+    width: 150px; /* Ajusta el ancho de la imagen según necesites */
+    height: 150px; /* Ajusta la altura de la imagen según necesites */
+     /* Hace la imagen circular */
+    /* Otros estilos que quieras aplicar (sombras, bordes, etc.) */
+}
+
+.menu-vertical label{
+    
+   color: white;
+   display:flex;
+   align-items:center;
+   justify-content: center;
+   padding: 10px;
+    
+}
+
+/* Agregado para centrar la tabla en la pantalla */
+.centered-container {
+    /* Agregado para centrar la tabla en la pantalla */
+
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center contents horizontally within the container */
+    justify-content: center; /* Center contents vertically within the container */
+    padding: 20px; /* Add some padding around */
+    /* Set a max-width if you want to limit its width, and set margin to auto to center it */
+    max-width: 600px; /* Adjust as per your design */
+    margin: auto;
+     /* Valor negativo para desplazar el contenido hacia arriba */
+}
+
+
+
+.centered-container form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 600px; /* Ajusta según la anchura deseada */
+    display: grid;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Asigna 1.5 veces más espacio a la columna del email */
+    gap: 20px;
+    
+}
+
+.centered-container form div {
+    margin-bottom: 10px;
+}
+
+.centered-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.centered-container input[type="text"],
+.centered-container input[type="email"],
+.centered-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegúrate de que padding no afecte el ancho */
+}
+
+.centered-container input[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #82A8DC;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.centered-container input[type="button"]:hover {
+    background-color: #5C85AD;
+}
+
+/* Estilo cuando los inputs son habilitados para la edición */
+.centered-container input[type="text"]:not([readonly]),
+.centered-container input[type="email"]:not([readonly]),
+.centered-container input[type="password"]:not([readonly]) {
+    border-color: #82A8DC;
+}
+
+/* Estilo para mostrar que un input está deshabilitado */
+.centered-container input[readonly] {
+    background-color: #e9ecef;
+    color: #495057;
+    cursor: not-allowed;
+}
+
+.centered-container h2{
+    
+    
+    color:#fff;
+    
+}
+.search-form {
+    margin-top: 20px; /* Add some space between the title and the form */
+}
+
+.search-input {
+    margin-bottom: 10px; /* Add some space between the input field and the button */
+    width: 300px; /* Adjust as needed */
+    padding: 10px; /* Makes it easier to type in */
+}
+
+.search-button {
+    padding: 10px 20px; /* Adjust padding for better aesthetics */
+    cursor: pointer; /* Changes the cursor on hover over the button */
+}

@@ -11,14 +11,15 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+
 public class ConnectionDDBB {
-    
+
     public Connection obtainConnection(boolean autoCommit) throws NullPointerException {
 
         Connection con = null;
         int intentos = 5;
         for (int i = 0; i < intentos; i++) {
-
+            Log.logdb.info("Attempt {} to connect to the database");
             try {
                 Context ctx = new InitialContext();
                 // Get the connection factory configured in Tomcat
@@ -28,14 +29,18 @@ public class ConnectionDDBB {
                 con = ds.getConnection();
                 Calendar calendar = Calendar.getInstance();
                 java.sql.Date date = new java.sql.Date(calendar.getTime().getTime());
-                System.out.println("Connection creation. Bd connection identifier: {} obtained in {}" + con.toString() + date.toString());
+                Log.logdb.debug("Connection creation. Bd connection identifier: {} obtained in {}", con.toString(), date.toString());
                 con.setAutoCommit(autoCommit);
+                Log.logdb.info("Connection obtained in the attemp: "+i);
 
                 i = intentos;
             } catch (NamingException ex) {
-
+                
+                Log.logdb.error("Error getting connection while trying: {} = {}",i,ex);
+                
             } catch (SQLException ex) {
-
+                
+                Log.logdb.error("Error getting connection while trying: {} = {}",i,ex);
                 throw (new NullPointerException("SQL connection is null"));
             }
         }
@@ -48,10 +53,10 @@ public class ConnectionDDBB {
         try
           {
             con.commit();
-              System.out.println("Transaction closed");
+              Log.logdb.debug("Transaction closed");
           } catch (SQLException ex)
           {
-              System.out.println("Error closing the transaction: {}"+ ex);
+              Log.logdb.error("Error closing the transaction: {}", ex);
           }
     }
     
@@ -61,10 +66,10 @@ public class ConnectionDDBB {
         try
           {
             con.rollback();
-              System.out.println("Transaction canceled");
+              Log.logdb.debug("Transaction canceled");
           } catch (SQLException ex)
           {
-              System.out.println("ERROR sql when canceling the transation: {}"+ex);
+              Log.logdb.error("ERROR sql when canceling the transation: {}",ex);
           }
     }
     
@@ -72,19 +77,19 @@ public class ConnectionDDBB {
     {
         try
           {
-        	     System.out.println("Closing the connection");
+        	     Log.logdb.info("Closing the connection");
             if (null != con)
               {
 				Calendar calendar = Calendar.getInstance();
 				java.sql.Date date = new java.sql.Date(calendar.getTime().getTime());
-	                 System.out.println("Connection closed. Bd connection identifier: {} obtained in {}"+con.toString()+ date.toString());
+	                Log.logdb.debug("Connection closed. Bd connection identifier: {} obtained in {}",con.toString(),date.toString());
                 con.close();
               }
 
-        	     System.out.println("The connection has been closed");
+        	     Log.logdb.error("The connection has been closed");
           } catch (SQLException e)
           {
-        	     System.out.println("ERROR sql closing the connection: {}"+ e);
+        	  Log.logdb.error("ERROR sql closing the connection: {}", e);
         	  e.printStackTrace();
           }
     }
@@ -101,16 +106,36 @@ public class ConnectionDDBB {
               }
           } catch (SQLException ex)
           {
-    	         System.out.println("ERROR sql creating PreparedStatement:{} "+ex);
+    	         Log.logdb.warn("ERROR sql creating PreparedStatement:{} ",ex);
           }
 
         return ps;
     }   
       
-      public static PreparedStatement GetProductos(Connection con)
+    public static PreparedStatement getProductos(Connection con)
     {
     	return getStatement(con,"SELECT * FROM productos");  	
     }
+    
+    public static PreparedStatement getUsers(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM users");  	
+    }
+      
+
+    public static PreparedStatement getAdmin(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM admin");  	
+    }
+       
+    
+    public static PreparedStatement getMaquinas(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM maquina");  	
+    }
+    
+    public static PreparedStatement getVentas(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM ventas");  	
+    }
 }
-
-

@@ -57,9 +57,11 @@ body {
     justify-content: center; /* Centra verticalmente */
     height: calc(100vh - 60px); /* Ajusta el alto */
     width: 200px; /* Ajusta según el ancho deseado */
-    margin-top:60px;
-   
-    flex: 0 0 200px;
+    border-right: 1px solid #ccc; /* Borde a la derecha */
+    position: fixed; /* Posicionamiento fijo */
+    top: 60px; /* Inicio en la parte superior de la ventana gráfica */
+    left: 0; /* Inicio en la parte izquierda de la ventana gráfica */
+    overflow-y: auto; /* Sombra delimitadora añadida aquí */
 }
 
 .menu-vertical ul {
@@ -74,6 +76,7 @@ body {
     justify-content: center; /* Centra horizontalmente */
     align-items: center; /* Centra verticalmente */
 }
+
 .menu-vertical ul li a {
     display: flex;
     align-items: center; /* Centra verticalmente los elementos dentro del enlace */
@@ -128,7 +131,7 @@ body {
     align-items: center;
     height: calc(100vh - 60px); /* Asume que tu navbar tiene 60px de altura */
     width: 100%;
-    margin-top: -60px;
+    padding: 0;
   
     
    

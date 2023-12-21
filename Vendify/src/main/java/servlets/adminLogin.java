@@ -12,6 +12,7 @@ import static java.lang.System.out;
 import database.Admin;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
+import logic.Log;
 import logic.Logic;
 
 public class adminLogin extends HttpServlet {
@@ -28,7 +29,7 @@ public class adminLogin extends HttpServlet {
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
             response.setContentType("text/html;charset=UTF-8");
-
+            Log.log.info("--Admin login function --");
             boolean logged = false;
             String posibleUser = request.getParameter("user");
             String posiblePassword = request.getParameter("password");
@@ -41,47 +42,48 @@ public class adminLogin extends HttpServlet {
                 Admin x = usuarios.get(i);
                 String username = x.getUser();
                 String password = x.getPassword();
-                
-                
 
                 if (posibleUser != null && username.equals(posibleUser) && posiblePassword != null && password.equals(posiblePassword)) {
 
                     logged = true;
                     usernameLoggeado = x.getUser();
+                    Log.log.info("Administrador loggeado correctamente {}", usernameLoggeado);
                 }
 
             }
             if (logged) {
-                
+
                 HttpSession session = request.getSession();
-                session.setAttribute("username",usernameLoggeado );
+                session.setAttribute("username", usernameLoggeado);
                 response.sendRedirect("adminDashboard.html");
 
             } else {
 
                 response.sendRedirect("adminLogin.html?error=true");
+                Log.log.error("No se ha podido iniciar sesión");
 
             }
 
         } catch (NumberFormatException nfe) {
             out.println("-1");
-            System.out.println("Number Format Exception:" + nfe);
+            Log.log.error("Number Format Exception: {}", nfe);
         } catch (IndexOutOfBoundsException iobe) {
             out.println("-1");
-            System.out.println("Index out of bounds Exception: " + iobe);
+            Log.log.error("Index out of Bounds Exception: {}", iobe);
         } catch (Exception e) {
             out.println("-1");
-            System.out.println("Exception: " + e);
+            Log.log.error("Exception: {}", e);
         } finally {
             out.close();
         }
     }
-    
-     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession(false);
 
         if (session != null && session.getAttribute("username") != null) {
             String username = (String) session.getAttribute("username");
+
             response.setContentType("text/plain");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write(username);

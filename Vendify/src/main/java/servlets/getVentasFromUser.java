@@ -8,13 +8,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import static java.lang.System.out;
 import database.Venta;
 import database.User;
 import database.Producto;
 import jakarta.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import logic.Log;
 import logic.Logic;
 
 public class getVentasFromUser extends HttpServlet {
@@ -26,12 +26,14 @@ public class getVentasFromUser extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        
+        Log.log.info("-- Get Compras from an User --");
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        
         try {
 
-            System.out.println("-- Get Ventas from User information from DB--");
-            response.setContentType("text/html;charset=UTF-8");
-            PrintWriter out = response.getWriter();
+            
             HttpSession session = request.getSession();
             ArrayList<Venta> ventasUsuario = new ArrayList<Venta>();
             ArrayList<Compra> comprasUsuario = new ArrayList<Compra>();
@@ -62,58 +64,62 @@ public class getVentasFromUser extends HttpServlet {
                     for (int i = 0; i < productos.size(); i++) {
 
                         Producto producto = productos.get(i);
-                        Integer id_producto = producto.getId();
+                        int id_producto = producto.getId();
 
                         for (int j = 0; j < ventasUsuario.size(); j++) {
 
                             Venta venta = ventasUsuario.get(j);
+                            if (venta.getId_producto() == id_producto) {
+                                for (Maquina maquina : maquinas) {
 
-                            for (Maquina maquina : maquinas) {
-                                if (venta.getId_producto() == id_producto && producto.getId_maquina() == maquina.getId()) {
+                                    if (id_producto == maquina.getId()) {
 
-                                    Integer id_compra = venta.getId_venta();
-                                    String nombre_producto = producto.getNombre();
-                                    String desc_producto = producto.getDescripcion();
-                                    double precio = producto.getPrecio();
+                                        Integer id_compra = venta.getId_venta();
+                                        String nombre_producto = producto.getNombre();
+                                        String desc_producto = producto.getDescripcion();
+                                        Integer precio = producto.getPrecio();
 
-                                    Compra compraUser = new Compra();
-                                    compraUser.setId_compra(id_compra);
-                                    compraUser.setNombre_producto(nombre_producto);
-                                    compraUser.setDescripcion(desc_producto);
-                                    compraUser.setPrecio(precio);
-                                    compraUser.setLocalizacion(maquina.getLocation());
+                                        Compra compraUser = new Compra();
+                                        compraUser.setId_compra(id_compra);
+                                        compraUser.setNombre_producto(nombre_producto);
+                                        compraUser.setDescripcion(desc_producto);
+                                        compraUser.setPrecio(precio);
+                                        compraUser.setLocalizacion(maquina.getLocation());
+                                        compraUser.setId_maquina(maquina.getId());
+                                        comprasUsuario.add(compraUser);
 
-                                    comprasUsuario.add(compraUser);
-
+                                    }
                                 }
-                            }
 
+                            }
                         }
 
                     }
 
                     String jsonVentas = new Gson().toJson(comprasUsuario);
-                    System.out.println("JSON Values=> " + jsonVentas);
+                    Log.log.info("JSON Values=> {}" ,jsonVentas);
                     out.println(jsonVentas);
                     out.close();
 
                 } else {
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Usuario no logueado.");
+                    Log.log.error("Usuario no loggeado");
                 }
 
             } else {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Sesión no iniciada.");
-            }
+                Log.log.error("Bad Request from server");
+            }   
 
         } catch (NumberFormatException nfe) {
             out.println("-1");
-            System.out.println("Number Format Exception:" + nfe);
+            Log.log.error("Number Format Exception: {}", nfe);
         } catch (IndexOutOfBoundsException iobe) {
             out.println("-1");
-            System.out.println("Index out of bounds Exception: " + iobe);
+            Log.log.error("Index out of bound exception: {}", iobe);
         } catch (Exception e) {
             out.println("-1");
-            System.out.println("Exception: " + e);
+            Log.log.error("Number Format Exception: {}", e);
         } finally {
             out.close();
         }

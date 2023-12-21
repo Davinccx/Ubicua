@@ -39,7 +39,7 @@
                 <li class=" welcome-user">Bienvenido,<span id="username"></span>!</li>
                 <li><a href="ventasDashboard.html"><i class="fa fa-shopping-cart"></i> Compras</a></li>
                 <li><a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a></li>
-                <li><a href="#"><i class="fa fa-search"></i> Buscar</a></li>
+                <li><a href="searchDashboard.html"><i class="fa fa-search"></i> Buscar</a></li>
                 <li><a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
              
                </ul>
@@ -63,14 +63,20 @@
             .then(data => {
                 let tabla = '<h2 class = "list-compras">Listado de las compras </h2>'; // Añadido título sobre la tabla
                 tabla += '<table border="1">';
-                tabla += '<tr><th>ID Compra</th><th>Nombre Producto</th><th>Descripción</th><th>Precio</th><th>Localización</th></tr>';
+                tabla += '<tr><th>ID Compra</th><th>Nombre Producto</th><th>Descripción</th><th>Precio</th><th>ID Maquina</th><th>Localización</th><th>Acción</th></tr>';
                 data.forEach(objeto => {
                     tabla += `<tr>`;
                     tabla += `<td>${objeto.id_compra}</td>`;
                     tabla += `<td>${objeto.nombre_producto}</td>`;
                     tabla += `<td>${objeto.descripcion}</td>`;
                     tabla += `<td>${objeto.precio}</td>`;
+                    tabla += `<td>${objeto.id_maquina}</td>`;
                     tabla += `<td>${objeto.localizacion}</td>`;
+                    tabla += `<td>
+                            <i class="fa fa-eye view-icon" style="cursor:pointer;" onclick="editarProducto(this, ${objeto.id})"></i>
+                            &nbsp;
+                            
+                          </td>`;
                     tabla += `</tr>`;
                 });
                 tabla += '</table>';
