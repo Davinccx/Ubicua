@@ -11,11 +11,11 @@ import logic.Log;
 public class MQTTPublisher {
 
     /**
-     *
+     * @param broker
      * @param topic
      * @param content
      */
-    public static void publish(String topic, String content) {
+    public static void publish(MQTTBroker broker,String topic, String content) {
 
         MemoryPersistence persistence = new MemoryPersistence();
         try {

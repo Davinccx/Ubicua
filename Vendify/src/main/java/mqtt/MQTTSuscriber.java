@@ -21,15 +21,15 @@ import org.json.JSONObject;
 
 public class MQTTSuscriber implements MqttCallback {
 
-    public void suscribeToMaquetaTopics() {
+    public void suscribeToMaquetaTopics(MQTTBroker broker) {
 
         ArrayList<String> topics = new ArrayList<>();
         topics.add(MQTTBroker.VENDIFY_TOPICS);
-        suscribeTopic(topics);
+        suscribeTopic(broker,topics);
 
     }
 
-    public void suscribeTopic(ArrayList<String> topics) {
+    public void suscribeTopic(MQTTBroker broker,ArrayList<String> topics) {
         Log.logmqtt.debug("Suscribe to topics");
         MemoryPersistence persistence = new MemoryPersistence();
         try {
@@ -83,47 +83,7 @@ public class MQTTSuscriber implements MqttCallback {
     public void deliveryComplete(IMqttDeliveryToken token) {
     }
 
-    private void handleAuthentication(MqttMessage message) {
-
-        String logged = "false";
-
-        ArrayList<User> usuarios = Logic.getUsersFromDB();
-        try {
-            String payload = new String(message.getPayload());
-            JSONObject json = new JSONObject(payload);
-            User usuarioDeseado = new User();
-            if (json.has("id_usuario") && json.has("password")) {
-                String usuarioArduino = json.getString("id_usuario");
-                String contrasenaArduino = json.getString("password");
-
-                for (User usuario : usuarios) {
-
-                    if (usuario.getId() == Integer.parseInt(usuarioArduino) && usuario.getPassword() == Integer.parseInt(contrasenaArduino)) {
-
-                        logged = "true";
-                        usuarioDeseado = usuario;
-                    }
-
-                }
-
-            }
-
-            if (usuarioDeseado != null) {
-                JSONObject userJson = new JSONObject();
-                userJson.put("id", usuarioDeseado.getId());
-                userJson.put("email", usuarioDeseado.getEmail());
-                userJson.put("username", usuarioDeseado.getUsername());
-                userJson.put("telefono", usuarioDeseado.getTelefono());
-                userJson.put("saldo", usuarioDeseado.getSaldo());
-
-                MQTTPublisher.publish("servidor/autentificacion", userJson.toString());
-                
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+   
  
     private Maquina getMachine(MqttMessage message) {
 
@@ -197,56 +157,5 @@ public class MQTTSuscriber implements MqttCallback {
         return producto;
     }
 
-    private void searchProducto(MqttMessage message) {
-
-        ArrayList<Maquina> maquinas = Logic.getMaquinasFromDB();
-        ArrayList<Producto> productos = Logic.getProductosFromDB();
-
-        try {
-            String payload = new String(message.getPayload());
-            JSONObject json = new JSONObject(payload);
-            int productoBuscar=3;
-
-            if (json.has("id_maquina")) {
-                String idMaquina = json.getString("id_maquina");
-                Maquina maquinaDeseada = null;
-                Producto productoDeseado = null;
-
-                // Buscar la maquina deseada
-                for (Maquina maquina : maquinas) {
-                    if (maquina.getId() == Integer.parseInt(idMaquina)) {
-                        maquinaDeseada = maquina;
-                        productoBuscar = maquinaDeseada.getId_producto();
-                        break; // Salir del bucle una vez encontrada la maquina
-                    }
-                }
-                
-                for(Producto product: productos){
-                    
-                    if(product.getId() == 3){
-                    
-                        productoDeseado = product;
-                        break;
-                    }
-                
-                
-                }
-                
-                if (productoDeseado != null) {
-                    JSONObject productoJson = new JSONObject();
-                    productoJson.put("id", productoDeseado.getId());
-                    productoJson.put("nombre", productoDeseado.getNombre());
-                    productoJson.put("precio", productoDeseado.getPrecio());
-
-                    MQTTPublisher.publish("servidor/devolverProducto", productoJson.toString());
-                } else {
-                    // Manejar el caso en que la máquina no se encuentra
-                }
-               
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+   
 }

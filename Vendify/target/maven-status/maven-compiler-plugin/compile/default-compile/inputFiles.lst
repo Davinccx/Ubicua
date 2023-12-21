@@ -1,33 +1,33 @@
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\deleteUser.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getUserFromUsername.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\database\Producto.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\database\Maquina.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\database\Admin.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\mqtt\MQTTPublisher.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getMaquina.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getProducto.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\database\ConnectionDDBB.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\registerUser.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\searchProducto.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\database\Venta.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\mqtt\MQTTSuscriber.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getVentaInfo.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getVentaFromId.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\updateUser.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\deleteProducto.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getUser.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getAdmin.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\logic\ConnectionDDBB.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\adminLogin.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\database\Topic.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\mqtt\MQTTBroker.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\userLogin.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\logic\Logic.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\database\User.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\logic\Log.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\Compra.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\deleteVenta.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getVentasFromUser.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\getVentas.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\servlets\updateProducto.java
-C:\Users\David\Desktop\Computacion Ubicua\Vendify\src\main\java\logic\ProjectInitializer.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\userLogin.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Venta.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\registerUser.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getVentaInfo.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getVentasFromUser.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\logic\Log.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Admin.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\Compra.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\deleteUser.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\logic\ProjectInitializer.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getVentas.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Producto.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\deleteProducto.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getVentaFromId.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\ConnectionDDBB.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\searchProducto.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\mqtt\MQTTSuscriber.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getMaquina.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getProducto.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Topic.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\logic\Logic.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\deleteVenta.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getAdmin.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getUser.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\adminLogin.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\User.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\logic\ConnectionDDBB.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\database\Maquina.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\mqtt\MQTTPublisher.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\updateProducto.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\updateUser.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\mqtt\MQTTBroker.java
+C:\Users\David\Desktop\Ubicua\Vendify\src\main\java\servlets\getUserFromUsername.java
