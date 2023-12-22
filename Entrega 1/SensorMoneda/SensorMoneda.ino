@@ -12,8 +12,8 @@ const char *password = "SqM4FthK";
 
 const char *mqtt_broker = "broker.emqx.io";// broker address
 const char *topic = "monedas/enviar"; // define topic 
-const char *mqtt_username = "ubicua"; // username for authentication
-const char *mqtt_password = "ubicua";// password for authentication
+const char *mqtt_username = ""; // username for authentication
+const char *mqtt_password = "";// password for authentication
 const int mqtt_port = 1883;
 
 WiFiClient espClient;
@@ -47,7 +47,7 @@ void setup() {
  client.setServer(mqtt_broker, mqtt_port);
  client.setCallback(callback);
  while (!client.connected()) {
-     String client_id = "esp32-client-";
+     String client_id = "Monedas";
      client_id += String(WiFi.macAddress());
      Serial.printf("The client %s connects to the public mqtt broker\n", client_id.c_str());
      if (client.connect(client_id.c_str(), mqtt_username, mqtt_password)) {
@@ -59,7 +59,7 @@ void setup() {
      }
  }
  
- client.subscribe("teclado/enviar");
+  client.subscribe("maquina/autentificacion");
 
 }
 
@@ -80,7 +80,7 @@ void callback(char *topic, byte *payload, unsigned int length) {
       autentificacion += (char) payload[j];
   }
 
-  if(String (topic) == "teclado/enviar")
+  if(String (topic) == "maquina/autentificacion")
   {
 
     if(autentificacion == "true"){
