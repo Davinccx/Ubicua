@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Generar Datos</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="../img/favicon.png">
+        <link rel="stylesheet" type="text/css" href="../css/admin/generarDatos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+        <script>
+            function loadUsername() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("username").innerText = this.responseText;
+                    }
+                };
+                xhr.open("GET", "userLogin", true);
+                xhr.send();
+            }
+        </script>
+       
+
+        
+    </head>
+    <body onload="loadUsername()">
+        <div class="dashboard">
+            <div class="navbar">
+                <img src="../img/favicon.png" style="height:45px;">
+                <a href="home.html"><i class="fa fa-home"></i> Home</a>
+                <a href="login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
+                <a href="register.html"><i class="fa fa-user-plus"></i> Register</a>
+                <a href="adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
+            </div>
+
+            <div class="menu-vertical">
+                <div class="user-photo">
+                    <img src="../img/adminUser.png" alt="fotito">
+                </div>
+                <ul>
+                    <li class="welcome-user">Bienvenido,<span id="username"></span>!</li>
+                    <li><a href="ventasAdmin.html"><i class="fa fa-shopping-cart"></i>Compras</a></li>
+                    <li><a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a></li>
+                    <li><a href="productosAdmin.html"><i class="fa fa-box"></i> Productos</a></li>
+                    <li><a href="maquinasAdmin.html"><i class="fa fa-cog"></i> Maquinas</a></li>
+                    <li><a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a></li>
+                    <li><a href="../login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
+
+                </ul>
+            </div>
+            
+           
+
+            <div class="centered-container">
+               <form>
+                
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" readonly>
+                    </div>
+                    <div>
+                        <label for="id">Username</label>
+                        <input type="text" id="user_name" readonly>
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="text" id="password" readonly>
+                    </div>
+                    <div>
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" readonly>
+                    </div>
+                    
+                    <div>
+                        <label for="saldo">Saldo</label>
+                        <input type="text" id="saldo" readonly>
+                    </div>
+                   
+                   <div>
+                        <label for="token">Saldo</label>
+                        <input type="text" id="token" readonly>
+                    </div>
+                  
+                    <input id="boton-generar" type="button" value="Generar User">
+                    
+                </form>
+                           
+            
+               
+            </div>
+
+
+
+        </div>
+         <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('boton-generar').addEventListener('click', function() {
+                fetch('http://localhost:8080/Vendify/GenerateData', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.getElementById('email').value = data.email;
+                        document.getElementById('user_name').value = data.username;
+                        document.getElementById('password').value = data.password;
+                        document.getElementById('telefono').value = data.telefono;
+                        document.getElementById('saldo').value = data.saldo;
+                        document.getElementById('token').value = data.token;
+                        alert('El usuario se ha generado correctamente');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+        </script>
+    
+        
+       
+
+
+    </body>
+</html>
+
+

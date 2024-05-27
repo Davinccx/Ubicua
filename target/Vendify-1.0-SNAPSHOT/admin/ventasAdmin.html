@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vendify Dashboard</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="img/favicon.png">
+        <link rel="stylesheet" type="text/css" href="../css/admin/ventasAdmin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+
+        <script>
+            function loadUsername() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("username").innerText = this.responseText;
+                    }
+                };
+                xhr.open("GET", "userLogin", true);
+                xhr.send();
+            }
+        </script>
+    </head>
+    <body onload="loadUsername()">
+        <div class="dashboard">
+            <div class="navbar">
+                <img src="../img/favicon.png" style="height:45px;">
+                <a href="../home.html"><i class="fa fa-home"></i> Home</a>
+                <a href="../login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
+                <a href="../register.html"><i class="fa fa-user-plus"></i> Register</a>
+                <a href="../adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
+            </div>
+
+            <div class="menu-vertical">
+                <div class="user-photo">
+                    <img src="../img/adminUser.png" alt="fotito">
+                </div>
+                <ul>
+                    <li class="welcome-user">Bienvenido,<span id="username"></span>!</li>
+                    <li><a href="ventasAdmin.html"><i class="fa fa-shopping-cart"></i>Compras</a></li>
+                    <li><a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a></li>
+                    <li><a href="productosAdmin.html"><i class="fa fa-box"></i> Productos</a></li>
+                    <li><a href="maquinasAdmin.html"><i class="fa fa-cog"></i> Maquinas</a></li>
+                    <li><a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a></li>
+                    <li><a href="../login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
+
+                </ul>
+            </div>
+            
+           
+
+            <div class="centered-container">
+                <div id="tabla-container"></div>
+               
+            </div>
+
+
+
+        </div>
+
+        <script>
+
+            function fetchAndDisplayTable() {
+                fetch('http://localhost:8080/Vendify/getVentas') // Asegúrate de que la URL sea correcta
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok ' + response.statusText);
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            let tabla = '<table border="1">';
+                            tabla += '<tr><th>ID Venta</th><th>ID Usuario</th><th>ID Producto</th><th>Acciones</th></tr>';
+                            data.forEach(objeto => {
+                                tabla += `<tr>`;
+                                tabla += `<td id= "editable-cell-1" id="id_venta">${objeto.id_venta}</td>`;
+                                tabla += `<td contenteditable="false" id="id_user">${objeto.id_user}</td>`;
+                                tabla += `<td contenteditable="false" id="id_producto">${objeto.id_producto}</td>`;
+                                tabla += `<td>
+                            <i class="fa fa-eye edit-icon" style="cursor:pointer;" onclick="cerrarPopup()"></i>
+                            &nbsp;
+                            <i class="fa fa-trash delete-icon" style="cursor:pointer;" onclick="eliminarCompra(${objeto.id_venta})"></i>
+                          </td>`;
+                                tabla += `</tr>`;
+                            });
+                            tabla += '</table>';
+                            document.getElementById('tabla-container').innerHTML = tabla;
+                        })
+                        .catch(error => {
+                            console.error('Fetch error:', error);
+                            document.getElementById('tabla-container').innerHTML = 'Error al cargar los datos.';
+                        });
+            }
+
+            // Ejecuta la función cuando la ventana se carga
+            window.onload = function () {
+                fetchAndDisplayTable();
+                loadUsername();
+            };
+
+            function eliminarCompra(id_venta) {
+                if (confirm('¿Estás seguro de que deseas eliminar esta compra?')) {
+                    // Hacer la solicitud DELETE al servlet
+                    fetch(`http://localhost:8080/Vendify/deleteVenta?id_venta=${id_venta}`, {
+                        method: 'DELETE'
+                    })
+                            .then(response => {
+                                if (response.ok) {
+                                    // Eliminación exitosa, puedes recargar la página o realizar alguna otra acción
+                                    location.reload(); // Recargar la página
+                                } else {
+                                    // Mostrar un mensaje de error o realizar otra acción en caso de error
+                                    console.error('Error al eliminar el usuario');
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error al realizar la solicitud:', error);
+                            });
+                }
+            }
+            
+            function verCompra(id_venta){
+               // Llamada fetch aquí
+                fetch(`http://localhost:8080/Vendify/getVentaFromId?id_venta=${id_venta}`)
+                .then(response => {
+                  if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                  }
+                  return response.json();
+                })
+                .then(data => {
+                  document.getElementById('contenidoCompra').innerHTML = 'Detalles de la compra: ' + JSON.stringify(data);
+                  document.getElementById('popupCompra').style.display = 'block';
+                })
+                .catch(error => {
+                  console.error('Fetch error:', error);
+                  document.getElementById('tabla-container').innerHTML = 'Error al cargar los datos.';
+                });
+
+            }
+            
+            function cerrarPopup() {
+                document.getElementById('tabla-container').style.display = 'none';
+            }
+           
+        </script>
+    </body>
+</html>
+
+
