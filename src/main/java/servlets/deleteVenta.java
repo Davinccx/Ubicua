@@ -33,7 +33,7 @@ public class deleteVenta extends HttpServlet {
             Connection con = conector.obtainConnection(true);
             response.setContentType("text/html;charset=UTF-8");
 
-            String sql = "DELETE FROM ventas WHERE id_venta = ?";
+            String sql = "DELETE FROM ventas WHERE id = ?";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, Integer.parseInt(id));
             Log.log.info("Query=> {}", statement.toString());

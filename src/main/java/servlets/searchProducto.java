@@ -32,10 +32,10 @@ public class searchProducto extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
 
-            HttpSession session = request.getSession();
+            HttpSession session = request.getSession(false);
 
             if (session != null) {
-                String productoBuscado = (String) session.getAttribute("nombre_producto");
+                String productoBuscado = request.getParameter("nombre_producto");
 
                 if (productoBuscado != null) {
                     ArrayList<Producto> productos = Logic.getProductosFromDB();
@@ -63,12 +63,12 @@ public class searchProducto extends HttpServlet {
                     Log.log.info("JSON Values => {}", jsonProductos);
                     out.println(jsonProductos);
                 } else {
-                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Sesión no iniciada.");
-                    Log.log.error("Usuario no loggeado");
+                    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "No se proporcionó el nombre del producto.");
+                    Log.log.error("No se proporcionó el nombre del producto.");
                 }
             } else {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Sesión no iniciada.");
-                Log.log.error("Bad Request from server");
+                Log.log.error("Sesión no iniciada.");
             }
         } catch (NumberFormatException nfe) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error en el servidor.");

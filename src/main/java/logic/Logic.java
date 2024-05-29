@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.List;
 
 import java.util.Random;
 
@@ -194,9 +195,10 @@ public class Logic {
             Log.log.info("Query=> {}", ps.toString());
             while (rs.next()) {
                 Venta v = new Venta();
-                v.setId_venta(rs.getInt("id_venta"));
+                v.setId_venta(rs.getInt("id"));
                 v.setId_producto(rs.getInt("id_producto"));
-                v.setId_user(rs.getInt("id_user"));
+                v.setId_user(rs.getInt("id_usuario"));
+                v.setId_maquina(rs.getInt("id_maquina"));
 
                 ventas.add(v);
             }
@@ -436,6 +438,82 @@ public class Logic {
         
     }
     
+    public static List<Integer> getProductsID(){
+         List<Integer> listaIds = new ArrayList<>();
+
+        try {
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+
+            Log.log.debug("DataBase connected");
+
+            String sql = "SELECT id FROM productos"; 
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+
+            while (rs.next()) {
+                listaIds.add(rs.getInt("id"));
+            }
+
+        } catch (Exception e) {
+            Log.log.error("Error: {}", e);
+        } 
+
+        return listaIds;
+    }
     
+    public static List<Integer> getUsersID(){
+         List<Integer> listaIds = new ArrayList<>();
+
+        try {
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+
+            Log.log.debug("DataBase connected");
+
+            String sql = "SELECT id FROM users"; 
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+
+            while (rs.next()) {
+                listaIds.add(rs.getInt("id"));
+            }
+
+        } catch (Exception e) {
+            Log.log.error("Error: {}", e);
+        } 
+
+        return listaIds;
+    }
+    
+    public static List<Integer> getMaquinasID(){
+         List<Integer> listaIds = new ArrayList<>();
+
+        try {
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+
+            Log.log.debug("DataBase connected");
+
+            String sql = "SELECT id FROM maquina"; 
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+
+            while (rs.next()) {
+                listaIds.add(rs.getInt("id"));
+            }
+
+        } catch (Exception e) {
+            Log.log.error("Error: {}", e);
+        } 
+
+        return listaIds;
+    }
 
 }

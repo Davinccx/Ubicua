@@ -16,12 +16,13 @@
                         document.getElementById("username").innerText = this.responseText;
                     }
                 };
-                xhr.open("GET", "userLogin", true);
+                xhr.open("GET", "../userLogin", true);
                 xhr.send();
             }
         </script>
     </head>
-    <body onload="loadUsername()">s
+    <body onload="loadUsername()">
+      
 
         <div class="dashboard">
             <div class="navbar">
@@ -44,19 +45,20 @@
                     <li><a href="maquinasAdmin.html"><i class="fa fa-cog"></i> Maquinas</a></li>
                     <li><a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a></li>
                     <li><a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
-                    
+
 
                 </ul>
             </div>
 
-            <div class="centered-container">
-                <div id="tabla-container"></div>
-            </div>
-
-
 
         </div>
 
+        <div class="centered-container">
+            <div id="tabla-container"></div>
+        </div>
+        
+         
+        
         <script>
 
             function fetchAndDisplayTable() {
@@ -187,13 +189,26 @@
                 icon.classList.remove("fa-save");
                 icon.classList.add("fa-edit");
                 icon.setAttribute("onclick", `editarUsuario(this, ${user_id})`);
-            } // Falta esta llave de cierre para la función guardarCambios
+            } 
 
 
 
 
 
         </script>
+        
+        <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
 
 
     </body>

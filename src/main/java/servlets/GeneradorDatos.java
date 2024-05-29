@@ -24,6 +24,30 @@ public class GeneradorDatos {
         "Fox", "Dog", "Cat", "Mouse", "Lion", "Tiger", "Bear", "Wolf"
     };
     
+    private static final String[] PRODUCTS = {
+          "Patatas fritas", "Barra de Chocolate", "Galletas", "Refresco", "Agua Mineral",
+          "Chicles", "Zumo de Naranja","Cacahuetes"
+    };
+    
+    private static final String[] DESCS = {
+    
+        "Mejor producto de Vendify", "Rebajado un 25%","Descripción aleatoria", "Rebajado un 50%", "A los niños les encanta"
+    
+    };
+    
+    private static final String[] LOCATIONS = { "Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", 
+            "Málaga", "Murcia", "Palma de Mallorca", "Las Palmas de Gran Canaria", 
+            "Bilbao", "Alicante", "Córdoba", "Valladolid", "Vigo", 
+            "Gijón", "Hospitalet de Llobregat", "Vitoria", "La Coruña", 
+            "Granada", "Elche", "Oviedo", "Badalona", "Cartagena", 
+            "Tarrasa", "Jerez de la Frontera", "Sabadell", "Móstoles", 
+            "Santa Cruz de Tenerife", "Pamplona", "Almería", "Alcalá de Henares", 
+            "Fuenlabrada", "Leganés", "San Sebastián", "Getafe", "Burgos", 
+            "Albacete", "Santander", "Castellón de la Plana", "Alcorcón", 
+            "San Cristóbal de La Laguna", "Logroño", "Badajoz", "Salamanca", 
+            "Huelva", "Marbella", "Lérida", "Tarragona", "León", "Cádiz"
+    };
+    
     private static final String UPPERCASE_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private static final String LOWERCASE_LETTERS = "abcdefghijklmnopqrstuvwxyz";
     private static final String DIGITS = "0123456789";
@@ -94,5 +118,28 @@ public class GeneradorDatos {
 
         return new String(passwordArray);
     }
+    
+    public static String generarNombreProducto(){
+    
+        return PRODUCTS[RANDOM.nextInt(PRODUCTS.length)];
+    
+    }
+    
+    public static String generarDesc(){
+        
+        return DESCS[RANDOM.nextInt(DESCS.length)];
+    }
 
+    
+    public static int generarPrecio(){
+    
+        return RANDOM.nextInt(6)+1;
+        
+    }
+    
+    public static String generarLocalizacion(){
+        
+        return LOCATIONS[RANDOM.nextInt(LOCATIONS.length)];
+        
+    }
 }

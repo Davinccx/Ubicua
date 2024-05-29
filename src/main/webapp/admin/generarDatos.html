@@ -17,7 +17,7 @@
                         document.getElementById("username").innerText = this.responseText;
                     }
                 };
-                xhr.open("GET", "userLogin", true);
+                xhr.open("GET", "../userLogin", true);
                 xhr.send();
             }
         </script>
@@ -29,10 +29,10 @@
         <div class="dashboard">
             <div class="navbar">
                 <img src="../img/favicon.png" style="height:45px;">
-                <a href="home.html"><i class="fa fa-home"></i> Home</a>
-                <a href="login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
-                <a href="register.html"><i class="fa fa-user-plus"></i> Register</a>
-                <a href="adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
+                <a href="../home.html"><i class="fa fa-home"></i> Home</a>
+                <a href="../login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
+                <a href="../register.html"><i class="fa fa-user-plus"></i> Register</a>
+                <a href="../adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
             </div>
 
             <div class="menu-vertical">
@@ -50,12 +50,110 @@
 
                 </ul>
             </div>
-            
-           
-
-            <div class="centered-container">
+        </div>
+        
+         <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('boton-generar').addEventListener('click', function() {
+                fetch('http://localhost:8080/Vendify/GenerateUser', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.getElementById('email').value = data.email;
+                        document.getElementById('user_name').value = data.username;
+                        document.getElementById('password').value = data.password;
+                        document.getElementById('telefono').value = data.telefono;
+                        document.getElementById('saldo').value = data.saldo;
+                        document.getElementById('token').value = data.token;
+                        alert('El usuario se ha generado correctamente');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+        </script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('boton-generar-producto').addEventListener('click', function() {
+                fetch('http://localhost:8080/Vendify/GenerateProduct', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.getElementById('nombre_producto').value = data.nombre;
+                        document.getElementById('desc_producto').value = data.descripcion;
+                        document.getElementById('precio').value = data.precio;
+                        alert('El producto se ha generado correctamente');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+        </script>
+    
+         <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('boton-generar-maquina').addEventListener('click', function() {
+                fetch('http://localhost:8080/Vendify/GenerateMachine', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.getElementById('location').value = data.location;
+                        document.getElementById('saldoMaquina').value = data.saldo;
+                        document.getElementById('id_product').value = data.id_producto;
+                        alert('La maquina se ha generado correctamente');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+        </script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('boton-generar-venta').addEventListener('click', function() {
+                fetch('http://localhost:8080/Vendify/GenerateVenta', {
+                    method: 'POST'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert('Error: ' + data.error);
+                    } else {
+                        document.getElementById('id_user').value = data.id_usuario;
+                        document.getElementById('id_product2').value = data.id_producto;
+                        document.getElementById('id_maquina').value = data.id_maquina;
+                        alert('La venta se ha generado correctamente');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        });
+        </script>
+        
+          <div class="centered-container">
                <form>
-                
+                   <h2>Generar Usuario</h2>
                     <div>
                         <label for="email">Email</label>
                         <input type="email" id="email" readonly>
@@ -79,52 +177,102 @@
                     </div>
                    
                    <div>
-                        <label for="token">Saldo</label>
+                        <label for="token">User Token</label>
                         <input type="text" id="token" readonly>
                     </div>
                   
                     <input id="boton-generar" type="button" value="Generar User">
                     
                 </form>
-                           
+                       
+                
+                <form>
+                    <h2>Generar Producto</h2>
+                    <div>
+                        <label for="nombre_producto">Nombre Producto</label>
+                        <input type="text" id="nombre_producto" readonly>
+                        
+                    </div>
+                    
+                    <div>
+                        <label for="desc_producto">Descripción</label>
+                        <input type="text" id="desc_producto" readonly>
+                        
+                    </div>
+                    
+                    <div>
+                        <label for="precio">Precio</label>
+                        <input type="text" id="precio" readonly>   
+                    </div>
+                    
+                    <input id="boton-generar-producto" type="button" value="Generar Producto">
+                    
+                </form>
+                
+                <form>
+                    <h2>Generar Máquina</h2>
+                    <div>
+                        <label for="location">Localización</label>
+                        <input type="text" id="location" readonly>
+                        
+                    </div>
+                    
+                    <div>
+                        <label for="saldo">Saldo</label>
+                        <input type="text" id="saldoMaquina" readonly>
+                        
+                    </div>
+                    
+                    <div>
+                        <label for="id_product">ID Producto</label>
+                        <input type="text" id="id_product" readonly>   
+                    </div>
+                    
+                    <input id="boton-generar-maquina" type="button" value="Generar Maquina">
+                    
+                </form>
+              
+              
+                <form>
+                    <h2>Generar Venta</h2>
+                    <div>
+                        <label for="id_user">ID User</label>
+                        <input type="text" id="id_user" readonly>
+                        
+                    </div>
+                    
+                    <div>
+                        <label for="id_product2">ID Producto</label>
+                        <input type="text" id="id_product2" readonly>
+                        
+                    </div>
+                    
+                    <div>
+                        <label for="id_maquina">ID Maquina</label>
+                        <input type="text" id="id_maquina" readonly>   
+                    </div>
+                    
+                    <input id="boton-generar-venta" type="button" value="Generar Venta">
+                    
+                </form>
             
-               
+            
             </div>
-
-
-
-        </div>
-         <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('boton-generar').addEventListener('click', function() {
-                fetch('http://localhost:8080/Vendify/GenerateData', {
-                    method: 'POST'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert('Error: ' + data.error);
-                    } else {
-                        document.getElementById('email').value = data.email;
-                        document.getElementById('user_name').value = data.username;
-                        document.getElementById('password').value = data.password;
-                        document.getElementById('telefono').value = data.telefono;
-                        document.getElementById('saldo').value = data.saldo;
-                        document.getElementById('token').value = data.token;
-                        alert('El usuario se ha generado correctamente');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-        </script>
-    
         
-       
-
-
+        
+         <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+        
     </body>
 </html>
 

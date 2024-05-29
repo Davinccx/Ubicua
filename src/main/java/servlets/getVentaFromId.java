@@ -46,7 +46,6 @@ public class getVentaFromId extends HttpServlet {
                     String jsonVenta = new Gson().toJson(newVenta);
                     Log.log.info("JSON => {}", jsonVenta);
                     out.println(jsonVenta);
-
                 }
 
             }

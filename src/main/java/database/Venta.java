@@ -5,6 +5,7 @@ public class Venta {
     private int id_venta;
     private int id_user;
     private int id_producto;
+    private int id_maquina;
     
     public Venta() {
         
@@ -32,6 +33,14 @@ public class Venta {
 
     public void setId_producto(int id_producto) {
         this.id_producto = id_producto;
+    }
+    
+     public int getId_maquina() {
+        return id_maquina;
+    }
+
+    public void setId_maquina(int id_maquina) {
+        this.id_maquina = id_maquina;
     }
     
     

@@ -44,7 +44,7 @@
                     <img src="img/user.png" alt="fotito">
                 </div>
                 <ul>
-                    <li class=" welcome-user">Bienvenido,<span id="username"></span>!</li>
+                    <li class=" welcome-user"><span id="username"></span></li>
                     <li><a href="ventasDashboard.html"><i class="fa fa-shopping-cart"></i> Compras</a></li>
                     <li><a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a></li>
                     <li><a href="searchDashboard.html"><i class="fa fa-search"></i> Buscar</a></li>
@@ -57,63 +57,76 @@
         </div>
         
         <script>
-            function searchProducto(product_id) {
-             
- 
-                
-                var resultadosDiv = document.getElementById("resultados");
+        function searchProducto(product_id) {
+            var resultadosDiv = document.getElementById("resultados");
 
-                // Realizar una solicitud AJAX al servlet para buscar productos
-                var xhr = new XMLHttpRequest();
-                xhr.open("GET", "http://localhost:8080/Vendify/searchProducto?nombre_producto="+ product_id, true);
+            // Realizar una solicitud AJAX al servlet para buscar productos
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", `http://localhost:8080/Vendify/searchProducto?nombre_producto=${product_id}`, true);
 
-                xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // Crear una tabla y agregarla al div de resultados
-                    var tabla = document.createElement("table");
-                    tabla.border = "1";
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        // Crear una tabla y agregarla al div de resultados
+                        var tabla = document.createElement("table");
+                        tabla.border = "1";
 
-                    // Cabecera de la tabla
-                    var cabecera = tabla.createTHead();
-                    var filaCabecera = cabecera.insertRow();
-                    var th1 = filaCabecera.insertCell(0);
-                    var th2 = filaCabecera.insertCell(1);
-                    var th3 = filaCabecera.insertCell(2);
-                    var th4 = filaCabecera.insertCell(3);
-                    th1.innerHTML = "Nombre";
-                    th2.innerHTML = "Descripcion";
-                    th3.innerHTML = "Localizacion";
-                    th4.innerHTML = "Precio";
+                        // Cabecera de la tabla
+                        var cabecera = tabla.createTHead();
+                        var filaCabecera = cabecera.insertRow();
+                        var th1 = filaCabecera.insertCell(0);
+                        var th2 = filaCabecera.insertCell(1);
+                        var th3 = filaCabecera.insertCell(2);
+                        var th4 = filaCabecera.insertCell(3);
+                        th1.innerHTML = "Nombre";
+                        th2.innerHTML = "Descripción";
+                        th3.innerHTML = "Localización";
+                        th4.innerHTML = "Precio";
 
-                    // Cuerpo de la tabla
-                    var cuerpo = tabla.createTBody();
-                    cuerpo.innerHTML = xhr.responseText;
+                        // Cuerpo de la tabla
+                        var cuerpo = tabla.createTBody();
 
-                    // Limpiar el div de resultados y agregar la tabla
-                    resultadosDiv.innerHTML = "";
-                    resultadosDiv.appendChild(tabla);
-                }else{
-                    
-                    console.error("Error en la solicitud: " + xhr.status + " - " + xhr.statusText);
-                    resultadosDiv.innerHTML = "Error en la solicitud. Por favor, inténtelo de nuevo más tarde.";
-                    
+                        // Suponiendo que el servidor devuelve un JSON array de productos
+                        try {
+                            var productos = JSON.parse(xhr.responseText);
+                            productos.forEach(function(producto) {
+                                var fila = cuerpo.insertRow();
+                                var celdaNombre = fila.insertCell(0);
+                                        var celdaDescripcion = fila.insertCell(1);
+                                        var celdaLocalizacion = fila.insertCell(2);
+                                        var celdaPrecio = fila.insertCell(3);
+                                        celdaNombre.innerHTML = producto.nombre_producto;
+                                        celdaDescripcion.innerHTML = producto.descripcion;
+                                        celdaLocalizacion.innerHTML = producto.localizacion;
+                                        celdaPrecio.innerHTML = producto.precio;
+                                    });
+                                } catch (e) {
+                                    resultadosDiv.innerHTML = "Error al procesar la respuesta del servidor.";
+                                    console.error("Error al procesar JSON: " + e);
+                                    return;
+                                }
+
+                                // Limpiar el div de resultados y agregar la tabla
+                                resultadosDiv.innerHTML = "";
+                                resultadosDiv.appendChild(tabla);
+                            } else {
+                                console.error("Error en la solicitud: " + xhr.status + " - " + xhr.statusText);
+                                resultadosDiv.innerHTML = "Error en la solicitud. Por favor, inténtelo de nuevo más tarde.";
+                            }
+                        }
+                    };
+                    xhr.send();
                 }
-                };
-                xhr.send();
-            }
-            
-            
-            
         </script>
        
         <div class="centered-container">
-                <h2>Búsqueda de Productos On-line</h2>
-                <form action="/searchProducts" method="get"> <!-- Update the action attribute with the correct URL -->
+            <h2>Búsqueda de Productos On-line</h2>
+            <form> 
                 <input type="text" id="searchQuery" name="query" placeholder="Buscar productos...">
-                <input id="boton-editar" type="button" value="Buscar " onclick="searchProducto(document.getElementById('searchQuery').value)">
-                </form>
-                <div id="resultados"></div>
-        </div>  
+                <input id="boton-editar" type="button" value="Buscar" onclick="searchProducto(document.getElementById('searchQuery').value)">
+            </form>
+            <div id="resultados"></div>
+        </div>
 
     </body>
 </html>
