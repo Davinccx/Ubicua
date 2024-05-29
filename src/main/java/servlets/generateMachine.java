@@ -38,20 +38,18 @@ public class generateMachine extends HttpServlet {
 
             String location = GeneradorDatos.generarLocalizacion();
             int saldo = random.nextInt(10) + 1;
-            List<Integer> productsID = Logic.getProductsID();
             
-            int product = productsID.get(random.nextInt(productsID.size())+1);
             
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
 
-            String sql = "INSERT INTO maquina(location, saldo, id_producto) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO maquina(location, saldo) VALUES (?, ?)";
             PreparedStatement statement = con.prepareStatement(sql);
             Log.log.info("Query => {}", statement);
 
             statement.setString(1, location);
             statement.setInt(2, saldo);
-            statement.setInt(3, product);
+            
             
 
             int result = statement.executeUpdate();
@@ -61,7 +59,7 @@ public class generateMachine extends HttpServlet {
                 JSONObject json = new JSONObject();
                 json.put("location", location);
                 json.put("saldo", saldo);
-                json.put("id_producto",product);
+                
                 
                 out.print(json.toString());
             } else {

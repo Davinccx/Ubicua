@@ -43,7 +43,7 @@ public class generateVenta extends HttpServlet {
             int machine = machinesID.get(random.nextInt(machinesID.size()) + 1);
             int user = usersID.get(random.nextInt(usersID.size()) + 1);
             int product = productsID.get(random.nextInt(productsID.size()) + 1);
-
+            
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
 

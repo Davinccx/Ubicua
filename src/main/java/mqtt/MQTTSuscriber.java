@@ -97,7 +97,7 @@ public class MQTTSuscriber implements MqttCallback {
                 maquina.setId(json.getInt("id"));
                 maquina.setLocation(json.getString("location"));
                 maquina.setSaldo(json.getInt("saldo"));
-                maquina.setId_producto(json.getInt("id_producto"));
+            
             
                   
             }

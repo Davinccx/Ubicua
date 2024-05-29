@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.List;
 import logic.Log;
 import java.util.Random;
 import logic.Logic;
@@ -36,19 +37,21 @@ public class generateProduct extends HttpServlet {
             String nombre = GeneradorDatos.generarNombreProducto();
             String descripcion = GeneradorDatos.generarDesc();
             int precio = GeneradorDatos.generarPrecio();
+            List<Integer> machinesID = Logic.getMaquinasID();
+            int id_maquina = machinesID.get(random.nextInt(machinesID.size())+1);
             
-
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
 
           
-                String sql = "INSERT INTO productos(nombre, precio, descripcion) VALUES (?, ?, ?)";
+                String sql = "INSERT INTO productos(nombre, precio, descripcion, id_maquina) VALUES (?, ?, ?, ?)";
                 PreparedStatement statement = con.prepareStatement(sql);
                 Log.log.info("Query => {}", statement);
 
                 statement.setString(1, nombre);
                 statement.setInt(2, precio);
                 statement.setString(3, descripcion);
+                statement.setInt(4, id_maquina);
                 
                 int result = statement.executeUpdate();
 
@@ -58,6 +61,7 @@ public class generateProduct extends HttpServlet {
                     json.put("nombre", nombre);
                     json.put("descripcion", descripcion);
                     json.put("precio", precio);
+                    json.put("id_maquina", id_maquina);
                     out.print(json.toString());
                 } else {
                     // Manejar el caso de que la inserción falle

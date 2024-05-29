@@ -6,7 +6,7 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private int precio;
-    
+    private int id_maquina;
 
     public Producto() {
         
@@ -44,6 +44,15 @@ public class Producto {
         this.precio = precio;
     }
 
-  
+    public void setIdMaquina(int id_maquina){
+    
+        this.id_maquina = id_maquina;
+    
+    }
+    
+    public int getIdMaquina(){
+    
+        return id_maquina;
+    }
 
 }

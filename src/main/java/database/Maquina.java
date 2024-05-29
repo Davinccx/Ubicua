@@ -7,7 +7,6 @@ public class Maquina {
     private int id;
     private String location;
     private int saldo;
-    private int id_producto;
    
 
     public Maquina() {
@@ -39,14 +38,7 @@ public class Maquina {
         this.saldo = saldo;
     }
 
-    public int getId_producto() {
-        return id_producto;
-    }
-
-    public void setId_producto(int id_productos) {
-        this.id_producto = id_productos;
-    }
-    
+ 
    
 
     

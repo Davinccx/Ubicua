@@ -65,14 +65,14 @@
                         })
                         .then(data => {
                             let tabla = '<table border="1">';
-                            tabla += '<tr><th>ID Producto</th><th>Nombre</th><th>Precio</th><th>Descripcion</th><th>Acciones</th></tr>';
+                            tabla += '<tr><th>ID Producto</th><th>Nombre</th><th>Precio</th><th>Descripcion</th><th>ID Máquina</th><th>Acciones</th></tr>';
                             data.forEach(objeto => {
                                 tabla += `<tr>`;
                                 tabla += `<td id= "editable-cell-1" id="id_producto">${objeto.id}</td>`;
                                 tabla += `<td contenteditable="false" id="nombre">${objeto.nombre}</td>`;
                                 tabla += `<td contenteditable="false" id="precio">${objeto.precio}</td>`;
                                 tabla += `<td contenteditable="false" id="descripcion">${objeto.descripcion}</td>`;
-                                
+                                tabla += `<td contenteditable="false" id="id_maquina">${objeto.id_maquina}</td>`;
                                 tabla += `<td>
                             
                             <i class="fa fa-edit edit-icon" style="cursor:pointer;" onclick="editarProducto(this, ${objeto.id})"></i>

@@ -1,0 +1,10 @@
+-- VENDIFY MQTT LOGS --
+2024-05-29 18:03:20.582 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 18:11:13.457 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 19:20:41.305 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 19:22:02.976 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 19:23:54.373 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 19:27:23.167 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 19:31:36.399 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 19:34:58.595 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+
+2024-05-29 19:44:48.943 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:46) logmqtt ### Subscribed to maquina/+

@@ -38,6 +38,8 @@ public class Logic {
                 producto.setNombre(rs.getString("nombre"));
                 producto.setDescripcion(rs.getString("descripcion"));
                 producto.setPrecio(rs.getInt("precio"));
+                producto.setIdMaquina(rs.getInt("id_maquina"));
+                
                 
                 productos.add(producto);
             }
@@ -156,7 +158,6 @@ public class Logic {
                 m.setId(rs.getInt("id"));
                 m.setLocation(rs.getString("location"));
                 m.setSaldo(rs.getInt("saldo"));
-                m.setId_producto(rs.getInt("id_producto"));
                 maquinas.add(m);
             }
         } catch (SQLException e) {
@@ -303,15 +304,15 @@ public class Logic {
             int id = machine.getId();
             String location = machine.getLocation();
             int saldo = machine.getSaldo();
-            int id_producto = machine.getId_producto();
+           
 
-            String sql = "INSERT  INTO maquina(location,saldo,id_producto) VALUES (?,?,?)";
+            String sql = "INSERT  INTO maquina(location,saldo) VALUES (?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
             
             ps.setString(1, location);
             ps.setInt(2, saldo);
-            ps.setInt(3, id_producto);
+            
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
 
@@ -342,19 +343,21 @@ public class Logic {
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
             Log.log.debug("DataBase connected");
+            
             int id =producto.getId();
             String nombre = producto.getNombre();
             int precio = producto.getPrecio();
             String descripcion = producto.getDescripcion();
-            
+            int id_maquina = producto.getIdMaquina();
 
-            String sql = "INSERT  INTO productos(nombre,precio,descripcion) VALUES (?,?,?)";
+            String sql = "INSERT  INTO productos(nombre,precio,descripcion,id_maquina) VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
             
             ps.setString(1, nombre);
             ps.setInt(2, precio);
             ps.setString(3, descripcion);
+            ps.setInt(4, id_maquina);
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
 
@@ -387,15 +390,16 @@ public class Logic {
             Log.log.debug("DataBase connected");
             int id_user =venta.getId_venta();
             int id_producto = venta.getId_producto();
-            
+            int id_maquina = venta.getId_maquina();
             
 
-            String sql = "INSERT INTO ventas(id_user,id_producto) VALUES (?,?)";
+            String sql = "INSERT INTO ventas(id_usuario,id_producto,id_maquina) VALUES (?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
             
             ps.setInt(1, id_user);
             ps.setInt(2, id_producto);
+            ps.setInt(3, id_maquina);
             
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());

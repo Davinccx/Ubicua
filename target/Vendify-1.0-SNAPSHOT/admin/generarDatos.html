@@ -93,6 +93,7 @@
                         document.getElementById('nombre_producto').value = data.nombre;
                         document.getElementById('desc_producto').value = data.descripcion;
                         document.getElementById('precio').value = data.precio;
+                         document.getElementById('maquina').value = data.id_maquina;
                         alert('El producto se ha generado correctamente');
                     }
                 })
@@ -116,7 +117,7 @@
                     } else {
                         document.getElementById('location').value = data.location;
                         document.getElementById('saldoMaquina').value = data.saldo;
-                        document.getElementById('id_product').value = data.id_producto;
+                       
                         alert('La maquina se ha generado correctamente');
                     }
                 })
@@ -205,6 +206,11 @@
                         <input type="text" id="precio" readonly>   
                     </div>
                     
+                    <div>
+                        <label for="maquina">ID Máquina</label>
+                        <input type="text" id="maquina" readonly>   
+                    </div>
+                    
                     <input id="boton-generar-producto" type="button" value="Generar Producto">
                     
                 </form>
@@ -223,10 +229,7 @@
                         
                     </div>
                     
-                    <div>
-                        <label for="id_product">ID Producto</label>
-                        <input type="text" id="id_product" readonly>   
-                    </div>
+                  
                     
                     <input id="boton-generar-maquina" type="button" value="Generar Maquina">
                     
