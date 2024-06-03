@@ -42,7 +42,7 @@ public class generateUser extends HttpServlet {
             String telefono = GeneradorDatos.generarTelefono();
             long millis = System.currentTimeMillis();
             Date fechaActual = new Date(millis);
-            String token = Logic.generateToken();
+            String matricula = Logic.generarMatricula();
 
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
@@ -50,7 +50,7 @@ public class generateUser extends HttpServlet {
             if (Logic.comprobarEmail(email)) {
                 Log.log.error("El E-mail ya existe!");
             } else {
-                String sql = "INSERT INTO users(nombre, apellido, email, password, telefono, fecha_registro, token, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO users(nombre, apellido, email, password, telefono, fecha_registro, matricula, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement statement = con.prepareStatement(sql);
                 Log.log.info("Query => {}", statement);
 
@@ -60,7 +60,7 @@ public class generateUser extends HttpServlet {
                 statement.setString(4, password);
                 statement.setString(5, telefono);
                 statement.setDate(6, fechaActual);
-                statement.setString(7, token);
+                statement.setString(7, matricula);
                 statement.setString(8, username);
 
                 int result = statement.executeUpdate();
@@ -74,7 +74,7 @@ public class generateUser extends HttpServlet {
                     json.put("password", password);
                     json.put("telefono", telefono);
                     json.put("fecha_registro", fechaActual);
-                    json.put("token", token);
+                    json.put("matricula", matricula);
                     json.put("username",username);
                     out.print(json.toString());
                 } else {

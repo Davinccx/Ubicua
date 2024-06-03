@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
 body {
   
   display: flex;
@@ -6,7 +8,7 @@ body {
   flex-direction: column;
   position: relative;
   background: linear-gradient(to left, #2F4858, #86BBD8);
-  font-family: "Verdana";
+  font-family: 'Exo', sans-serif;
   float:none;
   min-height: 100vh;
   margin:0;
@@ -20,39 +22,44 @@ body {
 
 /* Add padding to containers */
 .container {
-  padding: 8px; 
-  z-index:1;
-  flex-direction: row;
+  max-width: 400px; /* Ancho máximo del formulario */
+  margin: 50px auto; /* Centrar el formulario en la página */
+  padding: 20px; /* Agregar espacio alrededor del formulario */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo del formulario */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  z-index: 1;
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email] {
-  width: 100%;
-  padding: 10px; /* Reducido de 15px a 10px */
-  margin: 5px 0 12px 0; /* Reducido el margin-bottom */
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-  border-radius: 10px;
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espaciado interno */
+  margin-bottom: 15px; /* Margen inferior */
+  border: 1px solid #ccc; /* Borde con color gris claro */
+  border-radius: 5px; /* Bordes redondeados */
+  box-sizing: border-box; /* Incluir el padding en el ancho total */
+  transition: border-color 0.3s ease; /* Transición suave para el borde al enfocar */
 }
 
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+/* Estilos para los campos de entrada al enfocar */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+  border-color: #DADA74; /* Cambiar el color del borde al enfocar */
+  outline: none; /* Eliminar el contorno al enfocar */
 }
 
-label{
-    
-    color:#DADA74;
-    
+/* Estilos para las etiquetas de los campos de entrada */
+label {
+  display: block; /* Mostrar en bloques para alinearlos verticalmente */
+  margin-bottom: 5px; /* Margen inferior */
+  color: #333; /* Color del texto */
+  font-weight: bold; /* Negrita */
 }
-
 /* Overwrite default styles of hr */
-hr {
-  border: 1px solid #F4F3F3;
-  margin-bottom: 25px;
-}
 
 /* Set a style for the submit/register button */
 .registerbtn {
@@ -97,6 +104,7 @@ h1{
     top: 0; /* Parte superior de la pantalla */
     width: 100%; /* Extensión a lo largo de la pantalla */
     z-index: 1000; /* Mantiene la barra sobre otros elementos */
+    font-size: 1.2em;
 }
 
 .navbar img {

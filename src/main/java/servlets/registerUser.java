@@ -41,7 +41,7 @@ public class registerUser extends HttpServlet {
             String telephone = request.getParameter("telephone");
             long millis = System.currentTimeMillis();
             Date fechaActual = new Date(millis);
-            String token = Logic.generateToken();
+            String matricula = request.getParameter("matricula");
 
             // Comprobar si el email ya existe en la base de datos
             if (Logic.comprobarEmail(email)) {
@@ -50,7 +50,7 @@ public class registerUser extends HttpServlet {
                 Log.log.error("El E-mail ya existe!");
             } else {
                 // Si el email no existe, insertar el nuevo usuario
-                String sql = "INSERT INTO users(nombre, apellido, email, password, telefono, fecha_registro, token, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO users(nombre, apellido, email, password, telefono, fecha_registro, matricula, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement statement = con.prepareStatement(sql);
                 Log.log.info("Query => {}", statement);
                 statement.setString(1, nombre);
@@ -59,7 +59,7 @@ public class registerUser extends HttpServlet {
                 statement.setString(4, password);
                 statement.setString(5, telephone);
                 statement.setDate(6, fechaActual);
-                statement.setString(7, token);
+                statement.setString(7, matricula);
                 statement.setString(8, username);
                
                 int result = statement.executeUpdate();

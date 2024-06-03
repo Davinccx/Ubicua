@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
 body{
     
   display: flex;
@@ -6,7 +8,7 @@ body{
   flex-direction: column;
   position: relative;
   background: linear-gradient(to left, #2F4858, #86BBD8);
-  font-family: "Verdana";
+  font-family: 'Exo', sans-serif;
   font-size: 1.2em;
   float:none;
   min-height: 100vh;
@@ -14,9 +16,13 @@ body{
   overflow: hidden;
 }
 
+.welcome-section h1{
+  text-align: center;
+  color: #f6ae2d;
+  font-size: 50px;
+  text-shadow: 0 1px 0 #ddd, 0 2px 0 #ccc, 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 0 #acacac, 0 6px 1px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.3), 0 3px 5px rgba(0,0,0,0.2), 0 5px 10px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.2), 0 20px 20px rgba(0,0,0,0.15);
 
-
-
+}
 .navbar {
     display: flex; /* Usa Flexbox */
     justify-content: center; /* Centra los elementos horizontalmente */
@@ -189,4 +195,41 @@ body{
       border-radius: 50%;
   }
 
+}
+
+#map {
+    height: 50vh; 
+    width: calc(100% - 40px); /* Ajusta el ancho para tener en cuenta el margen */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+    margin: 20px; /* Espaciado alrededor del contenedor */
+}
+
+#parking-info-container {
+    width: calc(100% - 40px); /* Ajusta el ancho para tener en cuenta el margen */
+    margin: 0 20px 20px; /* Espaciado alrededor del contenedor */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los recuadros se ajusten en múltiples filas si es necesario */
+    justify-content: center; /* Centra los recuadros horizontalmente */
+}
+
+.parking-info {
+    background: white;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    padding: 10px; /* Espaciado interno */
+    margin: 10px; /* Espaciado externo */
+    width: calc(33% - 40px); /* Ajusta el ancho para tener en cuenta el margen */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    font-size: 14px;
+}
+
+.parking-info h3 {
+    margin: 0 0 10px; /* Espaciado inferior */
+    font-size: 16px;
+}
+
+.parking-info p {
+    margin:5px 0;
+    color: #333; /* Color del texto */
 }

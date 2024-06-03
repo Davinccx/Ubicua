@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
 body {
   
   display: flex;
@@ -6,7 +8,7 @@ body {
   flex-direction: column;
   position: relative;
   background: linear-gradient(to left, #2F4858, #86BBD8);
-  font-family: "Verdana";
+   font-family: 'Exo', sans-serif;
   font-size: 1.2em;
   float:none;
   min-height: 100vh;

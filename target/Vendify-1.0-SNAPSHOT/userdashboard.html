@@ -29,7 +29,7 @@
                             document.getElementById('email').value = data.email;
                             document.getElementById('password').value = data.password;
                             document.getElementById('telefono').value = data.telefono;
-                            document.getElementById('token').value = data.token;
+                            document.getElementById('matricula').value = data.matricula;
                         })
                         .catch(error => console.error('Error:', error));
             }
@@ -52,15 +52,15 @@
 
 
             function toggleTokenVisibility() {
-                var tokenField = document.getElementById('token');
+                var tokenField = document.getElementById('matricula');
                 var toggleButton = document.getElementById('toggle-token');
                 if (tokenField.type === 'password') {
                     tokenField.type = 'text';
-                    toggleButton.value = 'Ocultar Token';
-                    alert('ATENCIÓN: Este token es único por cada usuario, NO LO COMPARTAS CON NADIE!.')
+                    toggleButton.value = 'Ocultar Matricula';
+                    alert('ATENCIÓN:  NO LO COMPARTAS CON NADIE!.')
                 } else {
                     tokenField.type = 'password';
-                    toggleButton.value = 'Mostrar Token';
+                    toggleButton.value = 'Mostrar Matricula';
                 }
             }
             function actualizarUsuario() {
@@ -112,28 +112,19 @@
     <body>
 
         <div class="dashboard">
-            <div class="navbar">
-                <img src="img/favicon.png" alt= "fotito" style="height:45px;">
-                <a href="home.html"><i class="fa fa-home"></i> Home</a>
-                <a href="login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
-                <a href="register.html"><i class="fa fa-user-plus"></i> Register</a>
-                <a href="adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
+             <div class="navbar">
+                
+                    <a href="reservas.html"><i class="far fa-calendar-alt"></i> Tus reservas</a>
+                    <a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a>
+                    <a href="search.html"><i class="fa fa-search"></i> Buscar</a>
+                    <a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a>
+                    
+                    <span class="userphoto">
+                            <img src="../img/user.png" alt="user" style="height: 30px; margin-right: 5px;">
+                             <span id="username"></span>
+                    </span>
             </div>
 
-
-            <div class="menu-vertical">
-                <div class="user-photo">
-                    <img src="img/user.png" alt="fotito">
-                </div>
-                <ul>
-                    <li class=" welcome-user"><span id="username"></span></li>
-                    <li><a href="reservas.html"><i class="far fa-calendar-alt"></i> Tus reservas</a></li>
-                    <li><a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a></li>
-                    <li><a href="search.html"><i class="fa fa-search"></i> Buscar</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
-
-                </ul>
-            </div>
 
             <div class="centered-container">
                 <form>
@@ -163,23 +154,17 @@
                         <label for="telefono">Teléfono</label>
                         <input type="text" id="telefono" readonly>
                     </div>
-
-
-                    <input id="boton-editar" type="button" value="Editar" onclick="habilitarEdicion()">
-
-
-                </form>
-
-                <form>
+                    
                     <div>
-                        <label for="token">User Token</label>
-                        <input type="password" id="token" readonly>
+                        <label for="matricula">Matrícula</label>
+                        <input type="password" id="matricula" readonly>
                     </div>
 
-                    <input id="toggle-token" type="button" value="Mostrar Token" onclick="toggleTokenVisibility()">
-                    <br><br>
-
+                    <input id="boton-editar" type="button" value="Editar" onclick="habilitarEdicion()">
+                    <input id="toggle-token" type="button" value="Mostrar Matricula" onclick="toggleTokenVisibility()">
+                        
                 </form>
+
 
             </div>
 

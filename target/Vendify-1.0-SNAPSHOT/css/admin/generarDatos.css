@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 body {
     margin: 0;
-    font-family: "Verdana", sans-serif;
+    font-family: 'Exo', sans-serif;
     background: linear-gradient(to left, #2F4858, #86BBD8);
     display:flex;
-   
     height: 100vh;
     overflow: hidden;
 }
@@ -19,6 +19,7 @@ body {
     width: 100%; /* Extensión a lo largo de la pantalla */
     z-index: 1000; /* Mantiene la barra sobre otros elementos */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+   
 }
 
 .navbar img {
@@ -52,100 +53,33 @@ body {
     height: 100vh;
     z-index:900;
 }
-.welcome-user {
-    color: white; /* Cambia el color del texto a blanco */
-    text-align: center; /* Centra el texto */
-    /* Asegúrate de que el <li> ocupe todo el ancho disponible para que el texto pueda centrarse correctamente */
-    width: 100%;
-    /* Puedes agregar más estilos aquí si es necesario, como padding, para asegurarte de que el diseño se vea como quieres */
-}
-
-.menu-vertical {
+.admin{
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Ajusta la posición desde el borde derecho */
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    height: calc(100vh - 60px); /* Ajusta el alto */
-    width: 200px; /* Ajusta según el ancho deseado */
-    border-right: 1px solid #ccc; /* Borde a la derecha */
-    position: fixed; /* Posicionamiento fijo */
-    top: 60px; /* Inicio en la parte superior de la ventana gráfica */
-    left: 0; /* Inicio en la parte izquierda de la ventana gráfica */
-    overflow-y: auto; /* Sombra delimitadora añadida aquí */
+    align-items: center;
+    color: white
 }
-
-.menu-vertical ul {
-    list-style-type: none;
-    padding: 0;
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-}
-
-.menu-vertical ul li {
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    display: flex; /* Usa Flexbox para el centrado */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-}
-
-.menu-vertical ul li a {
-    display: flex;
-    align-items: center; /* Centra verticalmente los elementos dentro del enlace */
-    justify-content: center; /* Centra horizontalmente los elementos dentro del enlace */
-    color: white;
-    padding: 15px; /* Ajusta según necesidades */
-    text-decoration: none;
-}
-
-.menu-vertical ul li a i {
-    margin-right: 10px; /* Espaciado entre el icono y el texto */
-    font-size: 20px; /* Tamaño de los iconos */
-}
-.menu-vertical ul li a:hover {
-    color: #DADA74;
-}
-
-.user-photo {
-    text-align: center; /* Centrar la imagen en el div */
-    padding: 10px; /* Espaciado alrededor de la imagen */
-    /* Color de fondo, ajusta según tu diseño */
-}
-
-.user-photo img {
-    width: 150px; /* Ajusta el ancho de la imagen según necesites */
-    height: 150px; /* Ajusta la altura de la imagen según necesites */
-     /* Hace la imagen circular */
-    /* Otros estilos que quieras aplicar (sombras, bordes, etc.) */
-}
-
-.menu-vertical label{
-    
-   color: white;
-   display:flex;
-   align-items:center;
-   justify-content: center;
-   padding: 10px;
-    
-}
-
 /* Agregado para centrar la tabla en la pantalla */
 /* Estilo para el contenedor de los formularios */
 .centered-container {
     display:flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ocupa toda la altura visible del viewport */
-    width: 80%;
+    width: 60%;
     margin: auto;
     z-index:1;
 }
 
  form {
+     
     background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%; /* Ancho del formulario */
-    max-width: 300px; /* Ancho máximo del formulario */
+    max-width: 250px; /* Ancho máximo del formulario */
     margin: 20px;
 }
 

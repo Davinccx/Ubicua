@@ -14,7 +14,7 @@ public class User {
     private String password;
     private String telefono;
     private Date fecha_registro;   
-    private String token;
+    private String matricula;
     private String username;
 
     public User() {
@@ -50,8 +50,8 @@ public class User {
         this.fecha_registro = fecha_registro;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public void setUsername(String username) {
@@ -89,8 +89,8 @@ public class User {
         return fecha_registro;
     }
 
-    public String getToken() {
-        return token;
+    public String getMatricula() {
+        return matricula;
     }
 
     public String getUsername() {

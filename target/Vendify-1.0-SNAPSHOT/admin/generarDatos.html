@@ -26,29 +26,22 @@
         
     </head>
     <body onload="loadUsername()">
-        <div class="dashboard">
+         <div class="dashboard">
             <div class="navbar">
-                <img src="../img/favicon.png" style="height:45px;">
-                <a href="../home.html"><i class="fa fa-home"></i> Home</a>
-                <a href="../login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
-                <a href="../register.html"><i class="fa fa-user-plus"></i> Register</a>
-                <a href="../adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
+                <img src="../img/favicon.png" alt="fotito" style="height:45px;">
+                <a href="reservasAdmin.html"><i class="far fa-calendar-alt"></i>Reservas</a>
+                <a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a>
+                <a href="parkingAdmin.html"><i class="fas fa-parking"></i> Parkings</a>
+                <a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a>
+                <a href="../home.html"><i class="fa fa-sign-out-alt"></i> Salir</a>
+                
+                <span class="admin">
+                <img src="../img/adminUser.png" alt="Admin" style="height: 30px; margin-right: 5px;">
+                    Admin
+                </span>
+               
             </div>
 
-            <div class="menu-vertical">
-                <div class="user-photo">
-                    <img src="../img/adminUser.png" alt="fotito">
-                </div>
-                <ul>
-                    <li class="welcome-user">Bienvenido,<span id="username"></span>!</li>
-                    <li><a href="reservasAdmin.html"><i class="far fa-calendar-alt"></i>Reservas</a></li>
-                    <li><a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a></li>
-                    <li><a href="parkingAdmin.html"><i class="fas fa-parking"></i> Parkings</a></li>
-                    <li><a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a></li>
-                    <li><a href="../login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
-
-                </ul>
-            </div>
         </div>
         
          <script>
@@ -69,7 +62,7 @@
                         document.getElementById('password').value = data.password;
                         document.getElementById('telefono').value = data.telefono;
                         document.getElementById('fecha').value = data.fecha_registro;
-                        document.getElementById('token').value = data.token;
+                        document.getElementById('matricula').value = data.matricula;
                         alert('El usuario se ha generado correctamente');
                     }
                 })
@@ -172,8 +165,8 @@
                     </div>
                    
                    <div>
-                        <label for="token">User Token</label>
-                        <input type="text" id="token" readonly>
+                        <label for="matricula">Matricula</label>
+                        <input type="text" id="matricula" readonly>
                     </div>
                   
                     <input id="boton-generar" type="button" value="Generar User">

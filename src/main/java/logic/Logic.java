@@ -46,7 +46,7 @@ public class Logic {
                 usuario.setPassword(rs.getString("password"));
                 usuario.setTelefono(rs.getString("telefono"));
                 usuario.setFecha_registro(rs.getDate("fecha_registro"));
-                usuario.setToken(rs.getString("token"));
+                usuario.setMatricula(rs.getString("matricula"));
                 usuario.setUsername(rs.getString("username"));
                 users.add(usuario);
             }
@@ -257,7 +257,7 @@ public class Logic {
                 usuario.setPassword(rs.getString("password"));
                 usuario.setTelefono(rs.getString("telefono"));
                 usuario.setFecha_registro(rs.getDate("fecha_registro"));
-                usuario.setToken(rs.getString("token"));
+                usuario.setMatricula(rs.getString("matricula"));
                 usuario.setUsername(rs.getString("username"));
 
             }
@@ -407,20 +407,26 @@ public class Logic {
     }
   
     
-    public static String generateToken(){
+    public static String generarMatricula(){
         
         Random random = new Random();
-        StringBuilder token = new StringBuilder(10);
-        final String CHARACTERS = "0123456789ABCD#";
-        
-        for(int i = 0; i<10;i++){
-       
-            int index = random.nextInt(CHARACTERS.length());
-            token.append(CHARACTERS.charAt(index));
+
+        // Generar cuatro dígitos aleatorios
+        StringBuilder digitos = new StringBuilder();
+        for (int i = 0; i < 4; i++) {
+            int digito = random.nextInt(10); // Genera un número entre 0 y 9
+            digitos.append(digito);
         }
-        
-         
-        return token.toString();
+
+        // Generar tres letras aleatorias
+        StringBuilder letras = new StringBuilder();
+        for (int i = 0; i < 3; i++) {
+            char letra = (char) ('A' + random.nextInt(26));
+            letras.append(letra);
+        }
+
+        // Combinar dígitos y letras para formar la matrícula
+        return digitos.toString() + letras.toString();
         
     }
     

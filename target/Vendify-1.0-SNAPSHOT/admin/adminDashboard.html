@@ -23,31 +23,22 @@
     </head>
     <body onload="loadUsername()">
       
-
         <div class="dashboard">
             <div class="navbar">
                 <img src="../img/favicon.png" alt="fotito" style="height:45px;">
-                <a href="../home.html"><i class="fa fa-home"></i> Home</a>
-                <a href="../login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
-                <a href="../register.html"><i class="fa fa-user-plus"></i> Register</a>
-                <a href="../adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
+                <a href="reservasAdmin.html"><i class="far fa-calendar-alt"></i>Reservas</a>
+                <a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a>
+                <a href="parkingAdmin.html"><i class="fas fa-parking"></i> Parkings</a>
+                <a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a>
+                <a href="../home.html"><i class="fa fa-sign-out-alt"></i> Salir</a>
+                
+                <span class="admin">
+                <img src="../img/adminUser.png" alt="Admin" style="height: 30px; margin-right: 5px;">
+                    Admin
+                </span>
+               
             </div>
 
-            <div class="menu-vertical">
-                <div class="user-photo">
-                    <img src="../img/adminUser.png" alt="fotito">
-                </div>
-                <ul>
-                    <li class="welcome-user">Bienvenido,<span id="username"></span>!</li>
-                    <li><a href="reservasAdmin.html"><i class="far fa-calendar-alt"></i>Reservas</a></li>
-                    <li><a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a></li>
-                    <li><a href="parkingAdmin.html"><i class="fas fa-parking"></i> Parkings</a></li>
-                    <li><a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
-
-
-                </ul>
-            </div>
 
 
         </div>
@@ -70,7 +61,7 @@
                         })
                         .then(data => {
                             let tabla = '<table border="1">';
-                            tabla += '<tr><th>ID Usuario</th><th>Username</th><th>Nombre</th><th>Apellido</th><th>Email</th><th>Password</th><th>Teléfono</th><th>Fecha Registro</th><th>Token</th><th>Acciones</th></tr>';
+                            tabla += '<tr><th>ID Usuario</th><th>Username</th><th>Nombre</th><th>Apellido</th><th>Email</th><th>Password</th><th>Teléfono</th><th>Fecha Registro</th><th>Matrícula</th><th>Acciones</th></tr>';
                             data.forEach(objeto => {
                                 tabla += `<tr>`;
                                 tabla += `<td user_id=">${objeto.user_id}</td>`;
@@ -82,7 +73,7 @@
                                 tabla += `<td contenteditable="false" id="password">${objeto.password}</td>`;
                                 tabla += `<td contenteditable="false" id="telephone">${objeto.telefono}</td>`;
                                 tabla += `<td contenteditable="false" id="fecha_registro">${objeto.fecha_registro}</td>`;
-                                tabla += `<td contenteditable="false" id="token">${objeto.token}</td>`;
+                                tabla += `<td contenteditable="false" id="matricula">${objeto.matricula}</td>`;
 
 
 
@@ -159,12 +150,12 @@
                     email: cells[4].innerText,
                     password: cells[5].innerText,
                     telefono: cells[6].innerText,
-                    token: cells[8].innerText,
+                    matricula: cells[8].innerText,
                 };
 
                 if (confirm('¿Estás seguro de que deseas actualizar los datos de este usuario?')) {
                     // Completar la llamada fetch con el método correcto, headers y body
-                    fetch(`http://localhost:8080/Vendify/updateUser`, {
+                    fetch(`http://localhost:8080/updateUser`, {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
                         body: JSON.stringify(data)
