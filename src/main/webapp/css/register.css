@@ -7,7 +7,6 @@ body {
   position: relative;
   background: linear-gradient(to left, #2F4858, #86BBD8);
   font-family: "Verdana";
-  font-size: 1.2em;
   float:none;
   min-height: 100vh;
   margin:0;
@@ -21,25 +20,21 @@ body {
 
 /* Add padding to containers */
 .container {
-  padding: 16px; 
-  z-index:1000;
+  padding: 8px; 
+  z-index:1;
   flex-direction: row;
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=email]{
+input[type=text], input[type=password], input[type=email] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
+  padding: 10px; /* Reducido de 15px a 10px */
+  margin: 5px 0 12px 0; /* Reducido el margin-bottom */
   display: inline-block;
   border: none;
   background: #f1f1f1;
   border-radius: 10px;
-  
-  
-  
 }
-
 
 
 input[type=text]:focus, input[type=password]:focus {

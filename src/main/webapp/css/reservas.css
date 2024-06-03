@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin:0;
     font-family: "Verdana", sans-serif;
     background: linear-gradient(to left, #2F4858, #86BBD8);
     display: flex;
@@ -127,43 +127,18 @@ body {
 }
 
 /* Agregado para centrar la tabla en la pantalla */
-.centered-container {
+
+.form-container {
+    
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    z-index:1;
-   
-} 
+    z-index:1003;
+            
+ }
+        
 
-table {
-    border-collapse: collapse;
-    width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
-    max-width: 1000px; 
-    margin: auto;/* Ajusta esto para el ancho máximo si es necesario */
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 8px;
-}
-
-th {
-    background-color: #82A8DC;
-    color: white;
-}
-
-td {
-    background-color: #f2f2f2;
-}
-
-.list-compras {
-    color: white; /* Cambia el color del texto a blanco */
-    margin-top: 20px;
-    text-align: center;/* Ajusta la posición hacia arriba */
-    /* Otros estilos como fuente, tamaño, etc., si es necesario */
-}
 
 .circles{
   position: absolute;
