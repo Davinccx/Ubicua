@@ -1,0 +1,70 @@
+
+<html>
+    <head>
+        <title>Vendify Dashboard</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="icon" href="img/favicon.png">
+        <link rel="stylesheet" type="text/css" href="css/reservas.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+        <script>
+            function loadUsername() {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("username").innerText = this.responseText;
+                    }
+                };
+                xhr.open("GET", "userLogin", true);
+                xhr.send();
+            }
+    </script>
+    </head>
+    <body onload="loadUsername()">
+       
+        <div class="dashboard">
+            <div class="navbar">
+                <img src="img/favicon.png" style="height:45px;">
+                <a href="home.html"><i class="fa fa-home"></i> Home</a>
+                <a href="login.html"><i class="fa fa-sign-in-alt"></i> Login</a>
+                <a href="register.html"><i class="fa fa-user-plus"></i> Register</a>
+                <a href="adminLogin.html"><i class="fa fa-address-book"></i> Administrador</a>
+            </div>
+            
+            <div class="menu-vertical">
+                <div class="user-photo">
+                    <img src="img/user.png" alt="fotito">
+                </div>
+               <ul>
+                <li class=" welcome-user"><span id="username"></span></li>
+                <li><a href="reservas.html"><i class="far fa-calendar-alt"></i> Tus reservas</a></li>
+                <li><a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a></li>
+                <li><a href="search.html"><i class="fa fa-search"></i> Buscar</a></li>
+                <li><a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
+             
+               </ul>
+            </div>
+          
+
+        </div>
+        
+         <div class="centered-container">
+                <div id="tabla-container"></div>
+           </div>
+        
+         <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+        
+       
+    </body>
+</html>

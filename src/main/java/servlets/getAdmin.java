@@ -12,9 +12,11 @@ import jakarta.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 
 import database.Admin;
+import jakarta.servlet.annotation.WebServlet;
 import logic.Log;
 import logic.Logic;
 
+@WebServlet("/getAdmins")
 public class getAdmin extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

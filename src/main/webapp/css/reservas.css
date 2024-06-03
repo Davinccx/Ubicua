@@ -1,0 +1,285 @@
+body {
+    margin: 0;
+    font-family: "Verdana", sans-serif;
+    background: linear-gradient(to left, #2F4858, #86BBD8);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.navbar {
+    display: flex; /* Usa Flexbox */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #333; /* Color de fondo */
+    overflow: hidden; /* Asegura que todo esté dentro de la barra */
+    position: fixed; /* Fija la barra */
+    top: 0; /* Parte superior de la pantalla */
+    width: 100%; /* Extensión a lo largo de la pantalla */
+    z-index: 1000; /* Mantiene la barra sobre otros elementos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.navbar img {
+    height: 45px; /* Altura de la imagen */
+    margin-right: 10px; /* Espacio a la derecha de la imagen */
+}
+
+.navbar a {
+    display: block; /* Uso de block en lugar de float */
+    color: #F4F3F3; /* Color del texto */
+    text-align: center; /* Texto centrado */
+    padding: 14px 16px; /* Espaciado interno */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.navbar a i {
+    margin-right: 8px; /* Espaciado entre el icono y el texto */
+    /* Otros estilos que quieras aplicar, como color o tamaño */
+}
+
+
+.navbar a:hover {
+    background-color: #333; /* Fondo al pasar el mouse */
+    color: #82A8DC; /* Color del texto al pasar el mouse */
+}
+
+
+.dashboard {
+    display: flex;
+    width:100%;
+    height: 100vh;
+    z-index:900;
+}
+
+.menu-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: calc(100vh - 60px); /* Ajusta el alto */
+    width: 200px; /* Ajusta según el ancho deseado */
+    border-right: 1px solid #ccc; /* Borde a la derecha */
+    position: fixed; /* Posicionamiento fijo */
+    top: 60px; /* Inicio en la parte superior de la ventana gráfica */
+    left: 0; /* Inicio en la parte izquierda de la ventana gráfica */
+    overflow-y: auto; /* Sombra delimitadora añadida aquí */
+}
+
+.menu-vertical ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+}
+
+.menu-vertical ul li {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    display: flex; /* Usa Flexbox para el centrado */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.menu-vertical ul li a {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos dentro del enlace */
+    justify-content: center; /* Centra horizontalmente los elementos dentro del enlace */
+    color: white;
+    padding: 15px; /* Ajusta según necesidades */
+    text-decoration: none;
+}
+
+.menu-vertical ul li a i {
+    margin-right: 10px; /* Espaciado entre el icono y el texto */
+    font-size: 20px; /* Tamaño de los iconos */
+}
+.menu-vertical ul li a:hover {
+    color: #DADA74;
+}
+
+.user-photo {
+    text-align: center; /* Centrar la imagen en el div */
+    padding: 10px; /* Espaciado alrededor de la imagen */
+    /* Color de fondo, ajusta según tu diseño */
+}
+
+.user-photo img {
+    width: 150px; /* Ajusta el ancho de la imagen según necesites */
+    height: 150px; /* Ajusta la altura de la imagen según necesites */
+     /* Hace la imagen circular */
+    /* Otros estilos que quieras aplicar (sombras, bordes, etc.) */
+}
+.welcome-user {
+    color: white; /* Cambia el color del texto a blanco */
+    text-align: center; /* Centra el texto */
+    /* Asegúrate de que el <li> ocupe todo el ancho disponible para que el texto pueda centrarse correctamente */
+    width: 100%;
+    /* Puedes agregar más estilos aquí si es necesario, como padding, para asegurarte de que el diseño se vea como quieres */
+}
+
+.menu-vertical label{
+    
+   color: white;
+   display:flex;
+   align-items:center;
+   justify-content: center;
+   padding: 10px;
+    
+}
+
+/* Agregado para centrar la tabla en la pantalla */
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    z-index:1;
+   
+} 
+
+table {
+    border-collapse: collapse;
+    width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
+    max-width: 1000px; 
+    margin: auto;/* Ajusta esto para el ancho máximo si es necesario */
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+th {
+    background-color: #82A8DC;
+    color: white;
+}
+
+td {
+    background-color: #f2f2f2;
+}
+
+.list-compras {
+    color: white; /* Cambia el color del texto a blanco */
+    margin-top: 20px;
+    text-align: center;/* Ajusta la posición hacia arriba */
+    /* Otros estilos como fuente, tamaño, etc., si es necesario */
+}
+
+.circles{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.circles li{
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+  
+}
+
+.circles li:nth-child(1){
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+
+@keyframes animate {
+
+  0%{
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+      border-radius: 0;
+  }
+
+  100%{
+      transform: translateY(-1000px) rotate(720deg);
+      opacity: 0;
+      border-radius: 50%;
+  }
+
+}
+
+
+
+

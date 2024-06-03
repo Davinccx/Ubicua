@@ -10,12 +10,13 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import logic.Log;
 import java.util.Random;
 import logic.Logic;
 
-@WebServlet("/GenerateUser")
+@WebServlet("/generateUser")
 public class generateUser extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -33,12 +34,15 @@ public class generateUser extends HttpServlet {
         Random random = new Random();
         try {
 
+            String nombre = GeneradorDatos.generarNombre();
+            String apellido = GeneradorDatos.generarApellido();
             String username = GeneradorDatos.generarUsername();
             String email = GeneradorDatos.generarEmail();
             String password = GeneradorDatos.generarPassword();
             String telefono = GeneradorDatos.generarTelefono();
+            long millis = System.currentTimeMillis();
+            Date fechaActual = new Date(millis);
             String token = Logic.generateToken();
-            int saldo = random.nextInt(100) + 1;
 
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
@@ -46,28 +50,32 @@ public class generateUser extends HttpServlet {
             if (Logic.comprobarEmail(email)) {
                 Log.log.error("El E-mail ya existe!");
             } else {
-                String sql = "INSERT INTO users(email, password, username, telefono, saldo, token) VALUES (?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO users(nombre, apellido, email, password, telefono, fecha_registro, token, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement statement = con.prepareStatement(sql);
                 Log.log.info("Query => {}", statement);
 
-                statement.setString(1, email);
-                statement.setString(2, password);
-                statement.setString(3, username);
-                statement.setString(4, telefono);
-                statement.setDouble(5, saldo);
-                statement.setString(6, token);
+                statement.setString(1, nombre);
+                statement.setString(2, apellido);
+                statement.setString(3, email);
+                statement.setString(4, password);
+                statement.setString(5, telefono);
+                statement.setDate(6, fechaActual);
+                statement.setString(7, token);
+                statement.setString(8, username);
 
                 int result = statement.executeUpdate();
 
                 if (result > 0) {
                     Log.log.info("Usuario registrado con exito!");
                     JSONObject json = new JSONObject();
+                    json.put("nombre", nombre);
+                    json.put("apellido", apellido);
                     json.put("email", email);
                     json.put("password", password);
-                    json.put("username", username);
                     json.put("telefono", telefono);
-                    json.put("saldo", saldo);
+                    json.put("fecha_registro", fechaActual);
                     json.put("token", token);
+                    json.put("username",username);
                     out.print(json.toString());
                 } else {
                     // Manejar el caso de que la inserción falle

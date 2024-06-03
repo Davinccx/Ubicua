@@ -10,11 +10,14 @@ import java.sql.Connection;
 import database.ConnectionDDBB;
 import static java.lang.System.out;
 import database.Admin;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import logic.Log;
 import logic.Logic;
 
+
+@WebServlet("/adminLogin")
 public class adminLogin extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -40,13 +43,13 @@ public class adminLogin extends HttpServlet {
             for (int i = 0; i < usuarios.size(); i++) {
 
                 Admin x = usuarios.get(i);
-                String username = x.getUser();
+                String username = x.getUsername();
                 String password = x.getPassword();
 
                 if (posibleUser != null && username.equals(posibleUser) && posiblePassword != null && password.equals(posiblePassword)) {
 
                     logged = true;
-                    usernameLoggeado = x.getUser();
+                    usernameLoggeado = x.getUsername();
                     Log.log.info("Administrador loggeado correctamente {}", usernameLoggeado);
                 }
 

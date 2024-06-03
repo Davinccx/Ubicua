@@ -9,12 +9,15 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import database.ConnectionDDBB;
 import database.User;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import logic.Logic;
 import java.io.PrintWriter;
 import logic.Log;
 
+
+@WebServlet("/userLogin")
 public class userLogin extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -48,7 +51,6 @@ public class userLogin extends HttpServlet {
                 String password = x.getPassword();
 
                 if (email != null && email.equals(posibleEmail) && posiblePassword != null && password.equals(posiblePassword)) {
-
                     logged = true;
                     usernameLoggeado = x.getUsername();
                     userLog = x;

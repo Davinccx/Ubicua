@@ -2,64 +2,28 @@ package logic;
 
 import java.util.ArrayList;
 
-import database.Producto;
 import database.Admin;
-import database.Maquina;
 import database.User;
 import database.ConnectionDDBB;
-import database.Venta;
+import database.Parking;
+import database.Plaza;
+import database.Reserva;
+
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
 import java.util.List;
 
 import java.util.Random;
 
+
 public class Logic {
 
-    public static ArrayList<Producto> getProductosFromDB() {
-
-        ArrayList<Producto> productos = new ArrayList<Producto>();
-        ConnectionDDBB conector = new ConnectionDDBB();
-        Connection con = null;
-
-        try {
-            con = conector.obtainConnection(true);
-            Log.log.debug("DataBase connected");
-
-            PreparedStatement ps = ConnectionDDBB.getProductos(con);
-            Log.log.info("Query=> {}", ps.toString());
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Producto producto = new Producto();
-                producto.setId(rs.getInt("id"));
-                producto.setNombre(rs.getString("nombre"));
-                producto.setDescripcion(rs.getString("descripcion"));
-                producto.setPrecio(rs.getInt("precio"));
-                producto.setIdMaquina(rs.getInt("id_maquina"));
-                
-                
-                productos.add(producto);
-            }
-        } catch (SQLException e) {
-
-            Log.log.error("Error: {}", e);
-            productos = new ArrayList<Producto>();
-        } catch (NullPointerException e) {
-            Log.log.error("Error: {}", e);
-            productos = new ArrayList<Producto>();
-        } catch (Exception e) {
-            Log.log.error("Error: {}", e);
-            productos = new ArrayList<Producto>();
-        } finally {
-            conector.closeConnection(con);
-        }
-        return productos;
-
-    }
-
+    
     public static ArrayList<User> getUsersFromDB() {
 
         ArrayList<User> users = new ArrayList<User>();
@@ -74,13 +38,16 @@ public class Logic {
             Log.log.info("Query=> {}", ps.toString());
             while (rs.next()) {
                 User usuario = new User();
-                usuario.setId(rs.getInt("id"));
+                usuario.setUser_id(rs.getInt("user_id"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setPassword(rs.getString("password"));
-                usuario.setUsername(rs.getString("username"));
                 usuario.setTelefono(rs.getString("telefono"));
-                usuario.setSaldo(rs.getInt("saldo"));
+                usuario.setFecha_registro(rs.getDate("fecha_registro"));
                 usuario.setToken(rs.getString("token"));
+                usuario.setUsername(rs.getString("username"));
                 users.add(usuario);
             }
         } catch (SQLException e) {
@@ -119,8 +86,8 @@ public class Logic {
 
             while (rs.next()) {
                 Admin admin = new Admin();
-                admin.setId(rs.getInt("id"));
-                admin.setUser(rs.getString("user"));
+                admin.setId(rs.getInt("admin_id"));
+                admin.setUsername(rs.getString("username"));
                 admin.setPassword(rs.getString("password"));
                 administrador.add(admin);
             }
@@ -142,85 +109,130 @@ public class Logic {
 
     }
 
-    public static ArrayList<Maquina> getMaquinasFromDB() {
-        ArrayList<Maquina> maquinas = new ArrayList<Maquina>();
+    public static ArrayList<Parking> getParkingsFromDB() {
+        ArrayList<Parking> parkings = new ArrayList<Parking>();
         ConnectionDDBB conector = new ConnectionDDBB();
         Connection con = null;
 
         try {
             con = conector.obtainConnection(true);
             Log.log.debug("DataBase connected");
-            PreparedStatement ps = ConnectionDDBB.getMaquinas(con);
+            PreparedStatement ps = ConnectionDDBB.getParkings(con);
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
             while (rs.next()) {
-                Maquina m = new Maquina();
-                m.setId(rs.getInt("id"));
-                m.setLocation(rs.getString("location"));
-                m.setSaldo(rs.getInt("saldo"));
-                maquinas.add(m);
+                Parking p = new Parking();
+                p.setParking_id(rs.getInt("parking_id"));
+                p.setNombre(rs.getString("nombre"));
+                p.setDireccion(rs.getString("direccion"));
+                p.setCiudad(rs.getString("ciudad"));
+                p.setC_postal(rs.getString("codigo_postal"));
+                p.setCapacidad_total(rs.getInt("capacidad_total"));
+                p.setPlazas_disponibles(rs.getInt("plazas_disponibles"));
+                parkings.add(p);
             }
         } catch (SQLException e) {
 
-            maquinas = new ArrayList<Maquina>();
+            parkings = new ArrayList<Parking>();
             Log.log.error("Error: {}", e);
 
         } catch (NullPointerException e) {
 
-            maquinas = new ArrayList<Maquina>();
+            parkings = new ArrayList<Parking>();
             Log.log.error("Error: {}", e);
 
         } catch (Exception e) {
 
-            maquinas = new ArrayList<Maquina>();
+            parkings = new ArrayList<Parking>();
             Log.log.error("Error: {}", e);
 
         } finally {
             conector.closeConnection(con);
             Log.log.debug("DataBase disconnected");
         }
-        return maquinas;
+        return parkings;
     }
 
-    public static ArrayList<Venta> getVentasFromDB() {
+    public static ArrayList<Reserva> getReservasFromDB() {
 
-        ArrayList<Venta> ventas = new ArrayList<Venta>();
+        ArrayList<Reserva> reservas = new ArrayList<Reserva>();
         ConnectionDDBB conector = new ConnectionDDBB();
         Connection con = null;
 
         try {
             con = conector.obtainConnection(true);
             Log.log.debug("DataBase connected");
-            PreparedStatement ps = ConnectionDDBB.getVentas(con);
+            PreparedStatement ps = ConnectionDDBB.getReservas(con);
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
             while (rs.next()) {
-                Venta v = new Venta();
-                v.setId_venta(rs.getInt("id"));
-                v.setId_producto(rs.getInt("id_producto"));
-                v.setId_user(rs.getInt("id_usuario"));
-                v.setId_maquina(rs.getInt("id_maquina"));
-
-                ventas.add(v);
+                Reserva r = new Reserva();
+                r.setParking_id(rs.getInt("reserva_id"));
+                r.setUser_id(rs.getInt("user_id"));
+                r.setParking_id(rs.getInt("parking_id"));
+                r.setFecha_reserva(rs.getDate("fecha_reserva"));
+                r.setHora_inicio(rs.getTimestamp("hora_inicio"));
+                r.setHora_fin(rs.getTimestamp("hora_fin"));
+                reservas.add(r);
             }
         } catch (SQLException e) {
 
-            ventas = new ArrayList<Venta>();
+            reservas = new ArrayList<Reserva>();
             Log.log.error("Error: {}", e);
 
         } catch (NullPointerException e) {
 
-            ventas = new ArrayList<Venta>();
+            reservas = new ArrayList<Reserva>();
             Log.log.error("Error: {}", e);
         } catch (Exception e) {
 
-            ventas = new ArrayList<Venta>();
+            reservas = new ArrayList<Reserva>();
         } finally {
             conector.closeConnection(con);
             Log.log.debug("DataBase disconnected");
 
         }
-        return ventas;
+        return reservas;
+
+    }
+    
+    public static ArrayList<Plaza> getPlazasFromDB() {
+
+        ArrayList<Plaza> plazas = new ArrayList<Plaza>();
+        ConnectionDDBB conector = new ConnectionDDBB();
+        Connection con = null;
+
+        try {
+            con = conector.obtainConnection(true);
+            Log.log.debug("DataBase connected");
+            PreparedStatement ps = ConnectionDDBB.getPlazas(con);
+            ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+            while (rs.next()) {
+                Plaza p = new Plaza();
+                p.setId_parking(rs.getInt("id_parking"));
+                p.setId_plaza(rs.getInt("id_plaza"));
+                p.setOcupado(rs.getInt("ocupado"));
+                plazas.add(p);
+            }
+        } catch (SQLException e) {
+
+            plazas = new ArrayList<Plaza>();
+            Log.log.error("Error: {}", e);
+
+        } catch (NullPointerException e) {
+
+            plazas = new ArrayList<Plaza>();
+            Log.log.error("Error: {}", e);
+        } catch (Exception e) {
+
+            plazas = new ArrayList<Plaza>();
+        } finally {
+            conector.closeConnection(con);
+            Log.log.debug("DataBase disconnected");
+
+        }
+        return plazas;
 
     }
 
@@ -238,13 +250,15 @@ public class Logic {
             Log.log.info("Query=> {}", ps.toString());
             while (rs.next()) {
 
-                usuario.setId(rs.getInt("id"));
+                usuario.setUser_id(rs.getInt("user_id"));
+                usuario.setNombre(rs.getString("nombre"));
+                usuario.setApellido(rs.getString("apellido"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setPassword(rs.getString("password"));
-                usuario.setUsername(rs.getString("username"));
                 usuario.setTelefono(rs.getString("telefono"));
-                usuario.setSaldo(rs.getInt("saldo"));
+                usuario.setFecha_registro(rs.getDate("fecha_registro"));
                 usuario.setToken(rs.getString("token"));
+                usuario.setUsername(rs.getString("username"));
 
             }
         } catch (SQLException e) {
@@ -295,69 +309,32 @@ public class Logic {
     }
     
     
-    public static void insertMaquina(Maquina machine) {
+    public static void insertParking(Parking p) {
 
         try {
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
             Log.log.debug("DataBase connected");
-            int id = machine.getId();
-            String location = machine.getLocation();
-            int saldo = machine.getSaldo();
+
+            String nombre = p.getNombre();
+            String direccion = p.getDireccion();
+            String ciudad = p.getCiudad();
+            String c_postal = p.getC_postal();
+            int capacidad_t = p.getCapacidad_total();
+            int plazas_d = p.getPlazas_disponibles();
            
 
-            String sql = "INSERT  INTO maquina(location,saldo) VALUES (?,?)";
-            PreparedStatement ps = con.prepareStatement(sql);
-
-            
-            ps.setString(1, location);
-            ps.setInt(2, saldo);
-            
-            ResultSet rs = ps.executeQuery();
-            Log.log.info("Query=> {}", ps.toString());
-
-            int affectedRows = ps.executeUpdate();
-            Log.log.info("Query executed: {}", ps.toString());
-            
-            if(affectedRows==0){
-            
-                Log.log.error("No se ha podido insertar la maquina");
-            
-            }else{
-            
-                Log.log.error("Maquina insertada en la BBDD correctamente");
-            
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            Log.log.error("Error: {}", e);
-            // Manejar la excepción adecuadamente
-        }
-
-    }
-    
-    public static void insertProducto(Producto producto) {
-
-        try {
-            ConnectionDDBB conector = new ConnectionDDBB();
-            Connection con = conector.obtainConnection(true);
-            Log.log.debug("DataBase connected");
-            
-            int id =producto.getId();
-            String nombre = producto.getNombre();
-            int precio = producto.getPrecio();
-            String descripcion = producto.getDescripcion();
-            int id_maquina = producto.getIdMaquina();
-
-            String sql = "INSERT  INTO productos(nombre,precio,descripcion,id_maquina) VALUES (?,?,?,?)";
+            String sql = "INSERT  INTO parkings(nombre,direccion,ciudad,codigo_postal,capacidad_total,plazas_disponibles) VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
             
             ps.setString(1, nombre);
-            ps.setInt(2, precio);
-            ps.setString(3, descripcion);
-            ps.setInt(4, id_maquina);
+            ps.setString(2, direccion);
+            ps.setString(3, ciudad);
+            ps.setString(4, c_postal);
+            ps.setInt(5, capacidad_t);
+            ps.setInt(6, plazas_d);
+            
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
 
@@ -366,11 +343,11 @@ public class Logic {
             
             if(affectedRows==0){
             
-                Log.log.error("No se ha podido insertar el producto");
+                Log.log.error("No se ha podido insertar el parking");
             
             }else{
             
-                Log.log.error("Producto insertada en la BBDD correctamente");
+                Log.log.error("Parking insertado en la BBDD correctamente");
             
             }
             
@@ -382,25 +359,29 @@ public class Logic {
 
     }
     
-    public static void insertVenta(Venta venta) {
+    public static void insertReserva(Reserva reserva) {
 
         try {
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
             Log.log.debug("DataBase connected");
-            int id_user =venta.getId_venta();
-            int id_producto = venta.getId_producto();
-            int id_maquina = venta.getId_maquina();
             
+            
+            int user_id =reserva.getUser_id();
+            int parking_id =reserva.getParking_id();
+            Date fecha_reserva = reserva.getFecha_reserva();
+            Timestamp hora_inicio = reserva.getHora_inicio();
+            Timestamp hora_fin = reserva.getHora_fin();
 
-            String sql = "INSERT INTO ventas(id_usuario,id_producto,id_maquina) VALUES (?,?,?)";
+            String sql = "INSERT  INTO reservas(user_id,parking_id,fecha_reserva,hora_inicio,hora_fin) VALUES (?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
 
             
-            ps.setInt(1, id_user);
-            ps.setInt(2, id_producto);
-            ps.setInt(3, id_maquina);
-            
+            ps.setInt(1, user_id);
+            ps.setInt(2, parking_id);
+            ps.setDate(3, fecha_reserva);
+            ps.setTimestamp(4, hora_inicio);
+            ps.setTimestamp(5, hora_fin);
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
 
@@ -409,11 +390,11 @@ public class Logic {
             
             if(affectedRows==0){
             
-                Log.log.error("No se ha podido insertar la venta");
+                Log.log.error("No se ha podido insertar la reserva");
             
             }else{
             
-                Log.log.error("Venta insertada en la BBDD correctamente");
+                Log.log.error("Reserva insertada en la BBDD correctamente");
             
             }
             
@@ -424,6 +405,7 @@ public class Logic {
         }
 
     }
+  
     
     public static String generateToken(){
         
@@ -442,32 +424,7 @@ public class Logic {
         
     }
     
-    public static List<Integer> getProductsID(){
-         List<Integer> listaIds = new ArrayList<>();
-
-        try {
-            ConnectionDDBB conector = new ConnectionDDBB();
-            Connection con = conector.obtainConnection(true);
-
-            Log.log.debug("DataBase connected");
-
-            String sql = "SELECT id FROM productos"; 
-            PreparedStatement ps = con.prepareStatement(sql);
-
-            ResultSet rs = ps.executeQuery();
-            Log.log.info("Query=> {}", ps.toString());
-
-            while (rs.next()) {
-                listaIds.add(rs.getInt("id"));
-            }
-
-        } catch (Exception e) {
-            Log.log.error("Error: {}", e);
-        } 
-
-        return listaIds;
-    }
-    
+   
     public static List<Integer> getUsersID(){
          List<Integer> listaIds = new ArrayList<>();
 
@@ -477,14 +434,14 @@ public class Logic {
 
             Log.log.debug("DataBase connected");
 
-            String sql = "SELECT id FROM users"; 
+            String sql = "SELECT user_id FROM users"; 
             PreparedStatement ps = con.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
 
             while (rs.next()) {
-                listaIds.add(rs.getInt("id"));
+                listaIds.add(rs.getInt("user_id"));
             }
 
         } catch (Exception e) {
@@ -494,7 +451,7 @@ public class Logic {
         return listaIds;
     }
     
-    public static List<Integer> getMaquinasID(){
+    public static List<Integer> getParkingsID(){
          List<Integer> listaIds = new ArrayList<>();
 
         try {
@@ -503,14 +460,14 @@ public class Logic {
 
             Log.log.debug("DataBase connected");
 
-            String sql = "SELECT id FROM maquina"; 
+            String sql = "SELECT parking_id FROM parkings"; 
             PreparedStatement ps = con.prepareStatement(sql);
 
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
 
             while (rs.next()) {
-                listaIds.add(rs.getInt("id"));
+                listaIds.add(rs.getInt("parking_id"));
             }
 
         } catch (Exception e) {
@@ -519,5 +476,8 @@ public class Logic {
 
         return listaIds;
     }
+    
+    
+   
 
 }

@@ -5,30 +5,29 @@ package database;
 
 public class Admin {
     
-    private int id;
-    private String user;
+    private int admin_id;
+    private String username;
     private String password;
 
     public Admin() {
-        this.id = 0;
+        
     }
     
-    
-
+   
     public int getId() {
-        return id;
+        return admin_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.admin_id = id;
     }
 
-    public String getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

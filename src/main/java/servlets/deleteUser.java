@@ -8,10 +8,12 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import database.ConnectionDDBB;
+import jakarta.servlet.annotation.WebServlet;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import logic.Log;
 
+@WebServlet("/deleteUser")
 public class deleteUser extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -33,7 +35,7 @@ public class deleteUser extends HttpServlet {
             Connection con = conector.obtainConnection(true);
             response.setContentType("text/html;charset=UTF-8");
 
-            String sql = "DELETE FROM users WHERE id = ?";
+            String sql = "DELETE FROM users WHERE user_id = ?";
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, Integer.parseInt(id));
             Log.log.info("Query=> {}", statement.toString());

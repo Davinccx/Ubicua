@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Generar Datos</title>
+        <title>Ubipark Data Generation</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="../img/favicon.png">
         <link rel="stylesheet" type="text/css" href="../css/admin/generarDatos.css">
@@ -41,10 +41,9 @@
                 </div>
                 <ul>
                     <li class="welcome-user">Bienvenido,<span id="username"></span>!</li>
-                    <li><a href="ventasAdmin.html"><i class="fa fa-shopping-cart"></i>Compras</a></li>
+                    <li><a href="reservasAdmin.html"><i class="far fa-calendar-alt"></i>Reservas</a></li>
                     <li><a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a></li>
-                    <li><a href="productosAdmin.html"><i class="fa fa-box"></i> Productos</a></li>
-                    <li><a href="maquinasAdmin.html"><i class="fa fa-cog"></i> Maquinas</a></li>
+                    <li><a href="parkingAdmin.html"><i class="fas fa-parking"></i> Parkings</a></li>
                     <li><a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a></li>
                     <li><a href="../login.html"><i class="fa fa-sign-out-alt"></i> Salir</a></li>
 
@@ -55,7 +54,7 @@
          <script>
             document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('boton-generar').addEventListener('click', function() {
-                fetch('http://localhost:8080/Vendify/GenerateUser', {
+                fetch('http://localhost:8080/generateUser', {
                     method: 'POST'
                 })
                 .then(response => response.json())
@@ -64,10 +63,12 @@
                         alert('Error: ' + data.error);
                     } else {
                         document.getElementById('email').value = data.email;
+                        document.getElementById('nombre').value = data.nombre;
+                        document.getElementById('apellido').value = data.apellido;
                         document.getElementById('user_name').value = data.username;
                         document.getElementById('password').value = data.password;
                         document.getElementById('telefono').value = data.telefono;
-                        document.getElementById('saldo').value = data.saldo;
+                        document.getElementById('fecha').value = data.fecha_registro;
                         document.getElementById('token').value = data.token;
                         alert('El usuario se ha generado correctamente');
                     }
@@ -81,8 +82,8 @@
         
         <script>
             document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('boton-generar-producto').addEventListener('click', function() {
-                fetch('http://localhost:8080/Vendify/GenerateProduct', {
+            document.getElementById('boton-generar-parking').addEventListener('click', function() {
+                fetch('http://localhost:8080/generateParking', {
                     method: 'POST'
                 })
                 .then(response => response.json())
@@ -90,35 +91,13 @@
                     if (data.error) {
                         alert('Error: ' + data.error);
                     } else {
-                        document.getElementById('nombre_producto').value = data.nombre;
-                        document.getElementById('desc_producto').value = data.descripcion;
-                        document.getElementById('precio').value = data.precio;
-                         document.getElementById('maquina').value = data.id_maquina;
-                        alert('El producto se ha generado correctamente');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-        </script>
-    
-         <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('boton-generar-maquina').addEventListener('click', function() {
-                fetch('http://localhost:8080/Vendify/GenerateMachine', {
-                    method: 'POST'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert('Error: ' + data.error);
-                    } else {
-                        document.getElementById('location').value = data.location;
-                        document.getElementById('saldoMaquina').value = data.saldo;
-                       
-                        alert('La maquina se ha generado correctamente');
+                        document.getElementById('nombreParking').value = data.nombre;
+                        document.getElementById('direccion').value = data.direccion;
+                        document.getElementById('ciudad').value = data.ciudad;
+                        document.getElementById('c_postal').value = data.codigo_postal;
+                        document.getElementById('capacidad').value = data.capacidad_total;
+                         document.getElementById('disponibles').value = data.plazas_disponibles;
+                        alert('El parking se ha generado correctamente');
                     }
                 })
                 .catch(error => {
@@ -130,8 +109,8 @@
         
         <script>
             document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('boton-generar-venta').addEventListener('click', function() {
-                fetch('http://localhost:8080/Vendify/GenerateVenta', {
+            document.getElementById('boton-generar-reserva').addEventListener('click', function() {
+                fetch('http://localhost:8080/generateReserva', {
                     method: 'POST'
                 })
                 .then(response => response.json())
@@ -139,10 +118,13 @@
                     if (data.error) {
                         alert('Error: ' + data.error);
                     } else {
-                        document.getElementById('id_user').value = data.id_usuario;
-                        document.getElementById('id_product2').value = data.id_producto;
-                        document.getElementById('id_maquina').value = data.id_maquina;
-                        alert('La venta se ha generado correctamente');
+                        document.getElementById('usuario_id').value = data.user_id;
+                        document.getElementById('parking_id').value = data.parking_id;
+                        document.getElementById('fecha_reserva').value = data.fecha_reserva;
+                        document.getElementById('hora_inicio').value = data.hora_inicio;
+                        document.getElementById('hora_fin').value = data.hora_fin;
+       
+                        alert('La reserva se ha generado correctamente');
                     }
                 })
                 .catch(error => {
@@ -151,6 +133,10 @@
             });
         });
         </script>
+    
+        
+        
+       
         
           <div class="centered-container">
                <form>
@@ -158,6 +144,14 @@
                     <div>
                         <label for="email">Email</label>
                         <input type="email" id="email" readonly>
+                    </div>
+                   <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" readonly>
+                    </div>
+                   <div>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" readonly>
                     </div>
                     <div>
                         <label for="id">Username</label>
@@ -173,8 +167,8 @@
                     </div>
                     
                     <div>
-                        <label for="saldo">Saldo</label>
-                        <input type="text" id="saldo" readonly>
+                        <label for="fecha">Fecha Registro</label>
+                        <input type="text" id="fecha" readonly>
                     </div>
                    
                    <div>
@@ -185,79 +179,96 @@
                     <input id="boton-generar" type="button" value="Generar User">
                     
                 </form>
-                       
-                
-                <form>
-                    <h2>Generar Producto</h2>
+              
+               <form>
+                   <h2>Generar Parking</h2>
                     <div>
-                        <label for="nombre_producto">Nombre Producto</label>
-                        <input type="text" id="nombre_producto" readonly>
-                        
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombreParking" readonly>
+                    </div>
+                   <div>
+                        <label for="direccion">Direccion</label>
+                        <input type="text" id="direccion" readonly>
+                    </div>
+                   <div>
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" readonly>
+                    </div>
+                    <div>
+                        <label for="c_postal">Código Postal</label>
+                        <input type="text" id="c_postal" readonly>
+                    </div>
+                    <div>
+                        <label for="c_total">Capacidad</label>
+                        <input type="text" id="capacidad" readonly>
+                    </div>
+                    <div>
+                        <label for="disponibles">Plazas Disponibles</label>
+                        <input type="text" id="disponibles" readonly>
                     </div>
                     
-                    <div>
-                        <label for="desc_producto">Descripción</label>
-                        <input type="text" id="desc_producto" readonly>
-                        
-                    </div>
-                    
-                    <div>
-                        <label for="precio">Precio</label>
-                        <input type="text" id="precio" readonly>   
-                    </div>
-                    
-                    <div>
-                        <label for="maquina">ID Máquina</label>
-                        <input type="text" id="maquina" readonly>   
-                    </div>
-                    
-                    <input id="boton-generar-producto" type="button" value="Generar Producto">
-                    
-                </form>
-                
-                <form>
-                    <h2>Generar Máquina</h2>
-                    <div>
-                        <label for="location">Localización</label>
-                        <input type="text" id="location" readonly>
-                        
-                    </div>
-                    
-                    <div>
-                        <label for="saldo">Saldo</label>
-                        <input type="text" id="saldoMaquina" readonly>
-                        
-                    </div>
-                    
-                  
-                    
-                    <input id="boton-generar-maquina" type="button" value="Generar Maquina">
+                   
+     
+                    <input id="boton-generar-parking" type="button" value="Generar Parking">
                     
                 </form>
               
-              
-                <form>
-                    <h2>Generar Venta</h2>
+              <form>
+                   <h2>Generar Reserva</h2>
                     <div>
-                        <label for="id_user">ID User</label>
-                        <input type="text" id="id_user" readonly>
-                        
+                        <label for="usuario_id">User ID</label>
+                        <input type="text" id="usuario_id" readonly>
+                    </div>
+                   <div>
+                        <label for="parking_id">Parking ID</label>
+                        <input type="text" id="parking_id" readonly>
+                    </div>
+                   <div>
+                        <label for="fecha_reserva">Fecha Reserva</label>
+                        <input type="text" id="fecha_reserva" readonly>
+                    </div>
+                    <div>
+                        <label for="hora_inicio">Hora inicio</label>
+                        <input type="text" id="hora_inicio" readonly>
+                    </div>
+                    <div>
+                        <label for="hora_fin">Hora Fin</label>
+                        <input type="text" id="hora_fin" readonly>
+                    </div>
+                   
+                   <div>
+                        <label for="id_plaza">Plaza ID</label>
+                        <input type="text" id="id_plaza" readonly>
                     </div>
                     
-                    <div>
-                        <label for="id_product2">ID Producto</label>
-                        <input type="text" id="id_product2" readonly>
-                        
-                    </div>
-                    
-                    <div>
-                        <label for="id_maquina">ID Maquina</label>
-                        <input type="text" id="id_maquina" readonly>   
-                    </div>
-                    
-                    <input id="boton-generar-venta" type="button" value="Generar Venta">
+                   
+     
+                    <input id="boton-generar-reserva" type="button" value="Generar Reserva">
                     
                 </form>
+              
+                
+                <form id="selectParkingForm">
+                    <h2>Generar Plazas</h2>
+                    <div>
+                        <label for="parkingID">Selecciona un Parking:</label>
+                        <select name="parkingID" id="parkingID">
+
+                        </select>
+                    </div>
+                    <div>
+                        <label for="capacidad">Capacidad</label>
+                        <input type="text" id="capacidad1" readonly>
+                    </div>
+                    <div>
+                        <label for="disponibles">Plazas Disponibles</label>
+                        <input type="text" id="disponibles1" readonly>
+                    </div>
+                   <input id="boton-generar-plaza" type="button" value="Generar Reserva">
+                </form>
+              
+                
+                
             
             
             </div>
@@ -275,6 +286,97 @@
                 <li></li>
                 <li></li>
         </ul>
+        
+        <script>
+                let parkingsData;
+
+                // Función para cargar los IDs de los parkings en el desplegable
+                function loadParkingIDs() {
+                    fetch('http://localhost:8080/getParkings')
+                        .then(response => response.json())
+                        .then(data => {
+                            parkingsData = data; // Almacenar los detalles de los parkings
+                            const parkingSelect = document.getElementById('parkingID');
+                            data.forEach(parking => {
+                                const option = document.createElement('option');
+                                option.value = parking.parking_id;
+                                option.text = parking.parking_id;
+                                parkingSelect.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error('Error al obtener IDs de parkings:', error));
+                }
+
+                // Llama a la función al cargar la página
+                window.onload = loadParkingIDs;
+
+                // Event listener para el cambio en la selección del parking
+                document.getElementById('parkingID').addEventListener('change', showParkingDetails);
+
+                function showParkingDetails() {
+                    // Obtener el ID del parking seleccionado
+                    const parkingID = this.value;
+
+                    // Buscar el parking seleccionado en los datos almacenados
+                    const selectedParking = parkingsData.find(parking => parking.parking_id === parseInt(parkingID));
+
+                    if (selectedParking) {
+                        // Mostrar los detalles del parking seleccionado
+                        document.getElementById('capacidad1').value = selectedParking.capacidad_total;
+                        document.getElementById('disponibles1').value = selectedParking.plazas_disponibles;
+                    } else {
+                        console.error('Parking no encontrado en los datos almacenados.');
+                    }
+                }
+
+        </script>
+        
+        <script>
+            document.getElementById('boton-generar-plaza').addEventListener('click', function() {
+                // Obtener el ID del parking seleccionado
+                const parkingID = document.getElementById('parkingID').value;
+
+                // Buscar el parking seleccionado en los datos almacenados
+                const selectedParking = parkingsData.find(parking => parking.parking_id === parseInt(parkingID));
+
+                // Verificar si el parking seleccionado se encontró correctamente
+                if (!selectedParking) {
+                    alert('Por favor, selecciona un parking primero.');
+                    return;
+                }
+
+                const data = {
+                    parking_id: document.getElementById('parkingID').value,
+                    capacidad: document.getElementById('capacidad1').value,
+                    disponibles: document.getElementById('disponibles1').value
+                };
+
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                };
+
+                const url = 'http://localhost:8080/generatePlaza';
+
+                fetch(url, options)
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Solicitud POST exitosa');
+                            alert('Se han generado las plazas asociadas a dicho parking!');
+                        } else {
+                            console.error('Error en la solicitud POST:', response.statusText);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error en la solicitud POST:', error);
+                    });
+            });
+        </script>
+        
+           
         
     </body>
 </html>

@@ -1,10 +1,9 @@
 package mqtt;
 
 
-import database.Maquina;
-import database.Producto;
+
 import database.User;
-import database.Venta;
+
 import java.util.ArrayList;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -61,21 +60,7 @@ public class MQTTSuscriber implements MqttCallback {
     @Override
     public void messageArrived(String topic, MqttMessage message) throws Exception {
         Log.logmqtt.info("Received mqtt msg {}: {}", topic, message.toString());
-        
-
-        if (topic.contains("maquina/info")) {
-
-            Logic.insertMaquina(getMachine(message));
-
-        }else if(topic.contains("maquina/producto")){
-        
-            Logic.insertProducto(getProducto(message));
-        
-        }else if(topic.contains("maquina/compras")){
-        
-            Logic.insertVenta(getVenta(message));
-        }
-        
+      
 
     }
 
@@ -85,77 +70,5 @@ public class MQTTSuscriber implements MqttCallback {
 
    
  
-    private Maquina getMachine(MqttMessage message) {
-
-        Maquina maquina = new Maquina();
-
-        try {
-            String payload = new String(message.getPayload());
-            JSONObject json = new JSONObject(payload);
-            if(json!=null){
-            
-                maquina.setId(json.getInt("id"));
-                maquina.setLocation(json.getString("location"));
-                maquina.setSaldo(json.getInt("saldo"));
-            
-            
-                  
-            }
-            
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return maquina;
-    }
-    
-    
-    private Venta getVenta(MqttMessage message) {
-
-        Venta venta = new Venta();
-
-        try {
-            String payload = new String(message.getPayload());
-            JSONObject json = new JSONObject(payload);
-            if (json != null) {
-
-                
-                venta.setId_user(1);
-                venta.setId_producto(json.getInt("id_producto"));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return venta;
-    }
-    
-    private Producto getProducto(MqttMessage message) {
-
-        Producto producto = new Producto();
-
-        try {
-            String payload = new String(message.getPayload());
-            JSONObject json = new JSONObject(payload);
-            if(json!=null){
-            
-                producto.setId(json.getInt("id"));
-                producto.setNombre(json.getString("nombre"));
-                producto.setDescripcion(json.getString("descripcion"));
-                producto.setPrecio(json.getInt("precio"));
-            
-                  
-            }
-            
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        return producto;
-    }
-
    
 }

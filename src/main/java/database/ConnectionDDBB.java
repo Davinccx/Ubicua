@@ -112,11 +112,7 @@ public class ConnectionDDBB {
         return ps;
     }   
       
-    public static PreparedStatement getProductos(Connection con)
-    {
-    	return getStatement(con,"SELECT * FROM productos");  	
-    }
-    
+  
     
     
     public static PreparedStatement getUsers(Connection con)
@@ -131,13 +127,18 @@ public class ConnectionDDBB {
     }
        
     
-    public static PreparedStatement getMaquinas(Connection con)
+    public static PreparedStatement getParkings(Connection con)
     {
-    	return getStatement(con,"SELECT * FROM maquina");  	
+    	return getStatement(con,"SELECT * FROM parkings");  	
     }
     
-    public static PreparedStatement getVentas(Connection con)
+    public static PreparedStatement getReservas(Connection con)
     {
-    	return getStatement(con,"SELECT * FROM ventas");  	
+    	return getStatement(con,"SELECT * FROM reservas");  	
+    }
+    
+    public static PreparedStatement getPlazas(Connection con)
+    {
+    	return getStatement(con,"SELECT * FROM plaza");  	
     }
 }

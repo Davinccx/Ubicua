@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Register Form</title>
+        <title>Ubipark Register Form</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="img/favicon.png">
@@ -23,7 +23,7 @@
         </div>
         <div class="container">
            <form action="registerUser" method="POST">
-            <h1>Vendify Register Form</h1>
+            <h1>Ubipark Register Form</h1>
             <hr>
             <label for="email"><b>Email</b></label>
             <input type="email" placeholder="Enter your email" name="email" id="email" required>
@@ -41,6 +41,12 @@
                     });
             </script>
 
+            <label for="nombre"><b>Nombre</b></label>
+            <input type="text" placeholder="Enter your name" name="nombre" id="nombre" required>
+            
+            <label for="apellido"><b>Apellido</b></label>
+            <input type="text" placeholder="Enter your surname" name="apellido" id="apellido" required>
+            
             <label for="user"><b>Username</b></label>
             <input type="text" placeholder="Enter your username" name="user" id="user" required>
 
@@ -80,6 +86,19 @@
                 document.getElementById('errorRegister').style.display = 'block';
             }
         </script>
+        
+         <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
         
      
     </body>

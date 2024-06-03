@@ -4,6 +4,7 @@ body {
     background: linear-gradient(to left, #2F4858, #86BBD8);
     display: flex;  
     height: 100vh;
+    
     overflow: hidden;
 }
 

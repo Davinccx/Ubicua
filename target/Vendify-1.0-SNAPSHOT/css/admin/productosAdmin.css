@@ -1,10 +1,12 @@
 body {
     margin: 0;
     font-family: "Verdana", sans-serif;
-    background: linear-gradient(to bottom, #333, #444);
+    background: linear-gradient(to left, #2F4858, #86BBD8);
     display: flex;  
     height: 100vh;
     overflow: hidden;
+    
+    
 }
 
 .navbar {
@@ -71,6 +73,7 @@ body {
     top: 60px; /* Inicio en la parte superior de la ventana gráfica */
     left: 0; /* Inicio en la parte izquierda de la ventana gráfica */
     overflow-y: auto; /* Sombra delimitadora añadida aquí */
+    
 }
 
 .menu-vertical ul {
@@ -100,7 +103,7 @@ body {
     font-size: 20px; /* Tamaño de los iconos */
 }
 .menu-vertical ul li a:hover {
-    color: #82A8DC;
+    color: #DADA74;
 }
 
 .user-photo {
@@ -138,28 +141,26 @@ body {
 /* Estilos para la tabla */
 table {
     border-collapse: collapse;
-    width: 80%; /* Ajusta el ancho de la tabla según tus necesidades */
-    max-width: 1000px; 
-    margin: 0 auto;/* Ajusta esto para el ancho máximo si es necesario */
+    width: 50%; /* Ajusta el ancho de la tabla según tus necesidades */
+    background-color: rgba(0, 0, 0, 0.6); 
+    margin:auto;/* Ajusta esto para el ancho máximo si es necesario */
+   
 }
 
 table, th, td {
-    border: 1px solid #ddd;
-    text-align: center;
-    padding: 8px;
+     border: 1px solid #86BBD8;
+     padding: 10px;
+     text-align: center;
+     color: white;
 }
 
 th {
-    background-color: #82A8DC;
-    color: white;
+    background-color: #86BBD8;
 }
 
-td {
-    background-color: #f2f2f2;
-}
 
 table .fa {
-    color: #333; /* Color por defecto de los íconos */
+    color: white; /* Color por defecto de los íconos */
     cursor: pointer; /* Cambia el cursor para indicar que es clickable */
 }
 
@@ -286,8 +287,3 @@ table .delete-icon:hover{
   }
 
 }
-
-
-
-
-

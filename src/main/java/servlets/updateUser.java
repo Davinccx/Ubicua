@@ -8,12 +8,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import database.ConnectionDDBB;
+import jakarta.servlet.annotation.WebServlet;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import logic.Log;
 import org.json.JSONObject;
 
+
+
+@WebServlet("/updateUser")
 public class updateUser extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -42,25 +47,32 @@ public class updateUser extends HttpServlet {
             String data = buffer.toString();
             JSONObject json = new JSONObject(data);
 
-            String id = json.optString("id");
+            
+            String nombre = json.optString("nombre");
+            String apellido = json.optString("apellido");
             String username = json.optString("username");
             String password = json.optString("password");
+            String email = json.optString("email");
             String telephone = json.optString("telephone");
-            String saldo = json.optString("saldo");
+            
 
             // Validar el ID aquí antes de proceder
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
 
-            String sql = "UPDATE users SET password=?, username=?, telefono=?, saldo=? WHERE id=?";
+            String sql = "UPDATE users SET nombre =?,apellido=?,email=?,password=?,  telefono=?,username =? WHERE email=?";
             PreparedStatement statement = con.prepareStatement(sql);
             Log.log.info("Query=> {}", statement);
 
-            statement.setString(1, password);
-            statement.setString(2, username);
-            statement.setString(3, telephone);
-            statement.setInt(4, Integer.parseInt(saldo));
-            statement.setInt(5, Integer.parseInt(id));
+            statement.setString(1, nombre);
+            statement.setString(2, apellido);
+            statement.setString(3, email);
+            statement.setString(4, password);
+            statement.setString(5, telephone);
+            statement.setString(6, username);
+            statement.setString(7, email);
+            
+
 
             int result = statement.executeUpdate();
             if (result > 0) {
