@@ -24,6 +24,7 @@ servlets\getUserFromUsername.class
 database\User.class
 servlets\getReservas.class
 logic\ProjectInitializer.class
+servlets\updateParking.class
 servlets\registerUser.class
 database\Admin.class
 logic\Log.class

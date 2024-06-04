@@ -11,7 +11,6 @@ import database.ConnectionDDBB;
 import jakarta.servlet.annotation.WebServlet;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import logic.Log;
 import org.json.JSONObject;

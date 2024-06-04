@@ -80,7 +80,7 @@
                            
                             <i class="fa fa-edit edit-icon" style="cursor:pointer;" onclick="editarVenta(this, ${objeto.id_venta})"></i>
                             
-                            <i class="fa fa-trash delete-icon" style="cursor:pointer;" onclick="eliminarReserva(${objeto.reserva_id})"></i>
+                            <i class="fa fa-trash delete-icon" style="cursor:pointer;" onclick="eliminarReserva(${objeto.reserva_id},${objeto.parking_id},${objeto.id_plaza})"></i>
                           </td>`;
                                 tabla += `</tr>`;
                             });
@@ -99,24 +99,24 @@
                 loadUsername();
             };
 
-            function eliminarReserva(reserva_id) {
+            function eliminarReserva(reserva_id, parking_id, plaza_id) {
                 if (confirm('¿Estás seguro de que deseas eliminar esta reserva?')) {
-                    // Hacer la solicitud DELETE al servlet
-                    fetch(`http://localhost:8080/deleteReserva?reserva_id=${reserva_id}`, {
+                    // Hacer la solicitud DELETE al servlet con los parámetros adicionales
+                    fetch(`http://localhost:8080/deleteReserva?reserva_id=${reserva_id}&parking_id=${parking_id}&plaza_id=${plaza_id}`, {
                         method: 'DELETE'
                     })
-                            .then(response => {
-                                if (response.ok) {
-                                    // Eliminación exitosa, puedes recargar la página o realizar alguna otra acción
-                                    location.reload(); // Recargar la página
-                                } else {
-                                    // Mostrar un mensaje de error o realizar otra acción en caso de error
-                                    console.error('Error al eliminar la reserva');
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error al realizar la solicitud:', error);
-                            });
+                    .then(response => {
+                        if (response.ok) {
+                            // Eliminación exitosa, puedes recargar la página o realizar alguna otra acción
+                            location.reload(); // Recargar la página
+                        } else {
+                            // Mostrar un mensaje de error o realizar otra acción en caso de error
+                            console.error('Error al eliminar la reserva');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al realizar la solicitud:', error);
+                    });
                 }
             }
 

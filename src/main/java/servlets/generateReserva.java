@@ -18,7 +18,6 @@ import logic.Log;
 import java.util.Random;
 import logic.Logic;
 
-
 @WebServlet("/generateReserva")
 public class generateReserva extends HttpServlet {
 
@@ -56,21 +55,46 @@ public class generateReserva extends HttpServlet {
             ConnectionDDBB conector = new ConnectionDDBB();
             con = conector.obtainConnection(true);
 
-            String sql = "INSERT INTO reservas(user_id, parking_id, fecha_reserva, hora_inicio, hora_fin, id_plaza) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = con.prepareStatement(sql);
-            Log.log.info("Query => {}", statement);
+            // Inicia la transacción
+            con.setAutoCommit(false);
+            
+            // Primera consulta: insertar la reserva
+            String sqlInsert = "INSERT INTO reservas(user_id, parking_id, fecha_reserva, hora_inicio, hora_fin, id_plaza) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statementInsert = con.prepareStatement(sqlInsert);
+            Log.log.info("Query Insert => {}", statementInsert);
 
-            statement.setInt(1, user_id);
-            statement.setInt(2, parking_id);
-            statement.setDate(3, fecha_reserva);
-            statement.setTimestamp(4, hora_inicio);
-            statement.setTimestamp(5, hora_fin);
-            statement.setInt(6, plazaID);
+            statementInsert.setInt(1, user_id);
+            statementInsert.setInt(2, parking_id);
+            statementInsert.setDate(3, fecha_reserva);
+            statementInsert.setTimestamp(4, hora_inicio);
+            statementInsert.setTimestamp(5, hora_fin);
+            statementInsert.setInt(6, plazaID);
 
-            int result = statement.executeUpdate();
+            int resultInsert = statementInsert.executeUpdate();
 
-            if (result > 0) {
-                Log.log.info("Reserva registrada con exito!");
+            // Segunda consulta: actualizar la plaza
+            String sqlUpdatePlaza = "UPDATE plaza SET ocupado = 1 WHERE id_plaza = ?";
+            PreparedStatement statementUpdatePlaza = con.prepareStatement(sqlUpdatePlaza);
+            Log.log.info("Query Update Plaza => {}", statementUpdatePlaza);
+
+            statementUpdatePlaza.setInt(1, plazaID);
+
+            int resultUpdatePlaza = statementUpdatePlaza.executeUpdate();
+            
+            // Tercera consulta: actualizar el parking
+            String sqlUpdateParking = "UPDATE parkings SET plazas_disponibles = plazas_disponibles - 1 WHERE parking_id = ?";
+            PreparedStatement statementUpdateParking = con.prepareStatement(sqlUpdateParking);
+            Log.log.info("Query Update Parking => {}", statementUpdateParking);
+
+            statementUpdateParking.setInt(1, parking_id);
+
+            int resultUpdateParking = statementUpdateParking.executeUpdate();
+
+            // Confirma la transacción
+            con.commit();
+
+            if (resultInsert > 0 && resultUpdatePlaza > 0 && resultUpdateParking > 0) {
+                Log.log.info("Reserva registrada con éxito!");
                 JSONObject json = new JSONObject();
                 json.put("user_id", user_id);
                 json.put("parking_id", parking_id);
@@ -90,12 +114,21 @@ public class generateReserva extends HttpServlet {
             out.print("{\"error\":\"Número inválido\"}");
             Log.log.error("Number Format Exception: {}", nfe.getMessage());
         } catch (Exception e) {
+            // Rollback en caso de error
+            if (con != null) {
+                try {
+                    con.rollback();
+                } catch (Exception rollbackException) {
+                    Log.log.error("Error al hacer rollback: {}", rollbackException.getMessage());
+                }
+            }
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             out.print("{\"error\":\"Error interno del servidor\"}");
             Log.log.error("Error interno del servidor: {}", e.getMessage());
         } finally {
             if (con != null) {
                 try {
+                    con.setAutoCommit(true);
                     con.close();
                 } catch (Exception e) {
                     Log.log.error("Error al cerrar la conexión: {}", e.getMessage());

@@ -458,32 +458,27 @@ public class Logic {
         return listaIds;
     }
     
-    public static List<Integer> getUsersIDFromUsername(String username){
-         List<Integer> listaIds = new ArrayList<>();
+    public static List<Integer> getUsersIDFromUsername(String username) {
+    List<Integer> listaIds = new ArrayList<>();
+    ConnectionDDBB conector = new ConnectionDDBB();
+    
+    try (Connection con = conector.obtainConnection(true);
+         PreparedStatement ps = con.prepareStatement("SELECT user_id FROM users WHERE username = ?")) {
 
-        try {
-            ConnectionDDBB conector = new ConnectionDDBB();
-            Connection con = conector.obtainConnection(true);
+        ps.setString(1, username);
+        Log.log.info("Query=> {}", ps.toString());
 
-            Log.log.debug("DataBase connected");
-
-            String sql = "SELECT user_id FROM users WHERE username = ?"; 
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, username);
-            
-            ResultSet rs = ps.executeQuery();
-            Log.log.info("Query=> {}", ps.toString());
-
+        try (ResultSet rs = ps.executeQuery()) {
             while (rs.next()) {
                 listaIds.add(rs.getInt("user_id"));
             }
-
-        } catch (Exception e) {
-            Log.log.error("Error: {}", e);
-        } 
-
-        return listaIds;
+        }
+    } catch (Exception e) {
+        Log.log.error("Error al obtener el ID del usuario: {}", e.getMessage());
     }
+
+    return listaIds;
+}
     
     public static List<Integer> getParkingsID(){
          List<Integer> listaIds = new ArrayList<>();

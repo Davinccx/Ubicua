@@ -11,16 +11,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import logic.Log;
 import java.util.Random;
-
 
 @WebServlet("/generateParking")
 public class generateParking extends HttpServlet {
 
-    Random random = new Random();
-
     private static final long serialVersionUID = 1L;
+    private final Random random = new Random();
 
     public generateParking() {
         super();
@@ -32,37 +32,71 @@ public class generateParking extends HttpServlet {
         Log.log.info("--Generate Random Parking--");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        Random random = new Random();
-        try {
 
-            
+        Connection con = null;
+
+        try {
             String ciudad = GeneradorDatos.generarLocalizacion();
             String nombre = GeneradorDatos.generarNombreParking();
             String direccion = GeneradorDatos.generarDireccion();
             String c_postal = GeneradorDatos.generarCodigoPostal();
-            int c_total = random.nextInt(10)+1;
-            int disponibles = random.nextInt(c_total)+1;
-            
+            int c_total = random.nextInt(10) + 1;
+            int disponibles = random.nextInt(c_total) + 1;
+
             ConnectionDDBB conector = new ConnectionDDBB();
-            Connection con = conector.obtainConnection(true);
+            con = conector.obtainConnection(true);
 
-            String sql = "INSERT INTO parkings(nombre, direccion, ciudad, codigo_postal, capacidad_total, plazas_disponibles) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement statement = con.prepareStatement(sql);
-            Log.log.info("Query => {}", statement);
+            // Inicia la transacción
+            con.setAutoCommit(false);
 
-            statement.setString(1, nombre);
-            statement.setString(2, direccion);
-            statement.setString(3, ciudad);
-            statement.setString(4, c_postal);
-            statement.setInt(5, c_total);
-            statement.setInt(6, disponibles);
+            // Inserta el nuevo parking
+            String sqlParking = "INSERT INTO parkings(nombre, direccion, ciudad, codigo_postal, capacidad_total, plazas_disponibles) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement statementParking = con.prepareStatement(sqlParking, Statement.RETURN_GENERATED_KEYS);
+            Log.log.info("Query Parking => {}", statementParking);
 
-            
+            statementParking.setString(1, nombre);
+            statementParking.setString(2, direccion);
+            statementParking.setString(3, ciudad);
+            statementParking.setString(4, c_postal);
+            statementParking.setInt(5, c_total);
+            statementParking.setInt(6, disponibles);
 
-            int result = statement.executeUpdate();
+            int resultParking = statementParking.executeUpdate();
 
-            if (result > 0) {
-                Log.log.info("Parking registrada con exito!");
+            if (resultParking > 0) {
+                // Obtén el ID del parking recién insertado
+                ResultSet generatedKeys = statementParking.getGeneratedKeys();
+                int parking_id = -1;
+                if (generatedKeys.next()) {
+                    parking_id = generatedKeys.getInt(1);
+                }
+
+                // Inserta las plazas asociadas al parking
+                String sqlPlaza = "INSERT INTO plaza(id_parking, ocupado) VALUES (?, ?)";
+                PreparedStatement statementPlaza = con.prepareStatement(sqlPlaza);
+                Log.log.info("Query Plaza => {}", statementPlaza);
+
+                // Inserta plazas ocupadas
+                int ocupadas = c_total - disponibles;
+                for (int i = 0; i < ocupadas; i++) {
+                    statementPlaza.setInt(1, parking_id);
+                    statementPlaza.setInt(2, 1); // 1 indica ocupado
+                    statementPlaza.addBatch();
+                }
+
+                // Inserta plazas disponibles
+                for (int i = 0; i < disponibles; i++) {
+                    statementPlaza.setInt(1, parking_id);
+                    statementPlaza.setInt(2, 0); // 0 indica libre
+                    statementPlaza.addBatch();
+                }
+
+                int[] resultPlaza = statementPlaza.executeBatch();
+
+                // Confirma la transacción
+                con.commit();
+
+                Log.log.info("Parking y plazas registradas con éxito!");
                 JSONObject json = new JSONObject();
                 json.put("nombre", nombre);
                 json.put("direccion", direccion);
@@ -70,28 +104,39 @@ public class generateParking extends HttpServlet {
                 json.put("codigo_postal", c_postal);
                 json.put("capacidad_total", c_total);
                 json.put("plazas_disponibles", disponibles);
-               
-                
-                
                 out.print(json.toString());
-                
             } else {
-                // Manejar el caso de que la inserción falle
                 Log.log.error("Error en el registro del parking");
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                out.print("{\"error\":\"Error al registrar el parking\"}");
             }
 
         } catch (NumberFormatException nfe) {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            out.println("Número inválido.");
-            out.print("{\"error\":\"Error al generar datos\"}");
-            Log.log.error("Number Format Exception: {}", nfe);
+            out.print("{\"error\":\"Número inválido\"}");
+            Log.log.error("Number Format Exception: {}", nfe.getMessage());
         } catch (Exception e) {
+            // Rollback en caso de error
+            if (con != null) {
+                try {
+                    con.rollback();
+                } catch (Exception rollbackException) {
+                    Log.log.error("Error al hacer rollback: {}", rollbackException.getMessage());
+                }
+            }
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            out.println("Error al procesar la solicitud.");
-            Log.log.error("Number Format Exception: {}", e);
+            out.print("{\"error\":\"Error interno del servidor\"}");
+            Log.log.error("Error interno del servidor: {}", e.getMessage());
         } finally {
+            if (con != null) {
+                try {
+                    con.setAutoCommit(true);
+                    con.close();
+                } catch (Exception e) {
+                    Log.log.error("Error al cerrar la conexión: {}", e.getMessage());
+                }
+            }
             out.close();
         }
-
     }
 }
