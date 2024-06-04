@@ -48,12 +48,12 @@
         </div>
         
         <script>
-        function searchProducto(product_id) {
+        function searchParking(parking_id) {
             var resultadosDiv = document.getElementById("resultados");
 
             // Realizar una solicitud AJAX al servlet para buscar productos
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", `http://localhost:8080/Vendify/searchProducto?nombre_producto=${product_id}`, true);
+            xhr.open("GET", `http://localhost:8080/searchParking?nombre_parking=${parking_id}`, true);
 
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {

@@ -167,12 +167,13 @@ public class Logic {
             Log.log.info("Query=> {}", ps.toString());
             while (rs.next()) {
                 Reserva r = new Reserva();
-                r.setParking_id(rs.getInt("reserva_id"));
+                r.setReserva_id(rs.getInt("reserva_id"));
                 r.setUser_id(rs.getInt("user_id"));
                 r.setParking_id(rs.getInt("parking_id"));
                 r.setFecha_reserva(rs.getDate("fecha_reserva"));
                 r.setHora_inicio(rs.getTimestamp("hora_inicio"));
                 r.setHora_fin(rs.getTimestamp("hora_fin"));
+                r.setId_plaza(rs.getInt("id_plaza"));
                 reservas.add(r);
             }
         } catch (SQLException e) {
@@ -443,6 +444,33 @@ public class Logic {
             String sql = "SELECT user_id FROM users"; 
             PreparedStatement ps = con.prepareStatement(sql);
 
+            ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+
+            while (rs.next()) {
+                listaIds.add(rs.getInt("user_id"));
+            }
+
+        } catch (Exception e) {
+            Log.log.error("Error: {}", e);
+        } 
+
+        return listaIds;
+    }
+    
+    public static List<Integer> getUsersIDFromUsername(String username){
+         List<Integer> listaIds = new ArrayList<>();
+
+        try {
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+
+            Log.log.debug("DataBase connected");
+
+            String sql = "SELECT user_id FROM users WHERE username = ?"; 
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, username);
+            
             ResultSet rs = ps.executeQuery();
             Log.log.info("Query=> {}", ps.toString());
 

@@ -1,6 +1,8 @@
 database\Reserva.class
+servlets\registerReserva.class
 servlets\generateReserva.class
 database\Topic.class
+servlets\getPlazasFromParking.class
 mqtt\MQTTPublisher.class
 servlets\generateParking.class
 servlets\userLogin.class
@@ -16,6 +18,7 @@ logic\ConnectionDDBB.class
 servlets\getParkings.class
 servlets\generatePlazas.class
 database\Plaza.class
+servlets\getReservasFromUsername.class
 database\ConnectionDDBB.class
 servlets\getUserFromUsername.class
 database\User.class
@@ -24,8 +27,10 @@ logic\ProjectInitializer.class
 servlets\registerUser.class
 database\Admin.class
 logic\Log.class
+prueba.class
 servlets\generateUser.class
 logic\Logic.class
 servlets\deleteUser.class
+servlets\getPlazas.class
 servlets\getAdmin.class
 database\Parking.class

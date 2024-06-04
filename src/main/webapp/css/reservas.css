@@ -57,26 +57,99 @@ body {
 
 .dashboard {
     display: flex;
-    width:100%;
+    flex-direction:row;
     height: 100vh;
-    z-index:900;
+     z-index:900;
 }
 
-
-/* Agregado para centrar la tabla en la pantalla */
-
-.form-container {
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    z-index:1003;
-            
- }
         
 
+ .centered-container{
+    
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center contents horizontally within the container */
+    justify-content: center; /* Center contents vertically within the container */
+    padding: 20px; /* Add some padding around */
+    /* Set a max-width if you want to limit its width, and set margin to auto to center it */
+    max-width: 600px; /* Adjust as per your design */
+    margin: auto;
+    z-index:1;
+ 
+     
+ }
+ 
+ .centered-container form {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 80%;
+    max-width: 500px; /* Ajusta según la anchura deseada */
+    display: grid;
+    gap: 10px;
+    
+}
 
+.centered-container form div {
+    margin-bottom: 10px;
+}
+
+.centered-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.centered-container input[type="text"],
+.centered-container input[type="email"],
+.centered-container input[type="date"],
+.centered-container input[type="time"],
+.centered-container select,
+.centered-container input[type="option"],
+.centered-container input[type="password"]{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegúrate de que padding no afecte el ancho */
+}
+
+.centered-container input[type="button"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #82A8DC;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.centered-container input[type="button"]:hover {
+    background-color: #5C85AD;
+}
+
+/* Estilo cuando los inputs son habilitados para la edición */
+.centered-container input[type="text"]:not([readonly]),
+.centered-container input[type="email"]:not([readonly]),
+.centered-container input[type="password"]:not([readonly]) {
+    border-color: #82A8DC;
+}
+
+/* Estilo para mostrar que un input está deshabilitado */
+.centered-container input[readonly] {
+    background-color: #e9ecef;
+    color: #495057;
+    cursor: not-allowed;
+}
+
+.centered-container h2{
+    
+    
+    color:#fff;
+    
+}
 .circles{
   position: absolute;
     top: 0;
@@ -176,6 +249,8 @@ body {
 }
 
 
+
+
 @keyframes animate {
 
   0%{
@@ -193,5 +268,80 @@ body {
 }
 
 
+.flex-container {
+    display: flex;
+    gap: 20px;
+}
 
+/* Formularios de reserva y plazas */
+.parking-form, .plazas-form {
+    flex: 1;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+.plazas-form h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* Contenedor de plazas */
+#plazas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Estilo para cada plaza individual */
+.plaza {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 5px;
+}
+
+.legend {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.legend .legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.legend .legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.legend .legend-text {
+    font-size: 16px;
+    color: #333;
+}
+
+.plaza.verde {
+    background-color: green;
+    position: relative; /* Añadir posición relativa para elementos hijos */
+}
+
+.plaza.verde:hover::after {
+    content: "Seleccionar plaza";
+    position: absolute;
+    top: -30px; /* Posiciona el mensaje arriba de la plaza */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+}

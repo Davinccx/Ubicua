@@ -21,13 +21,7 @@ body {
     z-index: 1000; /* Mantiene la barra sobre otros elementos */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
-.userphoto{
-    top: 10px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    color: white
-}
+
 .navbar img {
     height: 45px; /* Altura de la imagen */
     margin-right: 10px; /* Espacio a la derecha de la imagen */
@@ -53,17 +47,23 @@ body {
 }
 
 
+.userphoto{
+    position: absolute;
+    top: 10px;
+    right: 20px; /* Ajusta la posiciÃ³n desde el borde derecho */
+    display: flex;
+    align-items: center;
+    color: white
+}
+
+
+
 .dashboard {
     display: flex;
     flex-direction:row;
     height: 100vh;
 }
 
-.main-container {
-                display: flex;
-                justify-content: space-between;
-                width: 100%;
-            }
 
 
 /* Agregado para centrar la tabla en la pantalla */
