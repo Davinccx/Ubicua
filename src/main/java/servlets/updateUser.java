@@ -53,14 +53,14 @@ public class updateUser extends HttpServlet {
             String username = json.optString("username");
             String password = json.optString("password");
             String email = json.optString("email");
-            String telephone = json.optString("telephone");
+            String telephone = json.optString("telefono");
             
 
             // Validar el ID aquí antes de proceder
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
 
-            String sql = "UPDATE users SET nombre =?,apellido=?,email=?,password=?,  telefono=?,username =? WHERE email=?";
+            String sql = "UPDATE users SET nombre =?,apellido=?,email=?,password=?,telefono=?,username =? WHERE email=?";
             PreparedStatement statement = con.prepareStatement(sql);
             Log.log.info("Query=> {}", statement);
 

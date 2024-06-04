@@ -13,7 +13,7 @@
             function loadUsername() {
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
+                    if (this.readyState === 4 && this.status === 200) {
                         document.getElementById("username").innerText = this.responseText;
                     }
                 };
@@ -116,7 +116,7 @@
                         document.getElementById('fecha_reserva').value = data.fecha_reserva;
                         document.getElementById('hora_inicio').value = data.hora_inicio;
                         document.getElementById('hora_fin').value = data.hora_fin;
-       
+                        document.getElementById('id_plaza').value = data.plaza_id;
                         alert('La reserva se ha generado correctamente');
                     }
                 })
@@ -239,30 +239,6 @@
                     <input id="boton-generar-reserva" type="button" value="Generar Reserva">
                     
                 </form>
-              
-                
-                <form id="selectParkingForm">
-                    <h2>Generar Plazas</h2>
-                    <div>
-                        <label for="parkingID">Selecciona un Parking:</label>
-                        <select name="parkingID" id="parkingID">
-
-                        </select>
-                    </div>
-                    <div>
-                        <label for="capacidad">Capacidad</label>
-                        <input type="text" id="capacidad1" readonly>
-                    </div>
-                    <div>
-                        <label for="disponibles">Plazas Disponibles</label>
-                        <input type="text" id="disponibles1" readonly>
-                    </div>
-                   <input id="boton-generar-plaza" type="button" value="Generar Reserva">
-                </form>
-              
-                
-                
-            
             
             </div>
         
@@ -279,96 +255,7 @@
                 <li></li>
                 <li></li>
         </ul>
-        
-        <script>
-                let parkingsData;
-
-                // Función para cargar los IDs de los parkings en el desplegable
-                function loadParkingIDs() {
-                    fetch('http://localhost:8080/getParkings')
-                        .then(response => response.json())
-                        .then(data => {
-                            parkingsData = data; // Almacenar los detalles de los parkings
-                            const parkingSelect = document.getElementById('parkingID');
-                            data.forEach(parking => {
-                                const option = document.createElement('option');
-                                option.value = parking.parking_id;
-                                option.text = parking.parking_id;
-                                parkingSelect.appendChild(option);
-                            });
-                        })
-                        .catch(error => console.error('Error al obtener IDs de parkings:', error));
-                }
-
-                // Llama a la función al cargar la página
-                window.onload = loadParkingIDs;
-
-                // Event listener para el cambio en la selección del parking
-                document.getElementById('parkingID').addEventListener('change', showParkingDetails);
-
-                function showParkingDetails() {
-                    // Obtener el ID del parking seleccionado
-                    const parkingID = this.value;
-
-                    // Buscar el parking seleccionado en los datos almacenados
-                    const selectedParking = parkingsData.find(parking => parking.parking_id === parseInt(parkingID));
-
-                    if (selectedParking) {
-                        // Mostrar los detalles del parking seleccionado
-                        document.getElementById('capacidad1').value = selectedParking.capacidad_total;
-                        document.getElementById('disponibles1').value = selectedParking.plazas_disponibles;
-                    } else {
-                        console.error('Parking no encontrado en los datos almacenados.');
-                    }
-                }
-
-        </script>
-        
-        <script>
-            document.getElementById('boton-generar-plaza').addEventListener('click', function() {
-                // Obtener el ID del parking seleccionado
-                const parkingID = document.getElementById('parkingID').value;
-
-                // Buscar el parking seleccionado en los datos almacenados
-                const selectedParking = parkingsData.find(parking => parking.parking_id === parseInt(parkingID));
-
-                // Verificar si el parking seleccionado se encontró correctamente
-                if (!selectedParking) {
-                    alert('Por favor, selecciona un parking primero.');
-                    return;
-                }
-
-                const data = {
-                    parking_id: document.getElementById('parkingID').value,
-                    capacidad: document.getElementById('capacidad1').value,
-                    disponibles: document.getElementById('disponibles1').value
-                };
-
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                };
-
-                const url = 'http://localhost:8080/generatePlaza';
-
-                fetch(url, options)
-                    .then(response => {
-                        if (response.ok) {
-                            console.log('Solicitud POST exitosa');
-                            alert('Se han generado las plazas asociadas a dicho parking!');
-                        } else {
-                            console.error('Error en la solicitud POST:', response.statusText);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error en la solicitud POST:', error);
-                    });
-            });
-        </script>
-        
+          
            
         
     </body>

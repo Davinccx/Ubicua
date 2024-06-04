@@ -112,6 +112,7 @@
                                     location.reload(); // Recargar la página
                                 } else {
                                     // Mostrar un mensaje de error o realizar otra acción en caso de error
+                                    response.text().then(text => alert('Error: ' + text));
                                     console.error('Error al eliminar el usuario');
                                 }
                             })
@@ -150,7 +151,7 @@
                     email: cells[4].innerText,
                     password: cells[5].innerText,
                     telefono: cells[6].innerText,
-                    matricula: cells[8].innerText,
+                    matricula: cells[8].innerText
                 };
 
                 if (confirm('¿Estás seguro de que deseas actualizar los datos de este usuario?')) {

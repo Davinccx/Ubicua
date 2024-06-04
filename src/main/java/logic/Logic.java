@@ -510,6 +510,59 @@ public class Logic {
 
         return listaIds;
     }
+    public static List<Integer> getPlazaID(){
+         List<Integer> listaIds = new ArrayList<>();
+
+        try {
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+
+            Log.log.debug("DataBase connected");
+
+            String sql = "SELECT id_plaza FROM plaza"; 
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+
+            while (rs.next()) {
+                listaIds.add(rs.getInt("id_plaza"));
+            }
+
+        } catch (Exception e) {
+            Log.log.error("Error: {}", e);
+        } 
+
+        return listaIds;
+    }
+    
+    
+     public static List<Integer> getPlazaIDFromParking(int parking_id){
+         List<Integer> listaIds = new ArrayList<>();
+
+        try {
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+
+            Log.log.debug("DataBase connected");
+
+            String sql = "SELECT id_plaza FROM plaza WHERE id_parking= ? AND ocupado = 0 "; 
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, parking_id);
+            
+            ResultSet rs = ps.executeQuery();
+            Log.log.info("Query=> {}", ps.toString());
+
+            while (rs.next()) {
+                listaIds.add(rs.getInt("id_plaza"));
+            }
+
+        } catch (Exception e) {
+            Log.log.error("Error: {}", e);
+        } 
+
+        return listaIds;
+    }
     
     
    

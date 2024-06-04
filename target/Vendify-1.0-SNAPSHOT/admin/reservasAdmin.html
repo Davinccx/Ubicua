@@ -55,7 +55,7 @@
         <script>
 
             function fetchAndDisplayTable() {
-                fetch('http://localhost:8080/Vendify/getReservas') // Asegúrate de que la URL sea correcta
+                fetch('http://localhost:8080/getReservas') // Asegúrate de que la URL sea correcta
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Network response was not ok ' + response.statusText);
@@ -64,19 +64,23 @@
                         })
                         .then(data => {
                             let tabla = '<table border="1">';
-                            tabla += '<tr><th>ID Venta</th><th>ID Usuario</th><th>ID Producto</th><th>ID Maquina</th><th>Acciones</th></tr>';
+                            tabla += '<tr><th>Reserva ID</th><th>Usuario ID</th><th>Parking ID</th><th>Fecha</th><th>Hora Inicio</th><th>Hora Fin</th><th>Número de Plaza</th><th>Acciones</th></tr>';
                             data.forEach(objeto => {
                                 tabla += `<tr>`;
-                                tabla += `<td id= "editable-cell-1" id="id_venta">${objeto.id_venta}</td>`;
-                                tabla += `<td contenteditable="false" id="id_user">${objeto.id_user}</td>`;
-                                tabla += `<td contenteditable="false" id="id_producto">${objeto.id_producto}</td>`;
-                                tabla += `<td contenteditable="false" id="id_maquina">${objeto.id_maquina}</td>`;
+                                tabla += `<td id= "editable-cell-1" id="reserva_id">${objeto.reserva_id}</td>`;
+                                tabla += `<td contenteditable="false" id="id_user">${objeto.user_id}</td>`;
+                                tabla += `<td contenteditable="false" id="id_parking">${objeto.parking_id}</td>`;
+                                tabla += `<td contenteditable="false" id="fecha">${objeto.fecha_reserva}</td>`;
+                                tabla += `<td id= "editable-cell-1" id="hora_inicio">${objeto.hora_inicio}</td>`;
+                                tabla += `<td contenteditable="false" id="hora_fin">${objeto.hora_fin}</td>`;
+                                tabla += `<td contenteditable="false" id="id_plaza">${objeto.id_plaza}</td>`;
+                                
                                 tabla += `<td>
                             <i class="fa fa-eye edit-icon" style="cursor:pointer;" onclick="verCompra(${objeto.id_venta})"></i>
                            
                             <i class="fa fa-edit edit-icon" style="cursor:pointer;" onclick="editarVenta(this, ${objeto.id_venta})"></i>
                             
-                            <i class="fa fa-trash delete-icon" style="cursor:pointer;" onclick="eliminarCompra(${objeto.id_venta})"></i>
+                            <i class="fa fa-trash delete-icon" style="cursor:pointer;" onclick="eliminarReserva(${objeto.reserva_id})"></i>
                           </td>`;
                                 tabla += `</tr>`;
                             });
@@ -95,10 +99,10 @@
                 loadUsername();
             };
 
-            function eliminarCompra(id_venta) {
-                if (confirm('¿Estás seguro de que deseas eliminar esta compra?')) {
+            function eliminarReserva(reserva_id) {
+                if (confirm('¿Estás seguro de que deseas eliminar esta reserva?')) {
                     // Hacer la solicitud DELETE al servlet
-                    fetch(`http://localhost:8080/Vendify/deleteVenta?id_venta=${id_venta}`, {
+                    fetch(`http://localhost:8080/deleteReserva?reserva_id=${reserva_id}`, {
                         method: 'DELETE'
                     })
                             .then(response => {
@@ -107,7 +111,7 @@
                                     location.reload(); // Recargar la página
                                 } else {
                                     // Mostrar un mensaje de error o realizar otra acción en caso de error
-                                    console.error('Error al eliminar el usuario');
+                                    console.error('Error al eliminar la reserva');
                                 }
                             })
                             .catch(error => {

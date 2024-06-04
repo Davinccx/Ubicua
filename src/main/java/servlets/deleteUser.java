@@ -33,7 +33,7 @@ public class deleteUser extends HttpServlet {
 
             ConnectionDDBB conector = new ConnectionDDBB();
             Connection con = conector.obtainConnection(true);
-            response.setContentType("text/html;charset=UTF-8");
+            
 
             String sql = "DELETE FROM users WHERE user_id = ?";
             PreparedStatement statement = con.prepareStatement(sql);

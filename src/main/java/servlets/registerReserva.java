@@ -8,7 +8,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import database.ConnectionDDBB;
-import database.User;
 import jakarta.servlet.annotation.WebServlet;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
@@ -17,7 +16,7 @@ import logic.Logic;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.List;
+
 
 @WebServlet("/registerReserva")
 public class registerReserva extends HttpServlet {
@@ -44,7 +43,7 @@ public class registerReserva extends HttpServlet {
             String fecha= request.getParameter("date");
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
             
-            java.sql.Date fecha_reserva = null;
+            Date fecha_reserva = null;
             java.util.Date utilDate = formato.parse(fecha);
             fecha_reserva = new java.sql.Date(utilDate.getTime());
             
@@ -62,7 +61,8 @@ public class registerReserva extends HttpServlet {
             java.util.Date utilFechaHoraFin = formatoFechaHora.parse(fechaHoraFin);
             Timestamp horaFin = new Timestamp(utilFechaHoraFin.getTime());
             
-            String sql = "INSERT INTO reservas(user_id,parking_id,fecha_reserva,hora_inicio,hora_fin,id_plaza) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO reservas(user_id, parking_id, fecha_reserva, hora_inicio, hora_fin, id_plaza) VALUES (?, ?, ?, ?, ?, ?)";
+
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, user_id);
             statement.setInt(2, parking_id);

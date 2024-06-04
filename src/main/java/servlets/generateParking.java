@@ -62,7 +62,7 @@ public class generateParking extends HttpServlet {
             int result = statement.executeUpdate();
 
             if (result > 0) {
-                Log.log.info("Maquina registrada con exito!");
+                Log.log.info("Parking registrada con exito!");
                 JSONObject json = new JSONObject();
                 json.put("nombre", nombre);
                 json.put("direccion", direccion);
@@ -74,6 +74,7 @@ public class generateParking extends HttpServlet {
                 
                 
                 out.print(json.toString());
+                
             } else {
                 // Manejar el caso de que la inserción falle
                 Log.log.error("Error en el registro del parking");

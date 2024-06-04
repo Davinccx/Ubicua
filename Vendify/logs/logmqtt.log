@@ -1,0 +1,50 @@
+-- VENDIFY MQTT LOGS --
+2024-06-04 17:36:24.676 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:50) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Se ha perdido la conexión
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:197) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.lang.Thread.run(Thread.java:1623) ~[?:?]
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290) ~[?:?]
+	at java.io.DataInputStream.readByte(DataInputStream.java:268) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.wire.MqttInputStream.readMqttWireMessage(MqttInputStream.java:92) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:137) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 1 more
+
+2024-06-04 17:36:32.857 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:50) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Identificador de cliente incorrecto
+	at org.eclipse.paho.client.mqttv3.internal.ExceptionHelper.createMqttException(ExceptionHelper.java:31) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.ClientState.notifyReceivedAck(ClientState.java:1053) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:151) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.lang.Thread.run(Thread.java:1623) ~[?:?]
+
+2024-06-04 17:55:07.871 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:50) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Se ha perdido la conexión
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:197) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.lang.Thread.run(Thread.java:1623) ~[?:?]
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290) ~[?:?]
+	at java.io.DataInputStream.readByte(DataInputStream.java:268) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.wire.MqttInputStream.readMqttWireMessage(MqttInputStream.java:92) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:137) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 1 more
+
+2024-06-04 17:58:25.008 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:50) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Se ha perdido la conexión
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:197) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.lang.Thread.run(Thread.java:1623) ~[?:?]
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290) ~[?:?]
+	at java.io.DataInputStream.readByte(DataInputStream.java:268) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.wire.MqttInputStream.readMqttWireMessage(MqttInputStream.java:92) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:137) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 1 more
+
+2024-06-04 19:14:39.878 ERROR mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:50) logmqtt ### Error suscribing topic: {} org.eclipse.paho.client.mqttv3.MqttException: Se ha perdido la conexión
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:197) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at java.lang.Thread.run(Thread.java:1623) ~[?:?]
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290) ~[?:?]
+	at java.io.DataInputStream.readByte(DataInputStream.java:268) ~[?:?]
+	at org.eclipse.paho.client.mqttv3.internal.wire.MqttInputStream.readMqttWireMessage(MqttInputStream.java:92) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	at org.eclipse.paho.client.mqttv3.internal.CommsReceiver.run(CommsReceiver.java:137) ~[org.eclipse.paho.client.mqttv3-1.2.5.jar:?]
+	... 1 more
+
+2024-06-04 19:21:33.873 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:45) logmqtt ### Subscribed to maquina/+
+2024-06-04 19:24:12.423 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:45) logmqtt ### Subscribed to maquina/+
+2024-06-04 20:00:38.500 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:45) logmqtt ### Subscribed to maquina/+
