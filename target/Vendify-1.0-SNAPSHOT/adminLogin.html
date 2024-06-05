@@ -10,59 +10,47 @@
 
     </head>
     <body>
-        
-            <div class="navbar">
-                <img src="img/favicon.png"  style="height:45px;">
-                <a href="home.html">Home</a>
-                <a href="login.html">Login</a>
-                <a href="register.html">Register</a>
-                <a href="adminLogin.html">Administrador</a>
+        <div class="navbar">
+            <img src="img/favicon.png"  style="height:45px;">
+            <a href="home.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+            <a href="adminLogin.html">Administrador</a>
+        </div>
+        <form action="adminLogin" method="POST">
+            <div class="container">
 
+                <h1>Admin Login</h1>
+                <hr>
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter your username" name="user" id="user" required>
+
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter your password" name="password" id="password" required>
+                <hr>
+                <button type="submit" class="loginbtn">Login</button>
             </div>
-        
-            <form action="adminLogin" method="POST">
-                <div class="container">
-
-                    <h1>Admin Login</h1>
-                    <hr>
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter your username" name="user" id="user" required>
-
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter your password" name="password" id="password" required>
-                    <hr>
-                    <button type="submit" class="loginbtn">Login</button>
-                </div>
-           </form>
-        
+        </form>  
         <div id="errorLogin" style="color: red; display: none;">
             <p><i class="fas fa-exclamation-circle"></i><strong>Error:</strong> Your username or password is incorrect. Please try again.</p>
-
         </div>
-
-        <!-- ... el resto de tu código HTML ... -->
-
         <script>
             // Verificar si la URL tiene el parámetro 'error'
             if (new URLSearchParams(window.location.search).has('error')) {
                 document.getElementById('errorLogin').style.display = 'block';
             }
         </script>
-        
-         <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
-        
-        
-       
     </body>
 </html>

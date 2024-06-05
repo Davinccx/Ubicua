@@ -7,257 +7,151 @@
         <link rel="stylesheet" type="text/css" href="../css/admin/generarDatos.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+        <script src="../js/admin/generarDatos.js"></script>
 
-
-        <script>
-            function loadUsername() {
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (this.readyState === 4 && this.status === 200) {
-                        document.getElementById("username").innerText = this.responseText;
-                    }
-                };
-                xhr.open("GET", "../userLogin", true);
-                xhr.send();
-            }
-        </script>
-       
-
-        
     </head>
-    <body onload="loadUsername()">
-         <div class="dashboard">
+    <body >
+        <div class="dashboard">
             <div class="navbar">
                 <img src="../img/favicon.png" alt="fotito" style="height:45px;">
                 <a href="reservasAdmin.html"><i class="far fa-calendar-alt"></i>Reservas</a>
                 <a href="adminDashboard.html"><i class="fa fa-user"></i>Usuarios</a>
                 <a href="parkingAdmin.html"><i class="fas fa-parking"></i> Parkings</a>
                 <a href="generarDatos.html"><i class="fa fa-gears"></i> Generar Datos</a>
+                <a href="analytics.html"><i class="fas fa-chart-line"></i> Ubipark Analytics</a>
                 <a href="../home.html"><i class="fa fa-sign-out-alt"></i> Salir</a>
-                
+
                 <span class="admin">
-                <img src="../img/adminUser.png" alt="Admin" style="height: 30px; margin-right: 5px;">
+                    <img src="../img/adminUser.png" alt="Admin" style="height: 30px; margin-right: 5px;">
                     Admin
                 </span>
-               
+
             </div>
 
         </div>
-        
-         <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('boton-generar').addEventListener('click', function() {
-                fetch('http://localhost:8080/generateUser', {
-                    method: 'POST'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert('Error: ' + data.error);
-                    } else {
-                        document.getElementById('email').value = data.email;
-                        document.getElementById('nombre').value = data.nombre;
-                        document.getElementById('apellido').value = data.apellido;
-                        document.getElementById('user_name').value = data.username;
-                        document.getElementById('password').value = data.password;
-                        document.getElementById('telefono').value = data.telefono;
-                        document.getElementById('fecha').value = data.fecha_registro;
-                        document.getElementById('matricula').value = data.matricula;
-                        alert('El usuario se ha generado correctamente');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-        </script>
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('boton-generar-parking').addEventListener('click', function() {
-                fetch('http://localhost:8080/generateParking', {
-                    method: 'POST'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert('Error: ' + data.error);
-                    } else {
-                        document.getElementById('nombreParking').value = data.nombre;
-                        document.getElementById('direccion').value = data.direccion;
-                        document.getElementById('ciudad').value = data.ciudad;
-                        document.getElementById('c_postal').value = data.codigo_postal;
-                        document.getElementById('capacidad').value = data.capacidad_total;
-                         document.getElementById('disponibles').value = data.plazas_disponibles;
-                        alert('El parking se ha generado correctamente');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-        </script>
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('boton-generar-reserva').addEventListener('click', function() {
-                fetch('http://localhost:8080/generateReserva', {
-                    method: 'POST'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert('Error: ' + data.error);
-                    } else {
-                        document.getElementById('usuario_id').value = data.user_id;
-                        document.getElementById('parking_id').value = data.parking_id;
-                        document.getElementById('fecha_reserva').value = data.fecha_reserva;
-                        document.getElementById('hora_inicio').value = data.hora_inicio;
-                        document.getElementById('hora_fin').value = data.hora_fin;
-                        document.getElementById('id_plaza').value = data.plaza_id;
-                        alert('La reserva se ha generado correctamente');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            });
-        });
-        </script>
-    
-        
-        
-       
-        
-          <div class="centered-container">
-               <form>
-                   <h2>Generar Usuario</h2>
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email" id="email" readonly>
-                    </div>
-                   <div>
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" readonly>
-                    </div>
-                   <div>
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" readonly>
-                    </div>
-                    <div>
-                        <label for="id">Username</label>
-                        <input type="text" id="user_name" readonly>
-                    </div>
-                    <div>
-                        <label for="password">Password</label>
-                        <input type="text" id="password" readonly>
-                    </div>
-                    <div>
-                        <label for="telefono">Teléfono</label>
-                        <input type="text" id="telefono" readonly>
-                    </div>
-                    
-                    <div>
-                        <label for="fecha">Fecha Registro</label>
-                        <input type="text" id="fecha" readonly>
-                    </div>
-                   
-                   <div>
-                        <label for="matricula">Matricula</label>
-                        <input type="text" id="matricula" readonly>
-                    </div>
-                  
-                    <input id="boton-generar" type="button" value="Generar User">
-                    
-                </form>
-              
-               <form>
-                   <h2>Generar Parking</h2>
-                    <div>
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombreParking" readonly>
-                    </div>
-                   <div>
-                        <label for="direccion">Direccion</label>
-                        <input type="text" id="direccion" readonly>
-                    </div>
-                   <div>
-                        <label for="ciudad">Ciudad</label>
-                        <input type="text" id="ciudad" readonly>
-                    </div>
-                    <div>
-                        <label for="c_postal">Código Postal</label>
-                        <input type="text" id="c_postal" readonly>
-                    </div>
-                    <div>
-                        <label for="c_total">Capacidad</label>
-                        <input type="text" id="capacidad" readonly>
-                    </div>
-                    <div>
-                        <label for="disponibles">Plazas Disponibles</label>
-                        <input type="text" id="disponibles" readonly>
-                    </div>
-                    
-                   
-     
-                    <input id="boton-generar-parking" type="button" value="Generar Parking">
-                    
-                </form>
-              
-              <form>
-                   <h2>Generar Reserva</h2>
-                    <div>
-                        <label for="usuario_id">User ID</label>
-                        <input type="text" id="usuario_id" readonly>
-                    </div>
-                   <div>
-                        <label for="parking_id">Parking ID</label>
-                        <input type="text" id="parking_id" readonly>
-                    </div>
-                   <div>
-                        <label for="fecha_reserva">Fecha Reserva</label>
-                        <input type="text" id="fecha_reserva" readonly>
-                    </div>
-                    <div>
-                        <label for="hora_inicio">Hora inicio</label>
-                        <input type="text" id="hora_inicio" readonly>
-                    </div>
-                    <div>
-                        <label for="hora_fin">Hora Fin</label>
-                        <input type="text" id="hora_fin" readonly>
-                    </div>
-                   
-                   <div>
-                        <label for="id_plaza">Plaza ID</label>
-                        <input type="text" id="id_plaza" readonly>
-                    </div>
-                    
-                   
-     
-                    <input id="boton-generar-reserva" type="button" value="Generar Reserva">
-                    
-                </form>
-            
-            </div>
-        
-        
-         <ul class="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+
+        <div class="centered-container">
+            <form>
+                <h2>Generar Usuario</h2>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" readonly>
+                </div>
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" readonly>
+                </div>
+                <div>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" readonly>
+                </div>
+                <div>
+                    <label for="id">Username</label>
+                    <input type="text" id="user_name" readonly>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="text" id="password" readonly>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" readonly>
+                </div>
+
+                <div>
+                    <label for="fecha">Fecha Registro</label>
+                    <input type="text" id="fecha" readonly>
+                </div>
+
+                <div>
+                    <label for="matricula">Matricula</label>
+                    <input type="text" id="matricula" readonly>
+                </div>
+
+                <input id="boton-generar" type="button" value="Generar User">
+
+            </form>
+
+            <form>
+                <h2>Generar Parking</h2>
+                <div>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombreParking" readonly>
+                </div>
+                <div>
+                    <label for="direccion">Direccion</label>
+                    <input type="text" id="direccion" readonly>
+                </div>
+                <div>
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" id="ciudad" readonly>
+                </div>
+                <div>
+                    <label for="c_postal">Código Postal</label>
+                    <input type="text" id="c_postal" readonly>
+                </div>
+                <div>
+                    <label for="c_total">Capacidad</label>
+                    <input type="text" id="capacidad" readonly>
+                </div>
+                <div>
+                    <label for="disponibles">Plazas Disponibles</label>
+                    <input type="text" id="disponibles" readonly>
+                </div>
+
+
+
+                <input id="boton-generar-parking" type="button" value="Generar Parking">
+
+            </form>
+
+            <form>
+                <h2>Generar Reserva</h2>
+                <div>
+                    <label for="usuario_id">User ID</label>
+                    <input type="text" id="usuario_id" readonly>
+                </div>
+                <div>
+                    <label for="parking_id">Parking ID</label>
+                    <input type="text" id="parking_id" readonly>
+                </div>
+                <div>
+                    <label for="fecha_reserva">Fecha Reserva</label>
+                    <input type="text" id="fecha_reserva" readonly>
+                </div>
+                <div>
+                    <label for="hora_inicio">Hora inicio</label>
+                    <input type="text" id="hora_inicio" readonly>
+                </div>
+                <div>
+                    <label for="hora_fin">Hora Fin</label>
+                    <input type="text" id="hora_fin" readonly>
+                </div>
+
+                <div>
+                    <label for="id_plaza">Plaza ID</label>
+                    <input type="text" id="id_plaza" readonly>
+                </div>
+
+                <input id="boton-generar-reserva" type="button" value="Generar Reserva">
+
+            </form>
+
+        </div>
+
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
-          
-           
-        
+
     </body>
 </html>
 

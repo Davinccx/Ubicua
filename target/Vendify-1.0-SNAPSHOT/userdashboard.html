@@ -1,178 +1,72 @@
-
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Vendify Dashboard</title>
+        <title>Ubipark</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="img/favicon.png">
         <link rel="stylesheet" type="text/css" href="css/userdashboard.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-        <script>
-            function loadUsername() {
-                var xhr = new XMLHttpRequest();
-                xhr.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("username").innerText = this.responseText;
-                    }
-                };
-                xhr.open("GET", "userLogin", true);
-                xhr.send();
-            }
-            function cargarDatosUsuario() {
-                fetch('http://localhost:8080/getUserFromUsername')
-                        .then(response => response.json())
-                        .then(data => {
-                            
-                            document.getElementById('nombre').value = data.nombre;
-                            document.getElementById('apellido').value = data.apellido;
-                            document.getElementById('user_name').value = data.username;
-                            document.getElementById('email').value = data.email;
-                            document.getElementById('password').value = data.password;
-                            document.getElementById('telefono').value = data.telefono;
-                            document.getElementById('matricula').value = data.matricula;
-                        })
-                        .catch(error => console.error('Error:', error));
-            }
-
-            function habilitarEdicion() {
-
-                document.getElementById('password').readOnly = false;
-                document.getElementById('telefono').readOnly = false;
-                document.getElementById('nombre').readOnly = false;
-                document.getElementById('apellido').readOnly = false;
-               
-
-                // Cambiar el valor del botón a "Actualizar" y su función de onclick
-                var boton = document.getElementById('boton-editar');
-                boton.value = 'Actualizar';
-                boton.onclick = actualizarUsuario;
-            }
-
-
-
-
-            function toggleTokenVisibility() {
-                var tokenField = document.getElementById('matricula');
-                var toggleButton = document.getElementById('toggle-token');
-                if (tokenField.type === 'password') {
-                    tokenField.type = 'text';
-                    toggleButton.value = 'Ocultar Matricula';
-                    alert('ATENCIÓN:  NO LO COMPARTAS CON NADIE!.')
-                } else {
-                    tokenField.type = 'password';
-                    toggleButton.value = 'Mostrar Matricula';
-                }
-            }
-            function actualizarUsuario() {
-
-                let data = {
-
-                    nombre:document.getElementById('nombre').value,
-                    apellido:document.getElementById('apellido').value,
-                    email: document.getElementById('email').value,
-                    password: document.getElementById('password').value,
-                    username: document.getElementById('user_name').value,
-                    telephone: document.getElementById('telefono').value,
-                    
-                };
-
-                if (confirm('¿Estás seguro de que deseas actualizar los datos de este usuario?')) {
-                    // Completar la llamada fetch con el método correcto, headers y body
-                    fetch(`http://localhost:8080/updateUser`, {
-                        method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify(data)
-                    })
-                            .then(response => {
-                                if (response.ok) {
-                                    // Actualización exitosa, puedes recargar la página o realizar alguna otra acción
-                                    location.reload(); // Recargar la página
-                                } else {
-                                    // Mostrar un mensaje de error o realizar otra acción en caso de error
-                                    console.error(data);
-                                }
-                            })
-                            .catch(error => {
-                                console.error('Error al realizar la solicitud:', error);
-                            });
-                } else {
-                    location.reload();
-                }
-
-
-            }
-
-            window.onload = function () {
-                cargarDatosUsuario();
-                loadUsername();
-            };
-
-        </script>
+        <script src="js/userdashboard.js"></script>
     </head>
     <body>
-
         <div class="dashboard">
             <div class="navbar">
-                
-                    <a href="reservas.html"><i class="far fa-calendar-alt"></i> Tus reservas</a>
-                    <a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a>
-                    <a href="search.html"><i class="fa fa-search"></i> Buscar</a>
-                    <a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a>
-                    
-                    <span class="userphoto">
-                            <img src="../img/user.png" alt="user" style="height: 30px; margin-right: 5px;">
-                             <span id="username"></span>
-                    </span>
+
+                <a href="reservas.html"><i class="far fa-calendar-alt"></i> Reservar</a>
+                <a href="userdashboard.html"><i class="fa fa-user"></i> Cuenta</a>
+                <a href="login.html"><i class="fa fa-sign-out-alt"></i> Salir</a>
+
+                <span class="userphoto">
+                    <img src="../img/user.png" alt="user" style="height: 30px; margin-right: 5px;">
+                    <span id="username"></span>
+                </span>
             </div>
+        </div>
 
+        <div class="centered-container">
+            <form>
+                <h2>Account Information</h2>
+                <div>
+                    <label for="id">Nombre</label>
+                    <input type="text" id="nombre" readonly>
+                </div>
 
-         
+                <div>
+                    <label for="apellido">Apellido</label>
+                    <input type="text" id="apellido" readonly>
+                </div>
+                <div>
+                    <label for="user_name">Username</label>
+                    <input type="text" id="user_name" readonly>
+                </div>
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" readonly>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" readonly>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" id="telefono" readonly>
+                </div>
 
+                <div>
+                    <label for="matricula">Matrícula</label>
+                    <input type="password" id="matricula" readonly>
+                </div>
+
+                <input id="boton-editar" type="button" value="Editar" onclick="habilitarEdicion()">
+                <input id="toggle-token" type="button" value="Mostrar Matricula" onclick="toggleTokenVisibility()">
+            </form>
+
+            <div class="reservas-container">
+                <h2>Tus Reservas</h2>
+                <div id="reservas-info-container"></div> 
+            </div>
 
         </div>
-        
-        <div class="centered-container">
-                <form>
-
-                    <div>
-                        <label for="id">Nombre</label>
-                        <input type="text" id="nombre" readonly>
-                    </div>
-
-                    <div>
-                        <label for="apellido">Apellido</label>
-                        <input type="text" id="apellido" readonly>
-                    </div>
-                    <div>
-                        <label for="user_name">Username</label>
-                        <input type="text" id="user_name" readonly>
-                    </div>
-                    <div>
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" readonly>
-                    </div>
-                    <div>
-                        <label for="password">Password</label>
-                        <input type="password" id="password" readonly>
-                    </div>
-                    <div>
-                        <label for="telefono">Teléfono</label>
-                        <input type="text" id="telefono" readonly>
-                    </div>
-                    
-                    <div>
-                        <label for="matricula">Matrícula</label>
-                        <input type="password" id="matricula" readonly>
-                    </div>
-
-                    <input id="boton-editar" type="button" value="Editar" onclick="habilitarEdicion()">
-                    <input id="toggle-token" type="button" value="Mostrar Matricula" onclick="toggleTokenVisibility()">
-                        
-                </form>
-
-
-            </div>
-
         <ul class="circles">
             <li></li>
             <li></li>
