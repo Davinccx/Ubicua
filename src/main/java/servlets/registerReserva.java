@@ -1,22 +1,25 @@
 package servlets;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import database.ConnectionDDBB;
-import jakarta.servlet.annotation.WebServlet;
 import java.io.PrintWriter;
-import java.sql.PreparedStatement;
-import logic.Log;
-import logic.Logic;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
+import org.json.JSONObject;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import database.ConnectionDDBB;
+import logic.Log;
+import logic.Logic;
 
 @WebServlet("/registerReserva")
 public class registerReserva extends HttpServlet {
@@ -26,72 +29,124 @@ public class registerReserva extends HttpServlet {
     public registerReserva() {
         super();
     }
-        
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        response.setContentType("application/json;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        response.setContentType("text/html;charset=UTF-8");
 
         try {
-            ConnectionDDBB conector = new ConnectionDDBB();
-            Connection con = conector.obtainConnection(true);
+            // Read the JSON data from the request
+            StringBuilder sb = new StringBuilder();
+            try (BufferedReader reader = request.getReader()) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line);
+                }
+            }
+
+            // Parse the JSON data
+            JSONObject json = new JSONObject(sb.toString());
+
+            // Extract values from JSON
+            String username = json.getString("username");
+            int parking_id = json.getInt("parkingID");
+            String dateStr = json.getString("date");
+            String time_inicio = json.getString("time_inicio");
+            String time_fin = json.getString("time_fin");
+            int plaza = json.getInt("plaza");
+            int user_id = Logic.getUserFromUsername(username).getUser_id(); // Implement this method in your Logic class
             
-            String username = request.getParameter("username");
-            int user_id = Logic.getUsersIDFromUsername(username).get(0);
-            int parking_id = Integer.parseInt(request.getParameter("parkingID"));
-            
-            String fecha= request.getParameter("date");
+            // Parse date and time
             SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
-            
-            Date fecha_reserva = null;
-            java.util.Date utilDate = formato.parse(fecha);
-            fecha_reserva = new java.sql.Date(utilDate.getTime());
-            
-            int id_plaza = Integer.parseInt(request.getParameter("plaza"));
-            String h_inicio = request.getParameter("time_inicio");
-            String h_fin= request.getParameter("time_fin");
-            
+            java.util.Date utilDate = formato.parse(dateStr);
+            Date fecha_reserva = new Date(utilDate.getTime());
+
             SimpleDateFormat formatoFechaHora = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-            
-            String fechaHoraInicio = fecha + " " + h_inicio;
+
+            String fechaHoraInicio = dateStr + " " + time_inicio;
             java.util.Date utilFechaHoraInicio = formatoFechaHora.parse(fechaHoraInicio);
             Timestamp horaInicio = new Timestamp(utilFechaHoraInicio.getTime());
-            
-            String fechaHoraFin = fecha + " " + h_fin;
+
+            String fechaHoraFin = dateStr + " " + time_fin;
             java.util.Date utilFechaHoraFin = formatoFechaHora.parse(fechaHoraFin);
             Timestamp horaFin = new Timestamp(utilFechaHoraFin.getTime());
-            
-            String sql = "INSERT INTO reservas(user_id, parking_id, fecha_reserva, hora_inicio, hora_fin, id_plaza) VALUES (?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement statement = con.prepareStatement(sql);
-            statement.setInt(1, user_id);
-            statement.setInt(2, parking_id);
-            statement.setDate(3, fecha_reserva);
-            statement.setTimestamp(4, horaInicio);
-            statement.setTimestamp(5, horaFin);
-            statement.setInt(6, id_plaza);
-            
-            int result = statement.executeUpdate();
-            if (result > 0) {
-                    
-                    Log.log.info("Reserva registrada con exito!");
-                } else {
-                    // Manejar el caso de que la inserción falle
-                    Log.log.error("Error en la reserva");
+            // Database insertion logic
+            ConnectionDDBB conector = new ConnectionDDBB();
+            Connection con = conector.obtainConnection(true);
+            try {
+                con.setAutoCommit(false); // Start transaction
+
+                // Update plaza to occupied
+                String updatePlazaSql = "UPDATE plaza SET ocupado = 1 WHERE id_plaza = ?";
+                try (PreparedStatement updatePlazaStmt = con.prepareStatement(updatePlazaSql)) {
+                    updatePlazaStmt.setInt(1, plaza);
+                    int updatePlazaResult = updatePlazaStmt.executeUpdate();
+                    if (updatePlazaResult == 0) {
+                        throw new Exception("Failed to update plaza status");
+                    }
                 }
-                         
-            
-        } catch (NumberFormatException nfe) {
-            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            out.println("Número inválido.");
-            Log.log.error("Number Format Exception: {}", nfe);
+
+                // Reduce available spaces in parking
+                String updateParkingSql = "UPDATE parkings SET plazas_disponibles = plazas_disponibles - 1 WHERE parking_id = ?";
+                try (PreparedStatement updateParkingStmt = con.prepareStatement(updateParkingSql)) {
+                    updateParkingStmt.setInt(1, parking_id);
+                    int updateParkingResult = updateParkingStmt.executeUpdate();
+                    if (updateParkingResult == 0) {
+                        throw new Exception("Failed to update parking availability");
+                    }
+                }
+
+                // Register reservation
+                String insertReservaSql = "INSERT INTO reservas(user_id, parking_id, fecha_reserva, hora_inicio, hora_fin, id_plaza) VALUES (?, ?, ?, ?, ?, ?)";
+                try (PreparedStatement insertReservaStmt = con.prepareStatement(insertReservaSql)) {
+                    insertReservaStmt.setInt(1, user_id);
+                    insertReservaStmt.setInt(2, parking_id);
+                    insertReservaStmt.setDate(3, fecha_reserva);
+                    insertReservaStmt.setTimestamp(4, horaInicio);
+                    insertReservaStmt.setTimestamp(5, horaFin);
+                    insertReservaStmt.setInt(6, plaza);
+
+                    int insertReservaResult = insertReservaStmt.executeUpdate();
+                    if (insertReservaResult == 0) {
+                        throw new Exception("Failed to register reservation");
+                    }
+                }
+
+                con.commit(); // Commit transaction
+                Log.log.info("Reserva registrada con éxito!");
+                response.setStatus(HttpServletResponse.SC_OK);
+                out.println("{\"message\":\"Reserva registrada con éxito\"}");
+
+            } catch (Exception e) {
+                if (con != null) {
+                    try {
+                        con.rollback(); // Rollback transaction on error
+                    } catch (Exception ex) {
+                        Log.log.error("Error during rollback: {}", ex);
+                    }
+                }
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                out.println("{\"message\":\"Error al procesar la solicitud\"}");
+                Log.log.error("Error al procesar la solicitud: {}", e);
+            } finally {
+                if (con != null) {
+                    try {
+                        con.setAutoCommit(true);
+                        con.close();
+                    } catch (Exception ex) {
+                        Log.log.error("Error closing connection: {}", ex);
+                    }
+                }
+            }
+
         } catch (Exception e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            out.println("Error al procesar la solicitud.");
-            Log.log.error("Number Format Exception: {}", e);
+            out.println("{\"message\":\"Error al procesar la solicitud\"}");
+            Log.log.error("Error al procesar la solicitud: {}", e);
         } finally {
             out.close();
         }
     }
-
 }
