@@ -48,3 +48,19 @@ Caused by: java.io.EOFException
 2024-06-04 19:21:33.873 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:45) logmqtt ### Subscribed to maquina/+
 2024-06-04 19:24:12.423 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:45) logmqtt ### Subscribed to maquina/+
 2024-06-04 20:00:38.500 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:45) logmqtt ### Subscribed to maquina/+
+2024-06-05 17:41:23.461 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:45) logmqtt ### Subscribed to maquina/+
+2024-06-05 17:41:33.828 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://broker.emqx.io:1883
+2024-06-05 17:41:34.470 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-05 17:41:34.583 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-05 17:41:34.583 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-05 17:41:35.258 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:73) logmqtt ### Subscribed to Parking1
+2024-06-05 17:48:28.623 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://broker.emqx.io:1883
+2024-06-05 17:48:29.291 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-05 17:48:29.402 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-05 17:48:29.402 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-05 17:48:31.188 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:73) logmqtt ### Subscribed to Parking1
+2024-06-05 17:49:05.583 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://broker.emqx.io:1883
+2024-06-05 17:49:06.212 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-05 17:49:06.295 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-05 17:49:06.295 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-05 17:49:06.969 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:73) logmqtt ### Subscribed to Parking1

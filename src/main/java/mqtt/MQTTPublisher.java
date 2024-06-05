@@ -34,7 +34,6 @@ public class MQTTPublisher {
             Log.logmqtt.info("Disconnected");
             sampleClient.disconnect();
             
-            
         } catch (MqttException me) {
 
             Log.logmqtt.error("Error on publishing value: {} " + me);

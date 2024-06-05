@@ -489,3 +489,9 @@
 2024-06-04 20:15:55.113 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
 2024-06-04 20:15:55.241 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
 2024-06-04 20:15:55.241 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 17:41:35.258 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 17:41:35.259 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 17:48:31.189 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 17:48:31.189 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 17:49:06.970 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 17:49:06.970 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed

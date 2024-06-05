@@ -2,11 +2,11 @@
 <Configuration status="info">
 	<Appenders>				
 	    <!-- LOG -->
-		<RollingFile name="LogFile" fileName="C:\\Users\\David\\Desktop\\Computacion Ubicua\\Vendify\\logs\\log.log"
-			filePattern="C:\\Users\\David\\Desktop\\Computacion Ubicua\\Vendify\\logs\\Vendify-%d{yyyy}-%i.log.gz">
+		<RollingFile name="LogFile" fileName="C:\\Users\\David\\Desktop\\Computacion Ubicua\\logs\\log.log"
+			filePattern="C:\\Users\\David\\Desktop\\Computacion Ubicua\\logs\\Ubipark-%d{yyyy}-%i.log.gz">
 			<PatternLayout
 				pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
-				header="-- VENDIFY LOGS --" />
+				header="-- UBIPARK LOGS --" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />
 				<SizeBasedTriggeringPolicy size="10 MB" />
@@ -14,11 +14,11 @@
 			<DefaultRolloverStrategy max="20"/>
 		</RollingFile>		
 	    <!-- LOGDB -->
-		<RollingFile name="LogFileDB" fileName="C:\\Users\\David\\Desktop\\Computacion Ubicua\\Vendify\\logs\\logdb.log"
-			filePattern="C:\\Users\\David\\Desktop\\Computacion Ubicua\\Vendify\\logs\\Vendify-%d{yyyy}-%i.logdb.gz">
+		<RollingFile name="LogFileDB" fileName="C:\\Users\\David\\Desktop\\Computacion Ubicua\\logs\\logdb.log"
+			filePattern="C:\\Users\\David\\Desktop\\Computacion Ubicua\\logs\\Ubipark-%d{yyyy}-%i.logdb.gz">
 			<PatternLayout
 				pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
-				header="-- VENDIFY DATABASE LOGS --" />
+				header="-- UBIPARK DATABASE LOGS --" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />
 				<SizeBasedTriggeringPolicy size="10 MB" />
@@ -26,11 +26,11 @@
 			<DefaultRolloverStrategy max="20"/>
 		</RollingFile>		
 	    <!-- LOGMQTT -->
-		<RollingFile name="LogFileMQTT" fileName="C:\\Users\\David\\Desktop\\Computacion Ubicua\\Vendify\\logs\\logmqtt.log"
-			filePattern="C:\\Users\\David\\Desktop\\Computacion Ubicua\\Vendify\\logs\\Vendify-%d{yyyy}-%i.logmqtt.gz">
+		<RollingFile name="LogFileMQTT" fileName="C:\\Users\\David\\Desktop\\Computacion Ubicua\\logs\\logmqtt.log"
+			filePattern="C:\\Users\\David\\Desktop\\Computacion Ubicua\\logs\\Ubipark-%d{yyyy}-%i.logmqtt.gz">
 			<PatternLayout
 				pattern="%n%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %-30l %logger{36} ### %msg"
-				header="-- VENDIFY MQTT LOGS --" />
+				header="-- UBIPARK MQTT LOGS --" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />
 				<SizeBasedTriggeringPolicy size="10 MB" />

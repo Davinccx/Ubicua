@@ -827,3 +827,8 @@
 2024-06-04 20:15:54.449 INFO  servlets.getReservas.doGet(getReservas.java:28) log ### -- Get Reservas information from DB--
 2024-06-04 20:15:55.241 INFO  logic.Logic.getReservasFromDB(Logic.java:167) log ### Query=> com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM reservas
 2024-06-04 20:15:55.241 INFO  servlets.getReservas.doGet(getReservas.java:34) log ### JSON Values=> [] 
+2024-06-05 17:41:22.594 INFO  logic.ProjectInitializer.contextInitialized(ProjectInitializer.java:19) log ### -->Suscribe Topics<--
+2024-06-05 17:41:23.463 INFO  logic.ProjectInitializer.contextInitialized(ProjectInitializer.java:24) log ### -->Running weather Thread<--
+2024-06-05 17:41:33.754 INFO  logic.ProjectInitializer.contextInitialized(ProjectInitializer.java:16) log ### -->Suscribe Topics<--
+2024-06-05 17:48:28.567 INFO  logic.ProjectInitializer.contextInitialized(ProjectInitializer.java:16) log ### -->Suscribe Topics<--
+2024-06-05 17:49:05.526 INFO  logic.ProjectInitializer.contextInitialized(ProjectInitializer.java:16) log ### -->Suscribe Topics<--

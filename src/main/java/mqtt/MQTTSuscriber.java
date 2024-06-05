@@ -1,9 +1,5 @@
 package mqtt;
 
-
-
-import database.User;
-
 import java.util.ArrayList;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -15,15 +11,14 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
 import logic.Log;
-import logic.Logic;
-import org.json.JSONObject;
+
 
 public class MQTTSuscriber implements MqttCallback {
 
-    public void suscribeToMaquetaTopics(MQTTBroker broker) {
+    public void suscribeToUbiparkTopics(MQTTBroker broker) {
 
         ArrayList<String> topics = new ArrayList<>();
-        topics.add(MQTTBroker.VENDIFY_TOPICS);
+        topics.add(MQTTBroker.UBIPARK_TOPICS);
         suscribeTopic(broker,topics);
 
     }
@@ -59,7 +54,13 @@ public class MQTTSuscriber implements MqttCallback {
 
     @Override
     public void messageArrived(String topic, MqttMessage message) throws Exception {
-        Log.logmqtt.info("Received mqtt msg {}: {}", topic, message.toString());
+        try {
+        if (topic.contains("parking/entrada")) {
+            Log.logmqtt.info("Received mqtt msg {}: {}", topic, message.toString());
+        }
+        } catch (Exception e) {
+            Log.logmqtt.error("Error processing message: {}", e);
+        }
       
 
     }

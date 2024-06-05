@@ -1,0 +1,29 @@
+-- UBIPARK DATABASE LOGS --
+2024-06-05 18:09:00.276 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:22) logdb ### Attempt {} to connect to the database
+2024-06-05 18:09:04.968 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
+2024-06-05 18:09:05.120 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 18:09:05.122 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 18:10:34.348 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:22) logdb ### Attempt {} to connect to the database
+2024-06-05 18:10:38.923 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
+2024-06-05 18:10:39.128 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 18:10:39.128 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 18:12:03.277 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:22) logdb ### Attempt {} to connect to the database
+2024-06-05 18:12:09.008 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
+2024-06-05 18:12:09.252 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 18:12:09.252 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 18:14:34.628 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:22) logdb ### Attempt {} to connect to the database
+2024-06-05 18:14:38.512 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
+2024-06-05 18:14:38.686 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 18:14:38.686 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 18:15:48.534 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:22) logdb ### Attempt {} to connect to the database
+2024-06-05 18:15:52.294 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
+2024-06-05 18:15:52.505 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 18:15:52.513 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 18:35:44.549 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:22) logdb ### Attempt {} to connect to the database
+2024-06-05 18:35:49.124 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
+2024-06-05 18:35:49.511 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 18:35:49.511 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
+2024-06-05 18:49:38.758 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:22) logdb ### Attempt {} to connect to the database
+2024-06-05 18:49:42.914 INFO  database.ConnectionDDBB.obtainConnection(ConnectionDDBB.java:34) logdb ### Connection obtained in the attemp: 0
+2024-06-05 18:49:43.146 INFO  database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:80) logdb ### Closing the connection
+2024-06-05 18:49:43.148 ERROR database.ConnectionDDBB.closeConnection(ConnectionDDBB.java:89) logdb ### The connection has been closed
