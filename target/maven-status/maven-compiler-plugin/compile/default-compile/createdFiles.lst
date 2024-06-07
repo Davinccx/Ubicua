@@ -28,7 +28,6 @@ servlets\updateParking.class
 servlets\registerUser.class
 database\Admin.class
 logic\Log.class
-prueba.class
 servlets\generateUser.class
 logic\Logic.class
 servlets\deleteUser.class
