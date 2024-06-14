@@ -1,0 +1,486 @@
+-- UBIPARK MQTT LOGS --
+2024-06-08 15:24:50.442 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:24:50.443 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:24:50.777 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:24:50.779 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:24:50.780 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:24:50.783 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:24:54.157 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:24:54.158 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:24:54.483 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:24:54.485 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:24:54.485 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:24:54.496 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:24:55.824 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:24:57.837 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:25:04.084 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:25:04.408 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:25:04.408 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:25:04.409 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:25:04.409 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:25:05.748 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:25:07.760 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:26:06.788 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:26:06.789 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:26:07.110 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:26:07.112 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:26:07.112 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:26:07.116 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:26:09.486 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:26:09.487 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:26:09.487 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:26:09.809 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:26:09.809 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:26:09.810 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:26:09.811 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:26:09.816 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:26:09.816 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:39) logmqtt ### Error on publishing value: {} El cliente no está conectado (32104)
+2024-06-08 15:27:19.832 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:27:19.833 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:27:19.833 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:27:20.152 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:27:20.152 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:27:20.154 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:27:20.154 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Disconnected
+2024-06-08 15:27:20.159 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:27:20.159 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:40) logmqtt ### Error on publishing value: {} El cliente no está conectado (32104)
+2024-06-08 15:27:22.891 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:27:22.892 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:27:22.893 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:27:23.216 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:27:23.216 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:27:23.217 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:27:23.218 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Disconnected
+2024-06-08 15:27:23.223 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:40) logmqtt ### Error on publishing value: {} El cliente no está conectado (32104)
+2024-06-08 15:27:23.223 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:28:57.962 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:28:59.303 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:28:59.971 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:29:00.298 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:29:00.299 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:29:00.299 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Disconnected
+2024-06-08 15:30:01.559 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:30:01.559 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:30:01.559 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:30:01.882 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:30:01.882 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:30:01.884 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:30:01.889 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:39) logmqtt ### Error on publishing value: {} El cliente no está conectado (32104)
+2024-06-08 15:30:01.889 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:30:04.285 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:30:04.286 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:30:04.286 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:30:04.607 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:30:04.608 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:30:04.609 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:30:04.626 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:39) logmqtt ### Error on publishing value: {} El cliente no está conectado (32104)
+2024-06-08 15:30:04.626 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:31:06.470 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:31:06.471 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:31:06.472 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:31:06.793 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:31:06.793 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:31:06.794 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:31:06.799 ERROR mqtt.MQTTPublisher.publish(MQTTPublisher.java:39) logmqtt ### Error on publishing value: {} El cliente no está conectado (32104)
+2024-06-08 15:31:06.799 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:31:11.897 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:31:11.898 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:31:12.148 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:31:12.223 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:31:12.225 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:31:13.480 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:31:13.540 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:32:39.963 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:32:40.214 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:32:45.906 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:32:45.967 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:32:48.293 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:32:48.543 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:07.389 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:34:07.391 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:34:07.712 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:34:07.714 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:34:07.716 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:34:07.722 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:09.080 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:34:11.087 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:34:11.689 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:11.693 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:34:11.695 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:34:12.013 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:34:12.015 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:34:12.016 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:34:12.021 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:13.011 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:34:13.351 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:13.351 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:34:15.360 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:34:19.919 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:34:20.255 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:34:20.255 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:20.256 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:34:20.257 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:34:21.578 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:34:23.587 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:34:23.745 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:34:24.068 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:34:24.068 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:24.069 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:34:24.070 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:34:25.403 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:34:27.419 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:34:27.659 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:34:27.990 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:27.990 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:34:27.991 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:34:27.991 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:34:29.328 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:34:31.334 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:34:48.972 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:34:49.305 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:34:49.305 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:34:49.306 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:34:49.307 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:35:45.950 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:35:45.950 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:36:22.015 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:36:24.019 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:37:17.909 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:37:17.910 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:37:18.229 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:37:18.231 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:37:18.232 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:37:18.235 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:37:20.681 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:37:20.682 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:37:21.002 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:37:21.003 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:37:21.005 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:37:21.009 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:37:22.368 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:37:24.372 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:37:28.663 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:37:28.989 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:37:28.989 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:37:28.990 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:37:28.990 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Se desconecta
+2024-06-08 15:37:30.317 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:37:32.322 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:39:03.680 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:39:03.682 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:39:04.015 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:39:04.017 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:39:04.022 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:39:05.394 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:39:06.719 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:39:07.649 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:39:07.651 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:39:07.981 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:30) logmqtt ### Connected
+2024-06-08 15:39:07.983 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Message published
+2024-06-08 15:39:07.999 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:39:08.043 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:39:08.974 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:39:09.332 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:39:09.379 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:39:10.312 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:39:10.667 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:40:45.874 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:40:45.970 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:40:45.970 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:40:45.970 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:40:48.290 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:40:48.509 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:42:21.961 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:42:21.961 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:42:21.961 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:42:22.023 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:42:24.341 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:42:24.635 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:43:57.870 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:43:57.901 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:43:57.902 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:43:57.963 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:44:00.303 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:44:00.551 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:44:38.300 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:44:38.302 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:44:38.623 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:32) logmqtt ### Connected
+2024-06-08 15:44:38.625 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Message published
+2024-06-08 15:44:38.626 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:38) logmqtt ### Se desconecta
+2024-06-08 15:44:38.632 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:44:39.961 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:44:40.966 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:44:42.294 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:44:42.591 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:45:04.276 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:45:04.278 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:45:04.596 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:32) logmqtt ### Connected
+2024-06-08 15:45:04.598 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Message published
+2024-06-08 15:45:04.600 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:38) logmqtt ### Se desconecta
+2024-06-08 15:45:04.602 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:45:07.214 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:45:07.216 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:45:07.537 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:32) logmqtt ### Connected
+2024-06-08 15:45:07.539 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Message published
+2024-06-08 15:45:07.540 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:38) logmqtt ### Se desconecta
+2024-06-08 15:45:07.544 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:45:08.896 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:45:10.897 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:46:17.372 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:17.377 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:46:17.378 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:46:17.700 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:32) logmqtt ### Connected
+2024-06-08 15:46:17.703 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Message published
+2024-06-08 15:46:17.704 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:38) logmqtt ### Se desconecta
+2024-06-08 15:46:17.706 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:18.717 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:19.028 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:19.028 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:20.023 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:21.351 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:22.693 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:24.025 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:25.354 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:26.688 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:28.030 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:29.371 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:40.752 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:46:40.754 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:46:41.073 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:32) logmqtt ### Connected
+2024-06-08 15:46:41.075 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Message published
+2024-06-08 15:46:41.076 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:38) logmqtt ### Se desconecta
+2024-06-08 15:46:41.079 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:42.408 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:43.747 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:44.042 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:46:44.044 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:28) logmqtt ### Connecting to broker: tcp://localhost:1883
+2024-06-08 15:46:44.365 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:32) logmqtt ### Connected
+2024-06-08 15:46:44.367 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Message published
+2024-06-08 15:46:44.368 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:38) logmqtt ### Se desconecta
+2024-06-08 15:46:44.370 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:45.081 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:45.379 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:46:45.681 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:46:46.410 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:48:21.845 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:48:21.923 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://localhost:1883
+2024-06-08 15:48:21.923 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:48:21.939 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:49:14.045 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:49:14.047 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:49:14.368 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:49:14.370 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:49:14.370 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:49:14.374 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:49:16.840 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:49:16.841 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:49:17.160 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:49:17.162 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:49:17.162 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:49:17.170 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:49:18.525 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:49:20.533 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:50:06.487 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:50:06.815 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:50:06.815 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:50:06.816 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:50:06.816 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:50:08.150 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:50:10.164 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:50:16.192 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:50:16.525 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:50:16.525 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:50:16.526 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:50:16.526 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:50:17.867 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:50:19.869 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:50:26.748 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:50:27.080 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:50:27.080 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:50:27.081 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:50:27.081 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:50:28.419 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:50:30.430 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:50:54.826 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:50:55.146 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:50:55.146 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:50:55.147 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:50:55.147 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:08.616 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:52:08.618 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:52:08.951 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:52:08.953 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:52:08.953 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:08.958 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:52:11.703 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:52:11.705 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:52:12.028 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:52:12.030 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:52:12.030 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:12.036 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:52:13.388 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:52:15.389 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:52:15.422 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:52:15.747 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:52:15.747 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:52:15.748 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:52:15.748 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:17.074 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:52:19.083 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:52:21.540 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:52:21.872 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:52:21.872 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:52:21.873 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:52:21.873 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:23.201 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:52:25.207 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:52:27.966 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:52:28.298 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:52:28.298 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:52:28.299 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:52:28.299 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:29.635 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:52:31.642 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:52:34.044 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:52:34.375 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:52:34.375 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:52:34.376 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:52:34.376 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:35.706 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:52:37.716 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:52:37.937 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:52:38.257 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:52:38.257 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:52:38.258 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:52:38.258 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:52:39.578 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:121) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:52:41.583 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:131) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:54:44.776 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:54:44.779 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:54:45.112 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:54:45.115 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:54:45.116 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:54:45.127 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:54:46.457 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:123) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:54:48.458 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:133) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:54:48.782 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:54:48.787 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:54:48.788 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:54:49.108 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:54:49.110 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:54:49.110 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:54:49.113 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:54:50.114 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:123) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:54:50.474 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:54:50.474 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:123) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:54:52.476 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:133) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:54:56.248 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:54:56.551 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:54:56.551 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:54:56.552 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:54:56.552 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:54:57.879 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:123) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:54:59.889 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:133) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:55:02.040 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:55:02.371 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:55:02.371 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:55:02.372 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:55:02.372 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:55:03.707 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:123) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:55:05.708 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:133) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:55:15.766 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:55:16.070 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:55:16.070 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:55:16.071 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:55:16.071 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:56:13.607 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:56:13.610 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:56:13.943 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:56:13.945 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:56:13.945 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:56:13.951 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:56:16.795 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 15:56:16.797 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:56:17.102 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:56:17.103 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:56:17.104 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:56:17.113 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:56:18.485 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:123) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:56:20.496 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:133) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 15:56:57.609 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 15:56:57.936 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 15:56:57.936 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 15:56:57.937 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 15:56:57.937 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 15:58:33.951 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:123) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 15:58:35.963 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:133) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:03:53.548 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 16:03:53.550 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:03:53.868 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 16:03:53.869 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 16:03:53.870 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 16:03:53.874 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:03:56.232 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 16:03:56.234 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:03:56.573 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 16:03:56.575 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 16:03:56.575 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 16:03:56.587 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:03:57.933 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:03:59.941 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:04:04.940 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:04:05.264 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 16:04:05.264 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:04:05.265 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 16:04:05.265 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 16:04:06.601 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:04:08.605 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:04:09.649 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:04:09.971 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 16:04:09.971 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:04:09.972 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 16:04:09.972 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 16:04:11.306 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:04:13.316 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:04:45.197 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:27) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:04:45.519 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connected
+2024-06-08 16:04:45.519 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:04:45.520 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:33) logmqtt ### Message published
+2024-06-08 16:04:45.520 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:34) logmqtt ### Disconnected
+2024-06-08 16:06:22.012 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:06:24.018 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:07:46.755 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 16:07:46.756 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:07:47.076 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:31) logmqtt ### Connected
+2024-06-08 16:07:47.077 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Message published
+2024-06-08 16:07:47.078 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Disconnected
+2024-06-08 16:07:47.081 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:07:49.628 INFO  mqtt.MQTTSuscriber.suscribeTopic(MQTTSuscriber.java:52) logmqtt ### Subscribed to Parking1/#
+2024-06-08 16:07:49.630 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:07:49.949 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:31) logmqtt ### Connected
+2024-06-08 16:07:49.951 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Message published
+2024-06-08 16:07:49.951 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Disconnected
+2024-06-08 16:07:49.954 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:07:51.305 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:07:53.323 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:08:08.825 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:08:09.159 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:31) logmqtt ### Connected
+2024-06-08 16:08:09.159 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:08:09.160 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Message published
+2024-06-08 16:08:09.160 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Disconnected
+2024-06-08 16:08:10.501 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:08:12.505 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:08:12.950 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:08:13.283 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:31) logmqtt ### Connected
+2024-06-08 16:08:13.283 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:08:13.284 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Message published
+2024-06-08 16:08:13.284 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Disconnected
+2024-06-08 16:08:14.617 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:08:16.624 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
+2024-06-08 16:08:26.748 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:29) logmqtt ### Connecting to broker: tcp://192.168.95.117:1883
+2024-06-08 16:08:27.076 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:31) logmqtt ### Connected
+2024-06-08 16:08:27.076 ERROR mqtt.MQTTSuscriber.connectionLost(MQTTSuscriber.java:63) logmqtt ### Connection lost: Se ha perdido la conexión
+2024-06-08 16:08:27.077 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:35) logmqtt ### Message published
+2024-06-08 16:08:27.077 INFO  mqtt.MQTTPublisher.publish(MQTTPublisher.java:36) logmqtt ### Disconnected
+2024-06-08 16:10:04.023 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:122) logmqtt ### Reconnected to: tcp://192.168.95.117:1883
+2024-06-08 16:10:06.034 INFO  mqtt.MQTTSuscriber.connectComplete(MQTTSuscriber.java:132) logmqtt ### Resubscribed to Parking1/#
